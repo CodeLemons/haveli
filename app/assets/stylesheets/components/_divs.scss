@@ -1,0 +1,31 @@
+.landing-container {
+  display: flex;
+  height: 100vh;
+}
+
+.left-divider {
+  position: relative;
+  width: 50vw;
+  background-color: #432818;
+
+  .logo-text-div {
+    position: absolute;
+    left: 35%;
+    top: 20%;
+  }
+}
+
+.right-divider {
+  position: relative;
+  width: 50vw;
+  background-image: url("taj.jpg");
+  background-size: cover;
+
+  .blur-panel {
+    position: absolute;
+    width: 150px;
+    height: 100vh;
+    background-color: #4328189f;
+    backdrop-filter: blur(6px);
+  }
+}
