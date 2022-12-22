@@ -4,34 +4,24 @@
 }
 
 .left-divider {
-  position: relative;
   width: 50vw;
-  background-color: #1A120B;
-
-  .logo-text-div {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-40%, -50%);
-
-    p {
-      // text-align: center;
-    }
-  }
+  background-color: #0C0805;
+  padding-bottom: 150px;
+  // position: relative;
 }
 
 .right-divider {
-  position: relative;
+  // position: relative;
   width: 50vw;
-  background-image: url("unsplash.jpg");
+  background-image: url("taj.jpg");
   background-size: cover;
   background-position: center;
 
   .blur-panel {
-    position: absolute;
+    // position: absolute;
     width: 150px;
     height: 100vh;
-    background-color: #1a120b9c;
+    background-color: #0c0805d5;
     backdrop-filter: blur(6px);
   }
 }
