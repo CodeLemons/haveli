@@ -1,0 +1,30 @@
+.discover-more {
+    position: absolute;
+    // transition: transform .2s;
+    left: 24%;
+    top: 69%;
+    margin-left: -100px;
+    background-color: #00000073;
+    width: 235px;
+    height: 81px;
+    border: solid #8d4975;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+
+    p {
+        color: white;
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+
+}
+
+.discover-more:hover {
+    // transform: scale(1.02);
+    color: #f395bc;
+    border: solid #f395bc;
+    background-color: #000000a1;
+
+}
