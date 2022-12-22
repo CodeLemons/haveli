@@ -6,26 +6,32 @@
 .left-divider {
   position: relative;
   width: 50vw;
-  background-color: #432818;
+  background-color: #1A120B;
 
   .logo-text-div {
     position: absolute;
-    left: 35%;
-    top: 20%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -50%);
+
+    p {
+      // text-align: center;
+    }
   }
 }
 
 .right-divider {
   position: relative;
   width: 50vw;
-  background-image: url("taj.jpg");
+  background-image: url("unsplash.jpg");
   background-size: cover;
+  background-position: center;
 
   .blur-panel {
     position: absolute;
     width: 150px;
     height: 100vh;
-    background-color: #4328189f;
+    background-color: #1a120b9c;
     backdrop-filter: blur(6px);
   }
 }
