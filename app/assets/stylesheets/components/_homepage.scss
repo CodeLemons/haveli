@@ -1,0 +1,18 @@
+.main-wrapper {
+    display: block;
+
+    .section-header {
+        position: relative;
+        
+        .page-padding {
+            padding-right: 5%;
+            padding-left: 5%;
+
+            .container-small {
+                margin-right: auto !important;
+                margin-left: auto !important;
+            }
+        }
+    }
+
+}
