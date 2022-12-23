@@ -1,27 +1,21 @@
 .main-navbar {
-  // position: absolute;
-  background-color: rgba(0, 0, 0, 0.642);
-  overflow: hidden;
-  width: 100%;
-  height: 63px;
-  // z-index: 2;
-
-  ul .li .a {
-    float: left;
-    color: #f2f2f2;
-    text-align: center;
+    width: 100%;
+    height: 63px;
+    display: flex;
+    justify-content: space-between;
     padding: 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
+    align-items: center;
+    // background-color: rgba(0, 0, 0, 0.511);
+    position: absolute;
+    z-index: 2;
+    border-bottom: solid black;
+    border-width: thin;
 
-  .a:hover {
-    background-color: #ddd;
-    color: black;
-  }
+    .left-link-items {
+      display: flex;
+    }
 
-  .main-navbar-right {
-    float: right;
-  }
+    .right-link-items {
+      display: flex;
+    }
 }
-

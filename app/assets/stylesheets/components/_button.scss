@@ -28,3 +28,59 @@
     background-color: #000000a1;
 
 }
+
+.item-button {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 100px;
+    height: 45px;
+    text-align: center; 
+    vertical-align: middle;
+    line-height: 45px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: solid #f395bc00;
+    border-width: thin;
+    transition: .5s;
+}
+
+.item-button:hover {
+    background-color: #f395bc6e;
+    color: black;
+    border: solid #f395bc;
+    border-width: thin;
+}
+
+
+.shopping-cart {
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    height: 45px;
+    padding: 10px;
+    border: solid #f395bc00;
+    border-width: thin;
+
+    p {
+        margin-bottom: 0px;
+    }
+
+    i {
+        width: 100%;
+        padding-left: 10px;
+        padding-top: 4px;
+    }
+}
+
+.shopping-cart:hover {
+    background-color: #f395bc6e;
+    color: black;
+    border: solid #f395bc;
+    border-width: thin;
+
+    i {
+        color: black;
+    }
+}
