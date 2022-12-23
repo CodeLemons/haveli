@@ -1,18 +1,23 @@
-.main-wrapper {
-    display: block;
-
-    .section-header {
-        position: relative;
-        
-        .page-padding {
-            padding-right: 5%;
-            padding-left: 5%;
-
-            .container-small {
-                margin-right: auto !important;
-                margin-left: auto !important;
-            }
-        }
+.header {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    
+    img {
+        text-align: center;
+        padding: 20px;
+        margin: 15px;
+        z-index: 2;
     }
-
+    
+    .video-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
 }
