@@ -239,13 +239,386 @@
         ],
         "chicken": [
             {
-                "name": "Jeera Aloo",
-                "price": 30.00,
+                "name": "Palak Chicken",
+                "price": 45.00,
                 "pieces": 0,
                 "weight": 200,
-                "description": "Potatoes cooked in onion and cumin sauce."
+                "description": "Chicken with spinach."
+            },
+            {
+                "name": "Chicken Korma",
+                "price": 45.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Chicken with nut gravy and cream."
+            },
+            {
+                "name": "Chicken Lababdar",
+                "price": 45.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Chicken cooked in tomato and onion."
+            },
+            {
+                "name": "Kashmiri Chicken",
+                "price": 45.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Chicken prepared in nut gravy and dry fruits."
+            },
+            {
+                "name": "Chicken Madras",
+                "price": 45.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Boneless chicken cooked with coconut."
+            },
+            {
+                "name": "Chicken Vindaloo",
+                "price": 45.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Chicken marinated in vinegar and cooked with rich condiments."
+            },
+            {
+                "name": "Kadai Chicken",
+                "price": 45.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Chicken cooked in tomato, paprika and onion."
+            },
+            {
+                "name": "Chicken Jalfrazi",
+                "price": 45.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Chicken with paprika, onion and tomato."
+            },
+            {
+                "name": "Mango Spicy Chicken",
+                "price": 45.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Chicken cooked in mango based gravy."
+            },
+            {
+                "name": "Chicken Tikka Masala",
+                "price": 45.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Chicken cooked with tomato in nuts gravy."
+            },
+            {
+                "name": "Butter Chicken",
+                "price": 45.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Boneless chicken in tomato gravy and cream."
             }
-
+        ],
+        "lamb": [
+            {
+                "name": "Lamb Sag",
+                "price": 50.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Lamb cooked with spinach."
+            },
+            {
+                "name": "Channa Gosht",
+                "price": 50.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Lamb with chickpeas."
+            },
+            {
+                "name": "Lamb Madras",
+                "price": 50.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Lamb cooked in coconut gravy."
+            },
+            {
+                "name": "Kadai Lamb",
+                "price": 50.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Tomato based lamb cooked in indian wok."
+            },
+            {
+                "name": "Lamb Do-Piaza",
+                "price": 50.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Boneless lamb cooked in onion sauce."
+            },
+            {
+                "name": "Lamb Vindaloo",
+                "price": 50.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Vinegar marinated lamb cooked in rich condiments."
+            },
+            {
+                "name": "Lamb Roganjosh",
+                "price": 50.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Lamb cooked in smooth gravy."
+            },
+            {
+                "name": "Lamb Korma",
+                "price": 50.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Lamb cooked in thick white gravy."
+            },
+            {
+                "name": "Keema Aloo",
+                "price": 45.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Minced lamb with potatoes."
+            },
+            {
+                "name": "Keema Mutter",
+                "price": 45.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Minced lamb with green peas."
+            },
+            {
+                "name": "Haveli Special",
+                "price": 50.00,
+                "pieces": 0,
+                "weight": 400,
+                "description": "Minced lamb meat and grilled chicken with capsicum and cauliflower."
+            }
+        ],
+        "fish_prawns": [
+            {
+                "name": "Prawn masala",
+                "price": 75.00,
+                "pieces": 0,
+                "weight": 0,
+                "description": "Prawns prepared with onions, tomatoes, ginger, garlic and cream."
+            },
+            {
+                "name": "Prawn Jalfrezi",
+                "price": 75.00,
+                "pieces": 0,
+                "weight": 0,
+                "description": "Prawns prepared with onions, tomatoes, peppers and tomato sauce."
+            },
+            {
+                "name": "Chilli prawns",
+                "price": 75.00,
+                "pieces": 0,
+                "weight": 0,
+                "description": "Prawns cooked with onions, peppers and garlic."
+            },
+            {
+                "name": "Prawn Vindaloo",
+                "price": 75.00,
+                "pieces": 0,
+                "weight": 0,
+                "description": "Prawns in onion sauce, red chilli, mustard and coriander."
+            },
+            {
+                "name": "Kadai Fish",
+                "price": 50.00,
+                "pieces": 0,
+                "weight": 0,
+                "description": "Fish fillet prepared with onions, peppers and tomato sauce."
+            },
+            {
+                "name": "Fish Madras",
+                "price": 50.00,
+                "pieces": 0,
+                "weight": 0,
+                "description": "Fish fillet in coconut sauce."
+            },
+            {
+                "name": "Fish Curry",
+                "price": 50.00,
+                "pieces": 0,
+                "weight": 0,
+                "description": "Fish fillet prepared with onions and tomato sauce."
+            },
+            {
+                "name": "Fish do Piaza",
+                "price": 50.00,
+                "pieces": 0,
+                "weight": 0,
+                "description": "Fish fillet prepared with onion sauce."
+            },
+            {
+                "name": "Fish Lababdar",
+                "price": 50.00,
+                "pieces": 0,
+                "weight": 0,
+                "description": "Fish fillet prepared with onions and tomato sauce."
+            }
+        ],
+        "rice": [
+            {
+                "name": "Vegetarian Fried Rice",
+                "price": 25.00 ,
+                "pieces": 0,
+                "weight": 250,
+                "description": "Rice cooked with chicken."
+            },
+            {
+                "name": "Egg Fried Rice",
+                "price": 25.00 ,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Rice cooked with eggs."
+            },
+            {
+                "name": "Chicken Biryani",
+                "price": 45.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Rice with chicken and condiments."
+            },
+            {
+                "name": "Lamb Biryani",
+                "price": 50.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Rice with lamb and condiments."
+            },
+            {
+                "name": "Vegetable Biryani",
+                "price": 35.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Rice with vegetables and condiments."
+            },
+            {
+                "name": "Kashmiri Pillao",
+                "price": 50.00,
+                "pieces": 0,
+                "weight": 300,
+                "description": "Rice with dry fruits and vegetables."
+            },
+            {
+                "name": "Basmati Rice",
+                "price": 17.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Simple white rice."
+            },
+            {
+                "name": "Jeera Rice",
+                "price": 19.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Rice with cumin seed."
+            },
+            {
+                "name": "Vegetable Pillao",
+                "price": 22.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Rice with vegetables."
+            },
+            {
+                "name": "Pillao Rice",
+                "price": 17.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Rice with saffron."
+            },
+            {
+                "name": "Prawn Biryani",
+                "price": 70.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Prawns prepared with rice and indian spices."
+            }
+        ],
+        "indian_bread": [
+            {
+                "name": "Peshawri Naan",
+                "price": 23.00,
+                "pieces": 0,
+                "weight": 80,
+                "description": "Indian bread stuffed with cheese, coconut and dry fruits."
+            },
+            {
+                "name": "Stuffed Parantha",
+                "price": 19.00,
+                "pieces": 0,
+                "weight": 80,
+                "description": "Indian bread stuffed with potatoes."
+            },
+            {
+                "name": "Mint Parantha",
+                "price": 15.00,
+                "pieces": 0,
+                "weight": 80,
+                "description": "Indian bread with mint."
+            },
+            {
+                "name": "Butter Naan",
+                "price": 15.00,
+                "pieces": 0,
+                "weight": 80,
+                "description": "Indian bread with butter."
+            },
+            {
+                "name": "Garlic Naan",
+                "price": 15.00,
+                "pieces": 0,
+                "weight": 80,
+                "description": "Indian bread with garlic."
+            },
+            {
+                "name": "Naan",
+                "price": 13.00,
+                "pieces": 0,
+                "weight": 80,
+                "description": "Simple Indian Bread."
+            },
+            {
+                "name": "Keema naan",
+                "price": 23.00,
+                "pieces": 0,
+                "weight": 80,
+                "description": "Indian bread stuffed with minced lamb."
+            },
+            {
+                "name": "Cheese naan",
+                "price": 20.00,
+                "pieces": 0,
+                "weight": 80,
+                "description": "Indian bread stuffed with cottage cheese."
+            }
+        ],
+        "desserts": [
+            {
+                "name": "Gullab Jammun",
+                "price": 16.00,
+                "pieces": 2,
+                "weight": 0,
+                "description": "Fried dough balls that are soaked in a sweet, sticky sugar syrup."
+            },
+            {
+                "name": "Mango Kulfi",
+                "price": 16.00,
+                "pieces": 0,
+                "weight": 100,
+                "description": "Indian ice cream."
+            },
+            {
+                "name": "Gajar Ka Halwa",
+                "price": 16.00,
+                "pieces": 0,
+                "weight": 100,
+                "description": "Carrot pudding."
+            }
         ]
     }
 ]
