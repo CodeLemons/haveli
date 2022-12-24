@@ -1,10 +1,9 @@
 class Order < ApplicationRecord
-  validate :order_date_is_valid_datetime
   belongs_to :customer
   belongs_to :restaurant
-  has_many :order_items, dependent: :destroy
-
-  def order_date_is_valid_datetime
-    errors.add(:order_date, 'must be a valid datetime') if ((DateTime.parse(happened_at) rescue ArgumentError) == ArgumentError)
-  end
+  has_one :shopping_cart
+  validates :order_date, presence: true
+  validates :order_time, presence: true
+  validates :total_price, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  validates :order_status, presence: true, inclusion: { in: %w(pending paid cancelled) }
 end
