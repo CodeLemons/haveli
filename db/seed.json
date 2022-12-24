@@ -1,0 +1,251 @@
+[
+    {
+        "starters": [
+            {
+                "name": "Papadoms",
+                "price": 16.00,
+                "pieces": 2,
+                "weight": 0,
+                "description": "Thin and circular crisp made from a mixture of flour and water, which is fried in oil."
+            },
+            {
+                "name": "Seekh Kebab",
+                "price": 45.00,
+                "pieces": 0,
+                "weight": 150,
+                "description": "Lamb minced skewers cooked in tandoor."
+            },
+            {
+                "name": "Tandoori Mix Grill",
+                "price": 70.00,
+                "pieces": 0,
+                "weight": 150,
+                "description": "Mix plater of assorted kebabs cooked in tandoor."
+            },
+            {
+                "name": "Malai Tikka",
+                "price": 45.00,
+                "pieces": 0,
+                "weight": 150,
+                "description": "Boneless chicken marinated in cream cooked in tandoor."
+            },
+            {
+                "name": "Tandoori chicken",
+                "price": 45.00,
+                "pieces": 0,
+                "weight": 150,
+                "description": "Marinated spring chicken cooked in tandoor."
+            },
+            {
+                "name": "Garlic tikka",
+                "price": 45.00,
+                "pieces": 0,
+                "weight": 150,
+                "description": "Boneless pieces of chicken, marinated in cream, cashew nut paste and garlic."
+            },
+            {
+                "name": "Chicken Tikka",
+                "price": 45.00,
+                "pieces": 0,
+                "weight": 150,
+                "description": "Marinated boneless chicken cooked in tandoor."
+            },
+            {
+                "name": "Paneer Tikka",
+                "price": 42.00,
+                "pieces": 0,
+                "weight": 150,
+                "description": "Cottage cheese with onion tomato and paprika cooked in tandoor"
+            },
+            {
+                "name": "Onion Bhaji",
+                "price": 22.00,
+                "pieces": 0,
+                "weight": 150,
+                "description": "Onion with indian ground spices coated in batter and fried."
+            },
+            {
+                "name": "Vegetable Samosa",
+                "price": 22.00,
+                "pieces": 2,
+                "weight": 0,
+                "description": "Flaky pastry shells filled with vegetables."
+            },
+            {
+                "name": "Chilli Prawns",
+                "price": 75.00,
+                "pieces": 0,
+                "weight": 250,
+                "description": "Prawns cooked with onions, peppers and garlic."
+            },
+            {
+                "name": "Tandoori Aloo",
+                "price": 32.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Stuffed potatoes marinated in yogurt and baked in tandoor."
+            }
+        ],
+        "salad_yogurt": [
+            {
+                "name": "Raita",
+                "price": 12.00,
+                "pieces": 0,
+                "weight": 150,
+                "description": "Tomato, cucumber, onion and potato in yoghurt dressing."
+            },
+            {
+                "name": "Indian dips",
+                "price": 12.00,
+                "pieces": 3,
+                "weight": 0,
+                "description": "Three savoury dips to choose from."
+            },
+            {
+                "name": "Fresh Mixed Salad",
+                "price": 15.00,
+                "pieces": 0,
+                "weight": 150,
+                "description": "Sliced tomato, cucumber and onions."
+            }
+        ],
+        "vegetarian": [
+            {
+                "name": "Jeera Aloo",
+                "price": 30.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Potatoes cooked in onion and cumin sauce."
+            },
+            {
+                "name": "Aloo Mutter",
+                "price": 31.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Potato and green peas cooked with onion and tomatoes."
+            },
+            {
+                "name": "Palak Mutter",
+                "price": 31.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Green peas cooked with spinach."
+            },
+            {
+                "name": "Veg Jalfrezi",
+                "price": 32.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Vegetables cooked in onion sauce."
+            },
+            {
+                "name": "Dum Aloo",
+                "price": 35.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Stuffed potatoes with cheese and indian spices in creamy sauce."
+            },
+            {
+                "name": "Chilli Paneer",
+                "price": 38.00,
+                "pieces": 0,
+                "weight": 250,
+                "description": "Home made cheese cooked with onions, peppers, ginger and garlic."
+            },
+            {
+                "name": "Paneer Makhani",
+                "price": 35.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Cheese with tomato gravy and butter."
+            },
+            {
+                "name": "Kadai Paneer",
+                "price": 35.00,
+                "pieces": 0,
+                "weight": 250,
+                "description": "Cheese cooked with green pepper, onion and tomato."
+            },
+            {
+                "name": "Mushroom Mutter",
+                "price": 32.00,
+                "pieces": 0,
+                "weight": 250,
+                "description": "Mushroom and green peas cooked with onion, tomatoes and gravy."
+            },
+            {
+                "name": "Baingan Bharta",
+                "price": 32.00,
+                "pieces": 0,
+                "weight": 250,
+                "description": "Eggplants cooked with tomato and onion."
+            },
+            {
+                "name": "Aloo Gobi",
+                "price": 32.00,
+                "pieces": 0,
+                "weight": 250,
+                "description": "Cauliflower and potato cooked in tomato gravy."
+            },
+            {
+                "name": "Kadai Vegetable",
+                "price": 32.00,
+                "pieces": 0,
+                "weight": 250,
+                "description": "Vegetables cooked in gravy."
+            },
+            {
+                "name": "Palak Paneer",
+                "price": 34.00,
+                "pieces": 0,
+                "weight": 250,
+                "description": "Cottage cheese cooked in spinach."
+            },
+            {
+                "name": "Palak Paneer",
+                "price": 34.00,
+                "pieces": 0,
+                "weight": 250,
+                "description": "Cottage cheese cooked in spinach."
+            },
+            {
+                "name": "Chana Masala",
+                "price": 32.00,
+                "pieces": 0,
+                "weight": 250,
+                "description": "Chickpeas cooked in tomato and onion gravy."
+            },
+            {
+                "name": "Daal Makhani",
+                "price": 38.00,
+                "pieces": 0,
+                "weight": 250,
+                "description": "Black lentils cooked in butter and cream."
+            },
+            {
+                "name": "Daal Tarka",
+                "price": 32.00,
+                "pieces": 0,
+                "weight": 250,
+                "description": "Yellow lentils cooked with cumin."
+            },
+            {
+                "name": "Malai Kofta",
+                "price": 32.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Dumplings made with cheese, potatoes and curry sauce."
+            }
+        ],
+        "chicken": [
+            {
+                "name": "Jeera Aloo",
+                "price": 30.00,
+                "pieces": 0,
+                "weight": 200,
+                "description": "Potatoes cooked in onion and cumin sauce."
+            }
+
+        ]
+    }
+]
