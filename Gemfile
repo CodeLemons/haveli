@@ -79,3 +79,4 @@ end
 
 gem "nokogiri"
 gem "open-uri"
+gem "cloudinary"
