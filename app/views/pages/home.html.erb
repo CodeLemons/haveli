@@ -1,7 +1,7 @@
 <div class="main-wrapper">
-    <div class="main-navbar">
+    <div class="main-navbar" data-controller="menu-jump">
         <div class="left-link-items">
-            <div class="item-button">MENU</div>
+            <div class="item-button" data-menu-jump-target="menu" data-action="click->menu-jump#scrollTo">MENU</div>
             <div class="item-button">DELIVERY</div>
             <div class="item-button">GALLERY</div>
             <div class="item-button">CONTACT</div>
@@ -55,4 +55,7 @@
             <% end %>
         </div>
     </div>
+</div>
+<div class="extra">
+<h1>l</h1>
 </div>
