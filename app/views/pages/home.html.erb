@@ -27,13 +27,32 @@
 
 </div>
 <div class="menu-content">
-    <h1>item 1</h1>
-    <h1>item 1</h1>
-    <h1>item 1</h1>
-    <h1>item 1</h1>
-    <h1>item 1</h1>
-    <h1>item 1</h1>
-    <h1>item 1</h1>
-    <h1>item 1</h1>
-    <h1>item 1</h1>
+    <div class="menu-container" data-controller="dish-listing">
+        <div class="menu-categories">
+            <% @menu.each do |item| %>
+                <%= link_to item.name.upcase, homepage_path(menu_id: item.id), data: { action: 'click->dish-listing#loadDishes' } %>
+            <% end %>
+        </div>
+        <div class="dish-listing" data-dish-listing-target="dishListing">
+            <% @menu_items.each do |dish| %>
+                <div class="dish-card">
+                        <img src='<%= cl_image_path dish.photo.key %>' alt="dish-image">
+                        <h2><%= dish.name %></h2>
+                        <% if dish.pieces == 0 && dish.weight == 0 %>
+                            <p></p>
+                        <% elsif dish.pieces == 0 %>
+                            <h4><%= dish.weight %> G</h4>
+                        <% elsif dish.weight == 0 %>
+                            <h4><%= dish.pieces %> pieces</h4>
+                        <% else %>
+                            <h4><%= dish.pieces %> pieces | <%= dish.weight %> G</h4>
+                        <% end %>
+                        <div class="dish-price-container">
+                            <h5>PRICE</h5>
+                            <p><%= dish.price %> LEI</p>
+                        </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
 </div>
