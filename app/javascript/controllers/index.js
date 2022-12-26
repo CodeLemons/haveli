@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
+import DishListingController from "./dish_listing_controller"
+application.register("dish-listing", DishListingController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
