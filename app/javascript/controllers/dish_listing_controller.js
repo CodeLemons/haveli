@@ -15,14 +15,12 @@ export default class extends Controller {
     fetch(`/homepage?menu_id=${id}`)
       .then(response => response.text())
       .then(data => {
-        const htmlObject = document.createElement('dummyHTML')
+        const htmlObject = document.createElement('dummyHTML');
         htmlObject.innerHTML = data;
-        const selectedDiv = htmlObject.querySelector('.dish-listing')
-        // console.log(selectedDiv.innerHTML);
-        this.dishListingTarget.innerHTML = selectedDiv.innerHTML
-        // console.log(selectedDiv[0].outerHTML);
-        // console.log(this.dishListingTarget.outerHTML);
-        // console.log(data);
+        const selectedDiv = htmlObject.querySelector('.dish-listing');
+        this.dishListingTarget.innerHTML = selectedDiv.innerHTML;
+        console.log(window.scrollY);
+        window.scrollTo(0, 978);
       })
   }
 }

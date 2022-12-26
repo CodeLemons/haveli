@@ -9,3 +9,6 @@ application.register("dish-listing", DishListingController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import MenuJumpController from "./menu_jump_controller"
+application.register("menu-jump", MenuJumpController)
