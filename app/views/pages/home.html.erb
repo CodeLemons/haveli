@@ -1,10 +1,10 @@
 <div class="main-wrapper">
     <div class="main-navbar" data-controller="menu-jump">
         <div class="left-link-items">
-            <div class="item-button" data-menu-jump-target="menu" data-action="click->menu-jump#scrollTo">MENU</div>
-            <div class="item-button">DELIVERY</div>
-            <div class="item-button">GALLERY</div>
-            <div class="item-button">CONTACT</div>
+            <div class="item-button" data-action="click->menu-jump#scrollToMenu">MENU</div>
+            <div class="item-button" data-action="click->menu-jump#scrollToDelivery">DELIVERY</div>
+            <div class="item-button" data-action="click->menu-jump#scrollToGallery">GALLERY</div>
+            <div class="item-button" data-action="click->menu-jump#scrollToContact">CONTACT</div>
         </div>
         <div class="right-link-items">
             <div class="shopping-cart">
@@ -57,5 +57,13 @@
     </div>
 </div>
 <div class="extra">
-<h1>l</h1>
+    <h2>Free delivery in Bucharest!</h2>
+    <p>(Within areas: Mosilor, Stefan cel mare, Obor, Colentina, Unirii, Iancului, Victoriei, Mihai Bravu, Piata Muncii, Piata Alba Iulia)</p>
+    <p>Delivery between:
+    Tuesday - Sunday: 12.00 - 22.00
+    The minimum order is 70 RON.
+    The shipping cost will be determined based on the order value and area to be delivered.
+    This value will be communicated by the operator when the order is received.</p>
+    <div style="max-width: 1300px; height: 600px; margin: 0 auto;" data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
 </div>
