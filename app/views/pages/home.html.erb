@@ -76,5 +76,12 @@
     </div>
 </div>
 <div class="contact-content">
-    
+    <%= simple_form_for @contact, url: contacts_path do |f| %>
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.input :email %>
+        <%= f.input :phone %>
+        <%= f.input :message %>
+    <%= f.submit "Submit review", class: "btn btn-primary" %>
+<% end %>
 </div>
