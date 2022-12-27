@@ -56,7 +56,7 @@
         </div>
     </div>
 </div>
-<div class="extra">
+<div class="delivery-content">
     <h2>Free delivery in Bucharest!</h2>
     <p>(Within areas: Mosilor, Stefan cel mare, Obor, Colentina, Unirii, Iancului, Victoriei, Mihai Bravu, Piata Muncii, Piata Alba Iulia)</p>
     <p>Delivery between:
@@ -66,4 +66,15 @@
     This value will be communicated by the operator when the order is received.</p>
     <div style="max-width: 1300px; height: 600px; margin: 0 auto;" data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
+</div>
+<div class="gallery-content">
+    <h1>PHOTO GALLERY</h1>
+    <div class="images-display">
+        <% @gallery.each do |image| %>
+            <img src='<%= cl_image_path image.image.key %>' alt="images">
+        <% end %>
+    </div>
+</div>
+<div class="contact-content">
+    
 </div>

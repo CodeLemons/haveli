@@ -5,6 +5,7 @@ export default class extends Controller {
 
   connect() {
     console.log("Hello from menu controller");
+    console.log(window.scrollY);
   }
 
   scrollToMenu() {
@@ -14,6 +15,11 @@ export default class extends Controller {
 
   scrollToDelivery() {
     console.log("Scrolling");
-    window.scrollTo(0, 2240);
+    window.scrollTo(0, 2280);
+  }
+
+  scrollToGallery() {
+    console.log("Scrolling");
+    window.scrollTo(0, 3075);
   }
 }
