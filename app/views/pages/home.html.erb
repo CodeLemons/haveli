@@ -82,6 +82,20 @@
         <%= f.input :email %>
         <%= f.input :phone %>
         <%= f.input :message %>
-    <%= f.submit "Submit review", class: "btn btn-primary" %>
-<% end %>
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+    <% end %>
+</div>
+<% @taken_reservations = Reservation.all %>
+<div class="booking-content" data-controller="reservation" data-reservation-taken-value="<%= @taken_reservations.to_json %>">
+    <%= simple_form_for @reservation, url: reservations_path, data: { action: "submit->reservation#onSubmit" } do |f| %>
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.input :email %>
+        <%= f.label :reservation_time, "Reservation Time and Date" %>
+        <br>
+        <%= f.datetime_field :reservation_time, start_year: Time.current.year, end_year: Time.current.year + 1, format: '%Y-%m-%d %I:%M %p', data: { reservation_target: "dateTime" } %>
+        <%= f.input :party_size %>
+        <%= f.input :special_requests %>
+        <%= f.submit "Book", class: "btn btn-primary" %>
+    <% end %>
 </div>

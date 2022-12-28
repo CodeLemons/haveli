@@ -19,6 +19,6 @@ Rails.application.routes.draw do
   resources :orders, only: [] do
     resources :order_items, only: [:index, :show, :new, :create, :edit, :update]
   end
-  resources :reservations, only: [:index, :show, :new, :create, :edit, :update]
   resources :contacts, only: [:create, :new]
+  resources :reservations, only: [:create, :new]
 end

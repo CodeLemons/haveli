@@ -7,6 +7,7 @@ class PagesController < ApplicationController
     @menu_items = MenuItem.where(menu_id: id)
     @gallery = Gallery.all
     @contact = Contact.new
+    @reservation = Reservation.new
   end
 
   # def create
