@@ -15,3 +15,6 @@ application.register("map", MapController)
 
 import MenuJumpController from "./menu_jump_controller"
 application.register("menu-jump", MenuJumpController)
+
+import ReservationController from "./reservation_controller"
+application.register("reservation", ReservationController)
