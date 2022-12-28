@@ -1,0 +1,12 @@
+<%= simple_form_for @reservation, url: reservations_path do |f| %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :email %>
+    <%= f.input :phone %>
+    <%= f.label :reservation_time, "Reservation Time and Date" %>
+    <br>
+    <%= f.datetime_field :reservation_time, start_year: Time.current.year, end_year: Time.current.year + 1, format: '%Y-%m-%d %I:%M %p' %>
+    <%= f.input :party_size %>
+    <%= f.input :special_requests %>
+    <%= f.submit "Book", class: "btn btn-primary" %>
+<% end %>

@@ -4,14 +4,19 @@
             <div class="item-button" data-action="click->menu-jump#scrollToMenu">MENU</div>
             <div class="item-button" data-action="click->menu-jump#scrollToDelivery">DELIVERY</div>
             <div class="item-button" data-action="click->menu-jump#scrollToGallery">GALLERY</div>
-            <div class="item-button" data-action="click->menu-jump#scrollToContact">CONTACT</div>
+            <%= link_to new_contact_path(@contact) do %>
+                <div class="item-button">CONTACT</div>
+            <% end %>
         </div>
         <div class="right-link-items">
             <div class="shopping-cart">
                 <p>EMPTY</p>
                 <i class="fa-solid fa-cart-shopping"></i>
             </div>
-            <div class="item-button">BOOK</div>
+            <%= link_to new_reservation_path(@reservation) do %>
+                <div class="item-button">BOOK</div>
+            <% end %>
+            
             <div class="item-button">LANGUAGE</div>
         </div>
     </div>
@@ -74,28 +79,4 @@
             <img src='<%= cl_image_path image.image.key %>' alt="images">
         <% end %>
     </div>
-</div>
-<div class="contact-content">
-    <%= simple_form_for @contact, url: contacts_path do |f| %>
-        <%= f.input :first_name %>
-        <%= f.input :last_name %>
-        <%= f.input :email %>
-        <%= f.input :phone %>
-        <%= f.input :message %>
-        <%= f.submit "Submit", class: "btn btn-primary" %>
-    <% end %>
-</div>
-<% @taken_reservations = Reservation.all %>
-<div class="booking-content" data-controller="reservation" data-reservation-taken-value="<%= @taken_reservations.to_json %>">
-    <%= simple_form_for @reservation, url: reservations_path, data: { action: "submit->reservation#onSubmit" } do |f| %>
-        <%= f.input :first_name %>
-        <%= f.input :last_name %>
-        <%= f.input :email %>
-        <%= f.label :reservation_time, "Reservation Time and Date" %>
-        <br>
-        <%= f.datetime_field :reservation_time, start_year: Time.current.year, end_year: Time.current.year + 1, format: '%Y-%m-%d %I:%M %p', data: { reservation_target: "dateTime" } %>
-        <%= f.input :party_size %>
-        <%= f.input :special_requests %>
-        <%= f.submit "Book", class: "btn btn-primary" %>
-    <% end %>
 </div>
