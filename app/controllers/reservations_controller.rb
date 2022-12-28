@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-    skip_before_action :authenticate_user!, only: [:create]
+    skip_before_action :authenticate_user!, only: [:create, :new]
 
     def new
         @reservation = Reservation.new
@@ -11,17 +11,16 @@ class ReservationsController < ApplicationController
         if @reservation.valid?
             @reservation.save!
             ReservationMailer.contact_email(@reservation).deliver_now
-            redirect_to homepage_path, notice: "Your message has been sent."
+            redirect_to homepage_path, notice: "Your booking details have been sent."
         else
-            # render :new
-            redirect_to homepage_path, notice: "Your message has NOT been sent."
+            render :new, status: :unprocessable_entity
         end
       end
     
       private
     
       def reservation_params
-        params.require(:reservation).permit(:first_name, :last_name, :reservation_time, :party_size, :special_requests, :email)
+        params.require(:reservation).permit(:first_name, :last_name, :phone, :reservation_time, :party_size, :special_requests, :email)
       end
 
 end
