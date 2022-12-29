@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_29_141058) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_29_210228) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -91,16 +91,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_29_141058) do
     t.index ["restaurant_id"], name: "index_menus_on_restaurant_id"
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.bigint "customer_id", null: false
-    t.bigint "restaurant_id", null: false
-    t.datetime "order_date"
-    t.time "order_time"
-    t.float "total_price"
-    t.string "order_status"
+  create_table "order_items", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.bigint "menu_item_id", null: false
+    t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["customer_id"], name: "index_orders_on_customer_id"
+    t.index ["menu_item_id"], name: "index_order_items_on_menu_item_id"
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "restaurant_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["restaurant_id"], name: "index_orders_on_restaurant_id"
   end
 
@@ -133,15 +137,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_29_141058) do
     t.bigint "menu_item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["menu_item_id"], name: "index_shopping_cart_items_on_menu_item_id"
+    t.index ["menu_item_id"], name: "index_shopping_cart_items_on_menu_item_id", unique: true
     t.index ["shopping_cart_id"], name: "index_shopping_cart_items_on_shopping_cart_id"
   end
 
   create_table "shopping_carts", force: :cascade do |t|
-    t.bigint "order_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["order_id"], name: "index_shopping_carts_on_order_id"
+    t.bigint "shopping_cart_items_id"
+    t.string "session_id"
+    t.index ["shopping_cart_items_id"], name: "index_shopping_carts_on_shopping_cart_items_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -162,10 +167,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_29_141058) do
   add_foreign_key "galleries", "restaurants"
   add_foreign_key "menu_items", "menus"
   add_foreign_key "menus", "restaurants"
-  add_foreign_key "orders", "customers"
+  add_foreign_key "order_items", "menu_items"
+  add_foreign_key "order_items", "orders"
   add_foreign_key "orders", "restaurants"
   add_foreign_key "reservations", "restaurants"
   add_foreign_key "shopping_cart_items", "menu_items"
   add_foreign_key "shopping_cart_items", "shopping_carts"
-  add_foreign_key "shopping_carts", "orders"
+  add_foreign_key "shopping_carts", "shopping_cart_items", column: "shopping_cart_items_id"
 end

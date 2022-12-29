@@ -8,23 +8,6 @@ class PagesController < ApplicationController
     @gallery = Gallery.all
     @contact = Contact.new
     @reservation = Reservation.new
+    @shopping_cart = ShoppingCart.new
   end
-
-  # def create
-  #   @contact = Contact.new(contact_params)
-  #   if @contact.valid?
-  #     @contact.save
-  #     ContactMailer.contact_email(@contact).deliver_now
-  #     ContactMailer.confirmation_email(@contact).deliver_now
-  #     redirect_to root_path, notice: "Your message has been sent."
-  #   else
-  #     render :new
-  #   end
-  # end
-
-  # private
-
-  # def contact_params
-  #   params.require(:contact).permit(:first_name, :last_name, :email, :phone, :message)
-  # end
 end
