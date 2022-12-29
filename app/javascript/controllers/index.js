@@ -13,6 +13,9 @@ application.register("dish-listing", DishListingController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import ItemQuantityController from "./item_quantity_controller"
+application.register("item-quantity", ItemQuantityController)
+
 import MapController from "./map_controller"
 application.register("map", MapController)
 
@@ -21,3 +24,6 @@ application.register("menu-jump", MenuJumpController)
 
 import ReservationFormController from "./reservation_form_controller"
 application.register("reservation-form", ReservationFormController)
+
+import ShoppingCartController from "./shopping_cart_controller"
+application.register("shopping-cart", ShoppingCartController)

@@ -1,101 +1,108 @@
-<div class="main-wrapper">
-    <div class="main-navbar" data-controller="menu-jump">
-        <div class="left-link-items">
-            <div class="item-button" data-action="click->menu-jump#scrollToMenu">MENU</div>
-            <div class="item-button" data-action="click->menu-jump#scrollToDelivery">DELIVERY</div>
-            <div class="item-button" data-action="click->menu-jump#scrollToGallery">GALLERY</div>
-            <div class="item-button" data-action="click->menu-jump#scrollToContact">CONTACT</div>
-        </div>
-        <div class="right-link-items">
-            <div class="shopping-cart">
-                <p>EMPTY</p>
-                <i class="fa-solid fa-cart-shopping"></i>
+<div data-controller="shopping-cart">
+    <div class="main-wrapper">
+        <div class="main-navbar" data-controller="menu-jump">
+            <div class="left-link-items">
+                <div class="item-button" data-action="click->menu-jump#scrollToMenu">MENU</div>
+                <div class="item-button" data-action="click->menu-jump#scrollToDelivery">DELIVERY</div>
+                <div class="item-button" data-action="click->menu-jump#scrollToGallery">GALLERY</div>
+                <div class="item-button" data-action="click->menu-jump#scrollToContact">CONTACT</div>
             </div>
-            <div class="item-button" data-action="click->menu-jump#scrollToBook">BOOK</div>
-            <div class="item-button">LANGUAGE</div>
-        </div>
-    </div>
-    <div class="header">
-        <img src="assets/Haveli.png" alt="">
-        <div class="video-container">
-            <div class="video-container-overlay-dim"></div>
-            <video autoplay muted loop class="background-video">
-                <source src="assets/broll.mp4" type="video/mp4">
-            </video>
-        </div>
-    </div>
-
-</div>
-<div class="menu-content">
-    <div class="menu-container" data-controller="dish-listing">
-        <div class="menu-categories">
-            <% @menu.each do |item| %>
-                <%= link_to item.name.upcase, homepage_path(menu_id: item.id), data: { action: 'click->dish-listing#loadDishes' } %>
-            <% end %>
-        </div>
-        <div class="dish-listing" data-dish-listing-target="dishListing">
-            <% @menu_items.each do |dish| %>
-                <div class="dish-card">
-                        <img src='<%= cl_image_path dish.photo.key %>' alt="dish-image">
-                        <h2><%= dish.name %></h2>
-                        <% if dish.pieces == 0 && dish.weight == 0 %>
-                            <p></p>
-                        <% elsif dish.pieces == 0 %>
-                            <h4><%= dish.weight %> G</h4>
-                        <% elsif dish.weight == 0 %>
-                            <h4><%= dish.pieces %> pieces</h4>
-                        <% else %>
-                            <h4><%= dish.pieces %> pieces | <%= dish.weight %> G</h4>
-                        <% end %>
-                        <div class="dish-price-container">
-                            <h5>PRICE</h5>
-                            <p><%= dish.price %> LEI</p>
-                        </div>
+            <div class="right-link-items">
+                <%# <div class="shopping-cart">
+                    <p>EMPTY</p>
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div> %>
+                <div class="shopping-cart" data-shopping-cart-target="shoppingCart">
+                    <%# <%= render "shopping_carts/shopping_cart", shopping_cart: @shopping_cart %>
+                    <%= link_to "Place order", finalize_shopping_cart_path, method: :patch %>
                 </div>
+                <div class="item-button" data-action="click->menu-jump#scrollToBook">BOOK</div>
+                <div class="item-button">LANGUAGE</div>
+            </div>
+        </div>
+        <div class="header">
+            <img src="assets/Haveli.png" alt="">
+            <div class="video-container">
+                <div class="video-container-overlay-dim"></div>
+                <video autoplay muted loop class="background-video">
+                    <source src="assets/broll.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+
+    </div>
+    <div class="menu-content">
+        <div class="menu-container" data-controller="dish-listing">
+            <div class="menu-categories">
+                <% @menu.each do |item| %>
+                    <%= link_to item.name.upcase, homepage_path(menu_id: item.id), data: { action: 'click->dish-listing#loadDishes' } %>
+                <% end %>
+            </div>
+            <div class="dish-listing" data-dish-listing-target="dishListing">
+                <% @menu_items.each do |dish| %>
+                    <div class="dish-card">
+                            <img src='<%= cl_image_path dish.photo.key %>' alt="dish-image">
+                            <h2><%= dish.name %></h2>
+                            <% if dish.pieces == 0 && dish.weight == 0 %>
+                                <p></p>
+                            <% elsif dish.pieces == 0 %>
+                                <h4><%= dish.weight %> G</h4>
+                            <% elsif dish.weight == 0 %>
+                                <h4><%= dish.pieces %> pieces</h4>
+                            <% else %>
+                                <h4><%= dish.pieces %> pieces | <%= dish.weight %> G</h4>
+                            <% end %>
+                            <%= button_to "Add to cart", shopping_carts_path(menu_item_id: dish.id), method: :post, data: { action: "click->shopping-cart#addItem" } %>
+                            <div class="dish-price-container">
+                                <h5>PRICE</h5>
+                                <p><%= dish.price %> LEI</p>
+                            </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+    <div class="delivery-content">
+        <h2>Free delivery in Bucharest!</h2>
+        <p>(Within areas: Mosilor, Stefan cel mare, Obor, Colentina, Unirii, Iancului, Victoriei, Mihai Bravu, Piata Muncii, Piata Alba Iulia)</p>
+        <p>Delivery between:
+        Tuesday - Sunday: 12.00 - 22.00
+        The minimum order is 70 RON.
+        The shipping cost will be determined based on the order value and area to be delivered.
+        This value will be communicated by the operator when the order is received.</p>
+        <div style="max-width: 1300px; height: 600px; margin: 0 auto;" data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+    </div>
+    <div class="gallery-content">
+        <h1>PHOTO GALLERY</h1>
+        <div class="images-display">
+            <% @gallery.each do |image| %>
+                <img src='<%= cl_image_path image.image.key %>' alt="images">
             <% end %>
         </div>
     </div>
-</div>
-<div class="delivery-content">
-    <h2>Free delivery in Bucharest!</h2>
-    <p>(Within areas: Mosilor, Stefan cel mare, Obor, Colentina, Unirii, Iancului, Victoriei, Mihai Bravu, Piata Muncii, Piata Alba Iulia)</p>
-    <p>Delivery between:
-    Tuesday - Sunday: 12.00 - 22.00
-    The minimum order is 70 RON.
-    The shipping cost will be determined based on the order value and area to be delivered.
-    This value will be communicated by the operator when the order is received.</p>
-    <div style="max-width: 1300px; height: 600px; margin: 0 auto;" data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-</div>
-<div class="gallery-content">
-    <h1>PHOTO GALLERY</h1>
-    <div class="images-display">
-        <% @gallery.each do |image| %>
-            <img src='<%= cl_image_path image.image.key %>' alt="images">
+    <div class="contact-content" data-controller="contact-form" data-contact-form-target="formDiv">
+        <%= simple_form_for @contact, url: contacts_path, data: { action: "submit->contact-form#submit", contact_form_target: "form" } do |f| %>
+            <%= f.input :first_name %>
+            <%= f.input :last_name %>
+            <%= f.input :email %>
+            <%= f.input :phone %>
+            <%= f.input :message %>
+            <%= f.submit "Submit", class: "btn btn-primary" %>
         <% end %>
     </div>
-</div>
-<div class="contact-content" data-controller="contact-form" data-contact-form-target="formDiv">
-    <%= simple_form_for @contact, url: contacts_path, data: { action: "submit->contact-form#submit", contact_form_target: "form" } do |f| %>
-        <%= f.input :first_name %>
-        <%= f.input :last_name %>
-        <%= f.input :email %>
-        <%= f.input :phone %>
-        <%= f.input :message %>
-        <%= f.submit "Submit", class: "btn btn-primary" %>
-    <% end %>
-</div>
-<div class="reservation-content" data-controller="reservation-form" data-reservation-form-target="formDiv">
-    <%= simple_form_for @reservation, url: reservations_path, data: { action: "submit->reservation-form#submit", reservation_form_target: "form" } do |f| %>
-        <%= f.input :first_name %>
-        <%= f.input :last_name %>
-        <%= f.input :email %>
-        <%= f.input :phone %>
-        <%= f.label :reservation_time, "Reservation Time and Date" %>
-        <br>
-        <%= f.datetime_field :reservation_time, start_year: Time.current.year, end_year: Time.current.year + 1, format: '%Y-%m-%d %I:%M %p' %>
-        <%= f.input :party_size %>
-        <%= f.input :special_requests %>
-        <%= f.submit "Book", class: "btn btn-primary" %>
-<% end %>
+    <div class="reservation-content" data-controller="reservation-form" data-reservation-form-target="formDiv">
+        <%= simple_form_for @reservation, url: reservations_path, data: { action: "submit->reservation-form#submit", reservation_form_target: "form" } do |f| %>
+            <%= f.input :first_name %>
+            <%= f.input :last_name %>
+            <%= f.input :email %>
+            <%= f.input :phone %>
+            <%= f.label :reservation_time, "Reservation Time and Date" %>
+            <br>
+            <%= f.datetime_field :reservation_time, start_year: Time.current.year, end_year: Time.current.year + 1, format: '%Y-%m-%d %I:%M %p' %>
+            <%= f.input :party_size %>
+            <%= f.input :special_requests %>
+            <%= f.submit "Book", class: "btn btn-primary" %>
+        <% end %>
+    </div>
 </div>

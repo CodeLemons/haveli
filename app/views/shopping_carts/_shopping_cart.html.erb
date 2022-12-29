@@ -1,0 +1,6 @@
+<% shopping_cart.shopping_cart_items.each do |item| %>
+  <p>
+    <%= item.menu_item.name %> x <%= item.quantity %>
+  </p>
+<% end %>
+<%= button_to "Place order", finalize_shopping_cart_path, method: :patch %>

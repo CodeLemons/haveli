@@ -1,0 +1,27 @@
+<h1>ORDERS</h1>
+<% @total_price = 0 %>
+<% @order_identifier = OrderItem.where(order: @order).all.order(:menu_item_id).each do |identifier| %>
+    <%# @order_items.each do |ord| %>
+    <div class="d-flex">
+        <% @name = MenuItem.where(id: identifier.menu_item_id).first.name %>
+        <% @individual_price = MenuItem.where(id: identifier.menu_item_id).first.price * identifier.quantity %>
+        <p><%= @name %> x <%= identifier.quantity %> | <%= @individual_price %></p>
+        <% @total_price += @individual_price %>
+        <%# <%= OrderItem.where(menu_item_id: ord.menu_item_id).first.quantity %>
+        <%#= form_with(model: OrderItem.where(menu_item_id: ord.menu_item_id), method: :delete, data: { confirm: "Are you sure?" }) do |form| %>
+        <%#= submit_tag "Delete" %> 
+        <%# end %>
+        <%= form_with(model: identifier, method: :patch) do |form| %>
+            <%= form.number_field :quantity %>
+            <%= submit_tag "Update" %>
+        <% end %>
+    </div>
+    <%# end %>
+<% end %>
+
+
+
+
+<h1>TOTAL PRICE <%= @total_price %></h1>
+
+<%= link_to "HOME", homepage_path %>
