@@ -7,14 +7,19 @@ class ContactsController < ApplicationController
 
     def create
         @contact = Contact.new(contact_params)
-        if @contact.valid?
-          @contact.save!
-          ContactMailer.contact_email(@contact).deliver_now
-          redirect_to homepage_path, notice: "Your enquiry has been sent."
-        else
-          render :new, status: :unprocessable_entity
+        
+        respond_to do |format|
+          if @contact.valid?
+            @contact.save!
+            ContactMailer.contact_email(@contact).deliver_now
+            format.html { redirect_to homepage_path, notice: "Your enquiry has been sent." }
+          else
+            # Render the form page as a string and include it in the JSON response
+            new_html = render_to_string(:template => "contacts/new")
+            format.json { render json: { errors: @contact.errors, new_html: new_html }, status: :unprocessable_entity }
+          end
         end
-      end
+    end
     
       private
     
