@@ -22,4 +22,14 @@ export default class extends Controller {
     console.log("Scrolling");
     window.scrollTo(0, 3075);
   }
+  
+  scrollToContact() {
+    console.log("Scrolling");
+    window.scrollTo(0, 4287);
+  }
+  
+  scrollToBook() {
+    console.log("Scrolling");
+    window.scrollTo(0, 3075);
+  }
 }

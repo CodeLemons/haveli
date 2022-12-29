@@ -277,6 +277,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  actioncable (~> 7.0)
   autoprefixer-rails
   bootsnap
   capybara

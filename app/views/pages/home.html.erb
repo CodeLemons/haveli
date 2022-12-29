@@ -4,19 +4,14 @@
             <div class="item-button" data-action="click->menu-jump#scrollToMenu">MENU</div>
             <div class="item-button" data-action="click->menu-jump#scrollToDelivery">DELIVERY</div>
             <div class="item-button" data-action="click->menu-jump#scrollToGallery">GALLERY</div>
-            <%= link_to new_contact_path(@contact) do %>
-                <div class="item-button">CONTACT</div>
-            <% end %>
+            <div class="item-button" data-action="click->menu-jump#scrollToContact">CONTACT</div>
         </div>
         <div class="right-link-items">
             <div class="shopping-cart">
                 <p>EMPTY</p>
                 <i class="fa-solid fa-cart-shopping"></i>
             </div>
-            <%= link_to new_reservation_path(@reservation) do %>
-                <div class="item-button">BOOK</div>
-            <% end %>
-            
+            <div class="item-button" data-action="click->menu-jump#scrollToBook">BOOK</div>
             <div class="item-button">LANGUAGE</div>
         </div>
     </div>
@@ -79,4 +74,28 @@
             <img src='<%= cl_image_path image.image.key %>' alt="images">
         <% end %>
     </div>
+</div>
+<div class="contact-content" data-controller="contact-form" data-contact-form-target="formDiv">
+    <%= simple_form_for @contact, url: contacts_path, data: { action: "submit->contact-form#submit", contact_form_target: "form" } do |f| %>
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.input :email %>
+        <%= f.input :phone %>
+        <%= f.input :message %>
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+    <% end %>
+</div>
+<div class="reservation-content" data-controller="reservation-form" data-reservation-form-target="formDiv">
+    <%= simple_form_for @reservation, url: reservations_path, data: { action: "submit->reservation-form#submit", reservation_form_target: "form" } do |f| %>
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.input :email %>
+        <%= f.input :phone %>
+        <%= f.label :reservation_time, "Reservation Time and Date" %>
+        <br>
+        <%= f.datetime_field :reservation_time, start_year: Time.current.year, end_year: Time.current.year + 1, format: '%Y-%m-%d %I:%M %p' %>
+        <%= f.input :party_size %>
+        <%= f.input :special_requests %>
+        <%= f.submit "Book", class: "btn btn-primary" %>
+<% end %>
 </div>

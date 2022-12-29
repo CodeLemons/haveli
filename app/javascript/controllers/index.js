@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import ContactFormController from "./contact_form_controller"
+application.register("contact-form", ContactFormController)
+
 import DishListingController from "./dish_listing_controller"
 application.register("dish-listing", DishListingController)
 
@@ -16,5 +19,5 @@ application.register("map", MapController)
 import MenuJumpController from "./menu_jump_controller"
 application.register("menu-jump", MenuJumpController)
 
-import ReservationController from "./reservation_controller"
-application.register("reservation", ReservationController)
+import ReservationFormController from "./reservation_form_controller"
+application.register("reservation-form", ReservationFormController)

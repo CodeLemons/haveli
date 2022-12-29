@@ -80,3 +80,5 @@ end
 gem "nokogiri"
 gem "open-uri"
 gem "cloudinary"
+
+gem "actioncable", "~> 7.0"
