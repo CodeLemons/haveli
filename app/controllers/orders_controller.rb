@@ -4,5 +4,6 @@ class OrdersController < ApplicationController
     def index
         @order = Order.find(params[:format])
         @order_items = OrderItem.where(order: Order.last.id)
+        reset_session
     end
 end
