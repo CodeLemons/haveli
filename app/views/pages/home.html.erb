@@ -13,8 +13,7 @@
                     <i class="fa-solid fa-cart-shopping"></i>
                 </div> %>
                 <div class="shopping-cart" data-shopping-cart-target="shoppingCart">
-                    <%# <%= render "shopping_carts/shopping_cart", shopping_cart: @shopping_cart %>
-                    <%= link_to "Place order", finalize_shopping_cart_path, method: :patch %>
+                    <%= render "shopping_carts/shopping_cart", shopping_cart: @shopping_cart %>
                 </div>
                 <div class="item-button" data-action="click->menu-jump#scrollToBook">BOOK</div>
                 <div class="item-button">LANGUAGE</div>
@@ -52,7 +51,13 @@
                             <% else %>
                                 <h4><%= dish.pieces %> pieces | <%= dish.weight %> G</h4>
                             <% end %>
-                            <%= button_to "Add to cart", shopping_carts_path(menu_item_id: dish.id), method: :post, data: { action: "click->shopping-cart#addItem" } %>
+                            
+                            <%= button_to "Add to cart", shopping_carts_path(menu_item_id: dish.id), method: :post, data: { action: "click->shopping-cart#addItem", dish_id: dish.id } %>
+                            
+                            <p data-shopping-cart-target="value" data-dish-id="<%= dish.id %>">0</p>
+
+                            <%= button_to "Remove from cart", remove_form_shopping_cart_path(menu_item_id: dish.id, authenticity_token: form_authenticity_token), method: :post, data: { action: "click->shopping-cart#removeItem", dish_id: dish.id } %>
+                            
                             <div class="dish-price-container">
                                 <h5>PRICE</h5>
                                 <p><%= dish.price %> LEI</p>
@@ -61,7 +66,7 @@
                 <% end %>
             </div>
         </div>
-    </div>
+</div>
     <div class="delivery-content">
         <h2>Free delivery in Bucharest!</h2>
         <p>(Within areas: Mosilor, Stefan cel mare, Obor, Colentina, Unirii, Iancului, Victoriei, Mihai Bravu, Piata Muncii, Piata Alba Iulia)</p>

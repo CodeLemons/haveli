@@ -2,11 +2,10 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="dish-listing"
 export default class extends Controller {
-  static targets = ["dishListing"]
+  static targets = ["dishListing", "quantity"]
 
   connect() {
     console.log("Hello from dish listing");
-    
   }
 
   loadDishes(event) {

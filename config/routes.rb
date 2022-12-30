@@ -22,4 +22,6 @@ Rails.application.routes.draw do
   end
   resources :order_items, only: [:update, :edit]
   patch "finalize_shopping_cart", to: "shopping_carts#finalize", as: "finalize_shopping_cart"
+  patch "remove_form_shopping_cart", to: "shopping_carts#remove", as: "remove_form_shopping_cart"
+  get "shopping_carts/:dish_id/quantity", to: "shopping_carts#quantity"
 end
