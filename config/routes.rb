@@ -24,4 +24,5 @@ Rails.application.routes.draw do
   patch "finalize_shopping_cart", to: "shopping_carts#finalize", as: "finalize_shopping_cart"
   patch "remove_form_shopping_cart", to: "shopping_carts#remove", as: "remove_form_shopping_cart"
   get "shopping_carts/:dish_id/quantity", to: "shopping_carts#quantity"
+  get '/shopping_cart_items', to: 'shopping_carts#items'
 end

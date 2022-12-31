@@ -53,9 +53,8 @@
                             <% end %>
                             
                             <%= button_to "Add to cart", shopping_carts_path(menu_item_id: dish.id), method: :post, data: { action: "click->shopping-cart#addItem", dish_id: dish.id } %>
-                            
-                            <p data-shopping-cart-target="value" data-dish-id="<%= dish.id %>">0</p>
-
+                            <% @quan = ShoppingCartItem.where(shopping_cart: ShoppingCart.last, menu_item_id: dish.id).first %>
+                            <p data-shopping-cart-target="value" data-dish-listing-target="value" data-dish-quantity="<%= @quan.quantity unless @quan.nil?  %>" data-dish-id="<%= dish.id %>">0</p>
                             <%= button_to "Remove from cart", remove_form_shopping_cart_path(menu_item_id: dish.id, authenticity_token: form_authenticity_token), method: :post, data: { action: "click->shopping-cart#removeItem", dish_id: dish.id } %>
                             
                             <div class="dish-price-container">

@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="dish-listing"
 export default class extends Controller {
-  static targets = ["dishListing", "quantity"]
+  static targets = ["dishListing", "quantity", "value"]
 
   connect() {
     console.log("Hello from dish listing");
@@ -11,6 +11,15 @@ export default class extends Controller {
   loadDishes(event) {
     event.preventDefault();
     const id = event.target.getAttribute('href').split('=')[1];
+    
+    // this.valueTargets.forEach((target) => {
+    //   const itemCountElement = this.valueTargets.find(element => element.getAttribute("data-dish-id") === target.getAttribute("data-dish-id"));
+    //   if (itemCountElement.getAttribute("data-dish-quantity")) {
+    //     itemCountElement.textContent = itemCountElement.getAttribute("data-dish-quantity");
+    //   } else {
+    //     itemCountElement.textContent = "0";
+    //   }
+    // });
 
     fetch(`/homepage?menu_id=${id}`)
       .then(response => response.text())
@@ -20,7 +29,34 @@ export default class extends Controller {
         const selectedDiv = htmlObject.querySelector('.dish-listing');
         this.dishListingTarget.innerHTML = selectedDiv.innerHTML;
         console.log(window.scrollY);
-        // window.scrollTo(0, 978);
-      })
+        window.scrollTo(0, 978);
+
+        const divs = Array.from(this.dishListingTarget.querySelectorAll('[data-shopping-cart-target="value"]'));
+        divs.forEach((target) => {
+          const itemCountElement = divs.find(element => element.getAttribute("data-dish-id") === target.getAttribute("data-dish-id"));
+          if (itemCountElement.getAttribute("data-dish-quantity")) {
+            itemCountElement.textContent = itemCountElement.getAttribute("data-dish-quantity");
+          } else {
+            itemCountElement.textContent = "0";
+          }
+        })
+      });
+
+    fetch('/shopping_cart_items')
+      .then(response => response.json())
+      .then(dataItem => {
+        // Update data-dish-quantity attributes
+        this.valueTargets.forEach((target) => {
+          const itemCountElement = this.valueTargets.find(element => element.getAttribute("data-dish-id") === target.getAttribute("data-dish-id"));
+          const shoppingCartItem = dataItem.find(item => item.menu_item_id == itemCountElement.getAttribute("data-dish-id"));
+          if (shoppingCartItem) {
+            itemCountElement.setAttribute("data-dish-quantity", shoppingCartItem.quantity);
+            itemCountElement.textContent = shoppingCartItem.quantity;
+          } else {
+            itemCountElement.setAttribute("data-dish-quantity", "0");
+            itemCountElement.textContent = "0";
+          }
+        });
+      });
   }
 }
