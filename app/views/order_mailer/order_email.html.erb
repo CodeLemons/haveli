@@ -1,0 +1,14 @@
+<h3>Name: <%= @first_name %> <%= @last_name %></h3>
+<h3>Email: <%= @email %></h3>
+<h3>Phone: <%= @phone %></h3>
+<h3>Address: <%= @address %></h3>
+<h3>Remarks: <%= @remarks %></h3>
+<h2>ORDER ITEMS:</h3>
+<% @total_price = 0 %>
+<% @order_identifier = OrderItem.where(order: @order).all.order(:menu_item_id).each do |identifier| %>
+    <% @name = MenuItem.where(id: identifier.menu_item_id).first.name %>
+    <% @individual_price = MenuItem.where(id: identifier.menu_item_id).first.price * identifier.quantity %>
+    <p><%= @name %> x <%= identifier.quantity %> | <%= @individual_price %></p>
+    <% @total_price += @individual_price %>
+<% end %>
+<h2>TOTAL PRICE: <%= @total_price %></h2>
