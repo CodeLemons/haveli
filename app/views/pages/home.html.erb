@@ -2,18 +2,21 @@
     <div class="main-wrapper">
         <div class="main-navbar" data-controller="menu-jump">
             <div class="left-link-items">
-                <div class="item-button" data-action="click->menu-jump#scrollToMenu">MENU</div>
-                <div class="item-button" data-action="click->menu-jump#scrollToDelivery">DELIVERY</div>
-                <div class="item-button" data-action="click->menu-jump#scrollToGallery">GALLERY</div>
-                <div class="item-button" data-action="click->menu-jump#scrollToContact">CONTACT</div>
+                <div class="item-button" data-action="click->menu-jump#scrollToMenu"><%= t "MENU" %></div>
+                <div class="item-button" data-action="click->menu-jump#scrollToDelivery"><%= t "DELIVERY" %></div>
+                <div class="item-button" data-action="click->menu-jump#scrollToGallery"><%= t "GALLERY" %></div>
+                <div class="item-button" data-action="click->menu-jump#scrollToContact"><%= t "CONTACT" %></div>
             </div>
             <div class="right-link-items">
                 <div class="shopping-cart" data-shopping-cart-target="shoppingCart">
                     <%= render "shopping_carts/shopping_cart", shopping_cart: @shopping_cart %>
                 </div>
-                <div class="item-button" data-action="click->menu-jump#scrollToBook">BOOK</div>
+                <div class="item-button" data-action="click->menu-jump#scrollToBook"><%= t "BOOK" %></div>
                 <div class="item-button">
-                    
+                    <%= form_tag(request.path, method: 'get') do %>
+                    <%= select_tag 'locale', options_for_select(['en', 'ro'], params[:locale]), onchange: 'this.form.submit();' %>
+                    <%= submit_tag 'Change Locale', style: 'display: none;' %>
+                    <% end %>
                 </div>
             </div>
         </div>
@@ -26,14 +29,12 @@
                 </video>
             </div>
         </div>
-
     </div>
-    <%= t "hello" %>
     <div class="menu-content">
         <div class="menu-container" data-controller="dish-listing">
             <div class="menu-categories">
                 <% @menu.each do |item| %>
-                    <%= link_to item.name.upcase, homepage_path(menu_id: item.id), data: { action: 'click->dish-listing#loadDishes' } %>
+                    <%= link_to t(item.name.upcase), homepage_path(menu_id: item.id), data: { action: 'click->dish-listing#loadDishes' } %>
                 <% end %>
             </div>
             <div class="dish-listing" data-dish-listing-target="dishListing">
@@ -41,14 +42,17 @@
                     <div class="dish-card">
                             <img src='<%= cl_image_path dish.photo.key %>' alt="dish-image">
                             <h2><%= dish.name %></h2>
+                            <% Mobility.with_locale(params[:locale]) do %>
+                                <%= dish.description %>
+                            <% end %>
                             <% if dish.pieces == 0 && dish.weight == 0 %>
                                 <p></p>
                             <% elsif dish.pieces == 0 %>
                                 <h4><%= dish.weight %> G</h4>
                             <% elsif dish.weight == 0 %>
-                                <h4><%= dish.pieces %> pieces</h4>
+                                <h4><%= dish.pieces %> <%= t "pieces" %></h4>
                             <% else %>
-                                <h4><%= dish.pieces %> pieces | <%= dish.weight %> G</h4>
+                                <h4><%= dish.pieces %> <%= t "pieces" %> | <%= dish.weight %> G</h4>
                             <% end %>
                             
                             <%= button_to "Add to cart", shopping_carts_path(menu_item_id: dish.id), method: :post, data: { action: "click->shopping-cart#addItem", dish_id: dish.id } %>
@@ -57,7 +61,7 @@
                             <%= button_to "Remove from cart", remove_form_shopping_cart_path(menu_item_id: dish.id, authenticity_token: form_authenticity_token), method: :post, data: { action: "click->shopping-cart#removeItem", dish_id: dish.id } %>
                             
                             <div class="dish-price-container">
-                                <h5>PRICE</h5>
+                                <h5><%= t "PRICE" %></h5>
                                 <p><%= dish.price %> LEI</p>
                             </div>
                     </div>
@@ -66,13 +70,13 @@
         </div>
 </div>
     <div class="delivery-content">
-        <h2>Free delivery in Bucharest!</h2>
-        <p>(Within areas: Mosilor, Stefan cel mare, Obor, Colentina, Unirii, Iancului, Victoriei, Mihai Bravu, Piata Muncii, Piata Alba Iulia)</p>
-        <p>Delivery between:
-        Tuesday - Sunday: 12.00 - 22.00
-        The minimum order is 70 RON.
-        The shipping cost will be determined based on the order value and area to be delivered.
-        This value will be communicated by the operator when the order is received.</p>
+        <h2><%= t "Free delivery in Bucharest!" %></h2>
+        <p><%= t "(Within areas Mosilor, Stefan cel mare, Obor, Colentina, Unirii, Iancului, Victoriei, Mihai Bravu, Piata Muncii, Piata Alba Iulia)" %></p>
+        <p><%= t "Delivery between" %></p> 
+        <p><%= t "Tuesday to Sunday, 12PM and 22PM" %></p>
+        <p><%= t "The minimum order is 70 RON" %></p> 
+        <p><%= t "The shipping cost will be determined based on the order value and area to be delivered" %></p> 
+        <p><%= t "This value will be communicated by the operator when the order is received" %></p> 
         <div style="max-width: 1300px; height: 600px; margin: 0 auto;" data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
     </div>
@@ -109,3 +113,10 @@
         <% end %>
     </div>
 </div>
+<%= form_with model: @menu_item do |form| %>
+  <%= form.fields_for :translations do |t| %>
+    <%= t.label :description %>
+    <%= t.text_area :description %>
+  <% end %>
+  <%= form.submit 'Save' %>
+<% end %>

@@ -1,8 +1,8 @@
 <% @storage = ShoppingCart.last %>
 
 <% unless @storage.nil? %>
-  <p>ITEMS IN CART - <%= @storage.total_quantity %></p>
-  <p>TOTAL PRICE - <%= @storage.total_price %></p>
+  <p><%= t "ITEMS IN CART" %> - <%= @storage.total_quantity %></p>
+  <p><%= t "TOTAL PRICE" %> - <%= @storage.total_price %></p>
 <% end %>
 
 <%= button_to "Checkout", finalize_shopping_cart_path, method: :patch %>

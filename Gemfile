@@ -82,3 +82,5 @@ gem "open-uri"
 gem "cloudinary"
 
 gem "actioncable", "~> 7.0"
+
+gem 'mobility', '~> 1.2.9'
