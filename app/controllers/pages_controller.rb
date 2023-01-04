@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :landing, :home]
 
   def home
-    # I18n.locale = :ro
+    # I18n.locale = :(params[:locale])
     cookies[:menu_id] = params[:menu_id] if params[:menu_id]
     @menu = Menu.all
     # id = params[:menu_id] || Menu.first.id
