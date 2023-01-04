@@ -34,7 +34,7 @@
         <div class="menu-container" data-controller="dish-listing">
             <div class="menu-categories">
                 <% @menu.each do |item| %>
-                    <%= link_to t(item.name.upcase), homepage_path(menu_id: item.id), data: { action: 'click->dish-listing#loadDishes' } %>
+                    <%= link_to t(item.name.upcase), homepage_path(menu_id: item.id, locale: params[:locale]), data: { action: 'click->dish-listing#loadDishes' } %>
                 <% end %>
             </div>
             <div class="dish-listing" data-dish-listing-target="dishListing">
@@ -42,8 +42,8 @@
                     <div class="dish-card">
                             <img src='<%= cl_image_path dish.photo.key %>' alt="dish-image">
                             <h2><%= dish.name %></h2>
-                            <%= Mobility.with_locale(params[:locale]) do %>
-                                <%= dish.description %>
+                            <% Mobility.with_locale(params[:locale]) do %>
+                                <p><%= dish.description %></p>
                             <% end %>
                             <% if dish.pieces == 0 && dish.weight == 0 %>
                                 <p></p>
@@ -113,16 +113,16 @@
         <% end %>
     </div>
 </div>
-<% MenuItem.where(menu: Menu.find(39)).each do |m_item| %>
+<%# MenuItem.where(menu: Menu.find(47)).each do |m_item| %>
 
-    <% Mobility.locale = :en %>
-    <%= form_with model: m_item, url: menu_menu_item_path(@menu, m_item) do |form| %>
-    <%= m_item.name %>
+    <%# Mobility.locale = :en %>
+    <%#= form_with model: m_item, url: menu_menu_item_path(@menu, m_item) do |form| %>
+    <%#= m_item.name %>
 
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-    <%= m_item.description %>
+    <%#= form.label :description %>
+    <%#= form.text_area :description %>
+    <%#= m_item.description %>
 
-    <%= form.submit %>
-    <% end %>
-<% end %>
+    <%#= form.submit %>
+    <%# end %>
+<%# end %>

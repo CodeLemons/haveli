@@ -29,12 +29,13 @@ class ShoppingCartsController < ApplicationController
                     OrderItem.create(order_id: @order.id, menu_item_id: item.menu_item_id, quantity: item.quantity)
                 end
                 @shopping_cart.destroy
-                redirect_to orders_path(@order), notice: "Order placed successfully!"
+                redirect_to orders_path(@order, locale: params[:locale]), notice: "Order placed successfully!"
+                raise
             else
-                redirect_to homepage_path, alert: "No items in the shopping cart!"
+                redirect_to homepage_path(locale: params[:locale]), alert: "No items in the shopping cart!"
             end
         else
-            redirect_to homepage_path, alert: "No shopping cart found!"
+            redirect_to homepage_path(locale: params[:locale]), alert: "No shopping cart found!"
         end
     end
 

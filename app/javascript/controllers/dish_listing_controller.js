@@ -10,18 +10,8 @@ export default class extends Controller {
 
   loadDishes(event) {
     event.preventDefault();
-    const id = event.target.getAttribute('href').split('=')[1];
-    
-    // this.valueTargets.forEach((target) => {
-    //   const itemCountElement = this.valueTargets.find(element => element.getAttribute("data-dish-id") === target.getAttribute("data-dish-id"));
-    //   if (itemCountElement.getAttribute("data-dish-quantity")) {
-    //     itemCountElement.textContent = itemCountElement.getAttribute("data-dish-quantity");
-    //   } else {
-    //     itemCountElement.textContent = "0";
-    //   }
-    // });
 
-    fetch(`/homepage?menu_id=${id}`)
+    fetch(event.currentTarget.href)
       .then(response => response.text())
       .then(data => {
         const htmlObject = document.createElement('dummyHTML');

@@ -5,4 +5,4 @@
   <p><%= t "TOTAL PRICE" %> - <%= @storage.total_price %></p>
 <% end %>
 
-<%= button_to "Checkout", finalize_shopping_cart_path, method: :patch %>
+<%= button_to "Checkout", finalize_shopping_cart_path(locale: params[:locale]), method: :patch %>
