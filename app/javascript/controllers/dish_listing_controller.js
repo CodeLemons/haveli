@@ -29,7 +29,7 @@ export default class extends Controller {
         const selectedDiv = htmlObject.querySelector('.dish-listing');
         this.dishListingTarget.innerHTML = selectedDiv.innerHTML;
         console.log(window.scrollY);
-        window.scrollTo(0, 978);
+        // window.scrollTo(0, 978);
 
         const divs = Array.from(this.dishListingTarget.querySelectorAll('[data-shopping-cart-target="value"]'));
         divs.forEach((target) => {
