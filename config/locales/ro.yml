@@ -24,3 +24,8 @@ ro:
   The minimum order is 70 RON: "Comanda minima este de 70 RON."
   The shipping cost will be determined based on the order value and area to be delivered: "Costul transportului va fi stabilit in functie de valoarea comenzii si zona unde va fi livrata."
   This value will be communicated by the operator when the order is received: "Aceasta valoare va fi comunicata de operator in momentul preluarii comenzii."
+  ORDERS: "COMANDA TA"
+  UPDATE: "ACTUALIZARE"
+  TOTAL PRICE: "PRET TOTAL"
+  SEND ORDER: "TRIMITE COMANDA"
+  CANCEL: "ANULEAZA COMANDA"

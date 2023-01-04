@@ -1,4 +1,4 @@
-<h1>ORDERS</h1>
+<h1><%= t "ORDERS" %></h1>
 <% @total_price = 0 %>
 <% @order_identifier = OrderItem.where(order: @order).all.order(:menu_item_id).each do |identifier| %>
     <% unless identifier.quantity.zero? %>
@@ -9,7 +9,7 @@
             <% @total_price += @individual_price %>
             <%= form_with(model: identifier, method: :patch) do |form| %>
                 <%= form.number_field :quantity %>
-                <%= submit_tag "Update" %>
+                <%= submit_tag t("UPDATE") %>
             <% end %>
         </div>
     <% end %>
@@ -17,9 +17,9 @@
 
 
 
-<h1>TOTAL PRICE <%= @total_price %></h1>
+<h1><%= t "TOTAL PRICE" %> <%= @total_price %></h1>
 
-<%= form_with url: send_email_path(@order), method: :post do |form| %>
+<%= form_with url: send_email_path(@order, locale: params[:locale]), method: :post do |form| %>
   <%= form.label :first_name %>
   <%= form.text_field :first_name %>
 
@@ -38,8 +38,7 @@
   <%= form.label :remarks %>
   <%= form.text_area :remarks %>
 
-  <%= form.submit "Place Order" %>
+  <%= form.submit t("SEND ORDER") %>
 <% end %>
-
-<%= link_to "HOME", homepage_path %>
+<%= link_to t("CANCEL"), homepage_path(locale: params[:locale]) %>
 <%# <%= link_to "Place Order", send_email_path(@order) %> %>

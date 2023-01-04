@@ -24,3 +24,8 @@ en:
   The minimum order is 70 RON: "The minimum order is 70 RON"
   The shipping cost will be determined based on the order value and area to be delivered: "The shipping cost will be determined based on the order value and area to be delivered"
   This value will be communicated by the operator when the order is received: "This value will be communicated by the operator when the order is received."
+  ORDERS: "YOUR ORDER"
+  UPDATE: "UPDATE"
+  TOTAL PRICE: "TOTAL PRICE"
+  SEND ORDER: "SEND ORDER"
+  CANCEL: "CANCEL ORDER"
