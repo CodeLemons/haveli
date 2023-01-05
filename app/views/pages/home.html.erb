@@ -88,7 +88,7 @@
         </div>
     </div>
     <div class="contact-content" data-controller="contact-form" data-contact-form-target="formDiv">
-        <%= simple_form_for @contact, url: contacts_path, data: { action: "submit->contact-form#submit", contact_form_target: "form" } do |f| %>
+        <%= simple_form_for @contact, url: contacts_path(locale: params[:locale]), data: { action: "submit->contact-form#submit", contact_form_target: "form" } do |f| %>
             <%= f.input :first_name, label: t("FIRST NAME") %>
             <%= f.input :last_name, label: t("LAST NAME")  %>
             <%= f.input :email, label: t("EMAIL")  %>
@@ -98,7 +98,7 @@
         <% end %>
     </div>
     <div class="reservation-content" data-controller="reservation-form" data-reservation-form-target="formDiv">
-        <%= simple_form_for @reservation, url: reservations_path, data: { action: "submit->reservation-form#submit", reservation_form_target: "form" } do |f| %>
+        <%= simple_form_for @reservation, url: reservations_path(locale: params[:locale]), data: { action: "submit->reservation-form#submit", reservation_form_target: "form" } do |f| %>
             <%= f.input :first_name, label: t("FIRST NAME")  %>
             <%= f.input :last_name, label: t("LAST NAME") %>
             <%= f.input :email, label: t("EMAIL") %>

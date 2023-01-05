@@ -12,6 +12,7 @@ export default class extends Controller {
     const url = this.formTarget.action
     console.log(this.formTarget.method);
 
+    console.log(url);
     fetch(url, {
       method: this.formTarget.method,
       body: formData
