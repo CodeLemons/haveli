@@ -12,8 +12,8 @@ class ContactsController < ApplicationController
           if @contact.valid?
             @contact.save!
             ContactMailer.contact_email(@contact).deliver_now
-            format.html { redirect_to request.referer, notice: "Your enquiry has been sent." }
-
+            format.html { redirect_to homepage_path(locale: params[:locale]) }
+            
           else
             # Render the form page as a string and include it in the JSON response
             new_html = render_to_string(:template => "contacts/new")
