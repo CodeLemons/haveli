@@ -80,7 +80,7 @@
         </div>
     </div>
     <div class="gallery-content">
-        <h1>PHOTO GALLERY</h1>
+        <h1> <%= t "PHOTO GALLERY" %></h1>
         <div class="images-display">
             <% @gallery.each do |image| %>
                 <img src='<%= cl_image_path image.image.key %>' alt="images">
@@ -89,26 +89,26 @@
     </div>
     <div class="contact-content" data-controller="contact-form" data-contact-form-target="formDiv">
         <%= simple_form_for @contact, url: contacts_path, data: { action: "submit->contact-form#submit", contact_form_target: "form" } do |f| %>
-            <%= f.input :first_name %>
-            <%= f.input :last_name %>
-            <%= f.input :email %>
-            <%= f.input :phone %>
-            <%= f.input :message %>
-            <%= f.submit "Submit", class: "btn btn-primary" %>
+            <%= f.input :first_name, label: t("FIRST NAME") %>
+            <%= f.input :last_name, label: t("LAST NAME")  %>
+            <%= f.input :email, label: t("EMAIL")  %>
+            <%= f.input :phone, label: t("PHONE")  %>
+            <%= f.input :message, label: t("MESSAGE")  %>
+            <%= f.submit t("SUBMIT"), class: "btn btn-primary" %>
         <% end %>
     </div>
     <div class="reservation-content" data-controller="reservation-form" data-reservation-form-target="formDiv">
         <%= simple_form_for @reservation, url: reservations_path, data: { action: "submit->reservation-form#submit", reservation_form_target: "form" } do |f| %>
-            <%= f.input :first_name %>
-            <%= f.input :last_name %>
-            <%= f.input :email %>
-            <%= f.input :phone %>
-            <%= f.label :reservation_time, "Reservation Time and Date" %>
+            <%= f.input :first_name, label: t("FIRST NAME")  %>
+            <%= f.input :last_name, label: t("LAST NAME") %>
+            <%= f.input :email, label: t("EMAIL") %>
+            <%= f.input :phone, label: t("PHONE") %>
+            <%= f.label :reservation_time, t("RESERVATION TIME AND DATE") %>
             <br>
             <%= f.datetime_field :reservation_time, start_year: Time.current.year, end_year: Time.current.year + 1, format: '%Y-%m-%d %I:%M %p' %>
-            <%= f.input :party_size %>
-            <%= f.input :special_requests %>
-            <%= f.submit "Book", class: "btn btn-primary" %>
+            <%= f.input :party_size, label: t("PARTY SIZE") %>
+            <%= f.input :special_requests, label: t("SPECIAL REQUESTS") %>
+            <%= f.submit t("BOOK"), class: "btn btn-primary" %>
         <% end %>
     </div>
 </div>
