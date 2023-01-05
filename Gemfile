@@ -84,3 +84,5 @@ gem "cloudinary"
 gem "actioncable", "~> 7.0"
 
 gem 'mobility', '~> 1.2.9'
+
+gem "pg_search", "~> 2.3"
