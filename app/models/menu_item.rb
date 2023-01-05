@@ -1,4 +1,6 @@
 class MenuItem < ApplicationRecord
+  extend Mobility
+  translates :description, type: :text
   belongs_to :menu
   has_many :shopping_cart_items
   validates :name, presence: true

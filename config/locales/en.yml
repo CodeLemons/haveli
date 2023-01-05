@@ -1,33 +1,44 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   "true": "foo"
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
   hello: "Hello world"
+  MENU: "MENU"
+  DELIVERY: "DELIVERY"
+  GALLERY: "GALLERY"
+  CONTACT: "CONTACT"
+  pieces: "pieces"
+  PRICE: "PRICE"
+  ITEMS IN CART: "ITEMS IN CART"
+  TOTAL PRICE: "TOTAL PRICE"
+  STARTERS: "STARTERS"
+  SALAD AND YOGURT: "SALAD AND YOGURT"
+  VEGETARIAN: "VEGETARIAN"
+  CHICKEN: "CHICKEN"
+  LAMB: "LAMB"
+  FISH AND PRAWNS: "FISH AND PRAWNS"
+  RICE: "RICE"
+  INDIAN BREAD: "INDIAN BREAD" 
+  DESSERTS: "DESSERTS"
+  Free delivery in Bucharest!: "Free delivery in Bucharest!"
+  (Within areas Mosilor, Stefan cel mare, Obor, Colentina, Unirii, Iancului, Victoriei, Mihai Bravu, Piata Muncii, Piata Alba Iulia): "(Within areas Mosilor, Stefan cel mare, Obor, Colentina, Unirii, Iancului, Victoriei, Mihai Bravu, Piata Muncii, Piata Alba Iulia)"
+  Delivery between: "Delivery between:"
+  Tuesday to Sunday, 12PM and 22PM: "Tuesday - Sunday 12.00 - 22.00"
+  The minimum order is 70 RON: "The minimum order is 70 RON"
+  The shipping cost will be determined based on the order value and area to be delivered: "The shipping cost will be determined based on the order value and area to be delivered"
+  This value will be communicated by the operator when the order is received: "This value will be communicated by the operator when the order is received."
+  ORDERS: "YOUR ORDER"
+  UPDATE: "UPDATE"
+  TOTAL PRICE: "TOTAL PRICE"
+  SEND ORDER: "SEND ORDER"
+  CANCEL: "CANCEL ORDER"
+  PHOTO GALLERY: "PHOTO GALLERY"
+  FIRST NAME: "FIRST NAME"
+  LAST NAME: "LAST NAME"
+  EMAIL: "EMAIL"
+  PHONE: "PHONE"
+  MESSAGE: "MESSAGE"
+  SUBMIT: "SUBMIT"
+  RESERVATION TIME AND DATE: "RESERVATION TIME AND DATE"
+  BOOK: "BOOK"
+  PARTY SIZE: "PARTY SIZE"
+  SPECIAL REQUESTS: "SPECIAL REQUESTS"
+
+

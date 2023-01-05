@@ -150,6 +150,9 @@ GEM
     mime-types-data (3.2022.0105)
     mini_mime (1.1.2)
     minitest (5.16.3)
+    mobility (1.2.9)
+      i18n (>= 0.6.10, < 2)
+      request_store (~> 1.0)
     msgpack (1.6.0)
     net-imap (0.3.2)
       date
@@ -207,6 +210,8 @@ GEM
     regexp_parser (2.6.1)
     reline (0.3.1)
       io-console (~> 0.5)
+    request_store (1.5.1)
+      rack (>= 1.4)
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -288,6 +293,7 @@ DEPENDENCIES
   font-awesome-sass (~> 6.1)
   jbuilder
   jsbundling-rails
+  mobility (~> 1.2.9)
   nokogiri
   open-uri
   pg (~> 1.1)

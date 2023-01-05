@@ -2,17 +2,22 @@
     <div class="main-wrapper">
         <div class="main-navbar" data-controller="menu-jump">
             <div class="left-link-items">
-                <div class="item-button" data-action="click->menu-jump#scrollToMenu">MENU</div>
-                <div class="item-button" data-action="click->menu-jump#scrollToDelivery">DELIVERY</div>
-                <div class="item-button" data-action="click->menu-jump#scrollToGallery">GALLERY</div>
-                <div class="item-button" data-action="click->menu-jump#scrollToContact">CONTACT</div>
+                <div class="item-button" data-action="click->menu-jump#scrollToMenu"><%= t "MENU" %></div>
+                <div class="item-button" data-action="click->menu-jump#scrollToDelivery"><%= t "DELIVERY" %></div>
+                <div class="item-button" data-action="click->menu-jump#scrollToGallery"><%= t "GALLERY" %></div>
+                <div class="item-button" data-action="click->menu-jump#scrollToContact"><%= t "CONTACT" %></div>
             </div>
             <div class="right-link-items">
                 <div class="shopping-cart" data-shopping-cart-target="shoppingCart">
                     <%= render "shopping_carts/shopping_cart", shopping_cart: @shopping_cart %>
                 </div>
-                <div class="item-button" data-action="click->menu-jump#scrollToBook">BOOK</div>
-                <div class="item-button">LANGUAGE</div>
+                <div class="item-button" data-action="click->menu-jump#scrollToBook"><%= t "BOOK" %></div>
+                <div class="item-button">
+                    <%= form_tag(request.path, method: 'get') do %>
+                    <%= select_tag 'locale', options_for_select(['en', 'ro'], params[:locale]), onchange: 'this.form.submit();' %>
+                    <%= submit_tag 'Change Locale', style: 'display: none;' %>
+                    <% end %>
+                </div>
             </div>
         </div>
         <div class="header">
@@ -24,13 +29,12 @@
                 </video>
             </div>
         </div>
-
     </div>
     <div class="menu-content">
         <div class="menu-container" data-controller="dish-listing">
             <div class="menu-categories">
                 <% @menu.each do |item| %>
-                    <%= link_to item.name.upcase, homepage_path(menu_id: item.id), data: { action: 'click->dish-listing#loadDishes' } %>
+                    <%= link_to t(item.name.upcase), homepage_path(menu_id: item.id, locale: params[:locale]), data: { action: 'click->dish-listing#loadDishes' } %>
                 <% end %>
             </div>
             <div class="dish-listing" data-dish-listing-target="dishListing">
@@ -38,23 +42,25 @@
                     <div class="dish-card">
                             <img src='<%= cl_image_path dish.photo.key %>' alt="dish-image">
                             <h2><%= dish.name %></h2>
+                            <% Mobility.with_locale(params[:locale]) do %>
+                                <p><%= dish.description %></p>
+                            <% end %>
                             <% if dish.pieces == 0 && dish.weight == 0 %>
                                 <p></p>
                             <% elsif dish.pieces == 0 %>
                                 <h4><%= dish.weight %> G</h4>
                             <% elsif dish.weight == 0 %>
-                                <h4><%= dish.pieces %> pieces</h4>
+                                <h4><%= dish.pieces %> <%= t "pieces" %></h4>
                             <% else %>
-                                <h4><%= dish.pieces %> pieces | <%= dish.weight %> G</h4>
+                                <h4><%= dish.pieces %> <%= t "pieces" %> | <%= dish.weight %> G</h4>
                             <% end %>
-                            
-                            <%= button_to "Add to cart", shopping_carts_path(menu_item_id: dish.id), method: :post, data: { action: "click->shopping-cart#addItem", dish_id: dish.id } %>
+                            <%= button_to "Add to cart", shopping_carts_path(menu_item_id: dish.id, locale: params[:locale]), method: :post, data: { action: "click->shopping-cart#addItem", dish_id: dish.id } %>
                             <% @quan = ShoppingCartItem.where(shopping_cart: ShoppingCart.last, menu_item_id: dish.id).first %>
                             <p data-shopping-cart-target="value" data-dish-listing-target="value" data-dish-quantity="<%= @quan.quantity unless @quan.nil?  %>" data-dish-id="<%= dish.id %>">0</p>
-                            <%= button_to "Remove from cart", remove_form_shopping_cart_path(menu_item_id: dish.id, authenticity_token: form_authenticity_token), method: :post, data: { action: "click->shopping-cart#removeItem", dish_id: dish.id } %>
+                            <%= button_to "Remove from cart", remove_form_shopping_cart_path(menu_item_id: dish.id, authenticity_token: form_authenticity_token, locale: params[:locale]), method: :post, data: { action: "click->shopping-cart#removeItem", dish_id: dish.id } %>
                             
                             <div class="dish-price-container">
-                                <h5>PRICE</h5>
+                                <h5><%= t "PRICE" %></h5>
                                 <p><%= dish.price %> LEI</p>
                             </div>
                     </div>
@@ -63,18 +69,18 @@
         </div>
 </div>
     <div class="delivery-content">
-        <h2>Free delivery in Bucharest!</h2>
-        <p>(Within areas: Mosilor, Stefan cel mare, Obor, Colentina, Unirii, Iancului, Victoriei, Mihai Bravu, Piata Muncii, Piata Alba Iulia)</p>
-        <p>Delivery between:
-        Tuesday - Sunday: 12.00 - 22.00
-        The minimum order is 70 RON.
-        The shipping cost will be determined based on the order value and area to be delivered.
-        This value will be communicated by the operator when the order is received.</p>
+        <h2><%= t "Free delivery in Bucharest!" %></h2>
+        <p><%= t "(Within areas Mosilor, Stefan cel mare, Obor, Colentina, Unirii, Iancului, Victoriei, Mihai Bravu, Piata Muncii, Piata Alba Iulia)" %></p>
+        <p><%= t "Delivery between" %></p> 
+        <p><%= t "Tuesday to Sunday, 12PM and 22PM" %></p>
+        <p><%= t "The minimum order is 70 RON" %></p> 
+        <p><%= t "The shipping cost will be determined based on the order value and area to be delivered" %></p> 
+        <p><%= t "This value will be communicated by the operator when the order is received" %></p> 
         <div style="max-width: 1300px; height: 600px; margin: 0 auto;" data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
     </div>
     <div class="gallery-content">
-        <h1>PHOTO GALLERY</h1>
+        <h1> <%= t "PHOTO GALLERY" %></h1>
         <div class="images-display">
             <% @gallery.each do |image| %>
                 <img src='<%= cl_image_path image.image.key %>' alt="images">
@@ -83,26 +89,39 @@
     </div>
     <div class="contact-content" data-controller="contact-form" data-contact-form-target="formDiv">
         <%= simple_form_for @contact, url: contacts_path, data: { action: "submit->contact-form#submit", contact_form_target: "form" } do |f| %>
-            <%= f.input :first_name %>
-            <%= f.input :last_name %>
-            <%= f.input :email %>
-            <%= f.input :phone %>
-            <%= f.input :message %>
-            <%= f.submit "Submit", class: "btn btn-primary" %>
+            <%= f.input :first_name, label: t("FIRST NAME") %>
+            <%= f.input :last_name, label: t("LAST NAME")  %>
+            <%= f.input :email, label: t("EMAIL")  %>
+            <%= f.input :phone, label: t("PHONE")  %>
+            <%= f.input :message, label: t("MESSAGE")  %>
+            <%= f.submit t("SUBMIT"), class: "btn btn-primary" %>
         <% end %>
     </div>
     <div class="reservation-content" data-controller="reservation-form" data-reservation-form-target="formDiv">
         <%= simple_form_for @reservation, url: reservations_path, data: { action: "submit->reservation-form#submit", reservation_form_target: "form" } do |f| %>
-            <%= f.input :first_name %>
-            <%= f.input :last_name %>
-            <%= f.input :email %>
-            <%= f.input :phone %>
-            <%= f.label :reservation_time, "Reservation Time and Date" %>
+            <%= f.input :first_name, label: t("FIRST NAME")  %>
+            <%= f.input :last_name, label: t("LAST NAME") %>
+            <%= f.input :email, label: t("EMAIL") %>
+            <%= f.input :phone, label: t("PHONE") %>
+            <%= f.label :reservation_time, t("RESERVATION TIME AND DATE") %>
             <br>
             <%= f.datetime_field :reservation_time, start_year: Time.current.year, end_year: Time.current.year + 1, format: '%Y-%m-%d %I:%M %p' %>
-            <%= f.input :party_size %>
-            <%= f.input :special_requests %>
-            <%= f.submit "Book", class: "btn btn-primary" %>
+            <%= f.input :party_size, label: t("PARTY SIZE") %>
+            <%= f.input :special_requests, label: t("SPECIAL REQUESTS") %>
+            <%= f.submit t("BOOK"), class: "btn btn-primary" %>
         <% end %>
     </div>
 </div>
+<%# MenuItem.where(menu: Menu.find(47)).each do |m_item| %>
+
+    <%# Mobility.locale = :en %>
+    <%#= form_with model: m_item, url: menu_menu_item_path(@menu, m_item) do |form| %>
+    <%#= m_item.name %>
+
+    <%#= form.label :description %>
+    <%#= form.text_area :description %>
+    <%#= m_item.description %>
+
+    <%#= form.submit %>
+    <%# end %>
+<%# end %>

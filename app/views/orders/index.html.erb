@@ -1,45 +1,91 @@
-<h1>ORDERS</h1>
-<% @total_price = 0 %>
-<% @order_identifier = OrderItem.where(order: @order).all.order(:menu_item_id).each do |identifier| %>
-    <% unless identifier.quantity.zero? %>
-        <div class="d-flex">
-            <% @name = MenuItem.where(id: identifier.menu_item_id).first.name %>
-            <% @individual_price = MenuItem.where(id: identifier.menu_item_id).first.price * identifier.quantity %>
-            <p><%= @name %> x <%= identifier.quantity %> | <%= @individual_price %></p>
-            <% @total_price += @individual_price %>
-            <%= form_with(model: identifier, method: :patch) do |form| %>
-                <%= form.number_field :quantity %>
-                <%= submit_tag "Update" %>
-            <% end %>
-        </div>
+
+<% if params[:locale] == "en" %>
+    <h1>YOUR ORDER</h1>
+    <% @total_price = 0 %>
+    <% @order_identifier = OrderItem.where(order: @order).all.order(:menu_item_id).each do |identifier| %>
+        <% unless identifier.quantity.zero? %>
+            <div class="d-flex">
+                <% @name = MenuItem.where(id: identifier.menu_item_id).first.name %>
+                <% @individual_price = MenuItem.where(id: identifier.menu_item_id).first.price * identifier.quantity %>
+                <p><%= @name %> x <%= identifier.quantity %> | <%= @individual_price %></p>
+                <% @total_price += @individual_price %>
+                <%= form_with(model: identifier, method: :patch) do |form| %>
+                    <%= form.number_field :quantity %>
+                    <%= submit_tag "UPDATE" %>
+                <% end %>
+            </div>
+        <% end %>
     <% end %>
+
+
+
+    <h1>TOTAL PRICE <%= @total_price %></h1>
+
+    <%= form_with url: send_email_path(@order, locale: params[:locale]), method: :post do |form| %>
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+
+    <%= form.label :phone %>
+    <%= form.text_field :phone %>
+
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+
+    <%= form.label :remarks %>
+    <%= form.text_area :remarks %>
+
+    <%= form.submit "SEND ORDER" %>
+    <% end %>
+    <%= link_to "CANCEL", homepage_path(locale: params[:locale]) %>
+<% elsif params[:locale] == "ro" %>
+    <h1>COMANDA TA</h1>
+    <% @total_price = 0 %>
+    <% @order_identifier = OrderItem.where(order: @order).all.order(:menu_item_id).each do |identifier| %>
+        <% unless identifier.quantity.zero? %>
+            <div class="d-flex">
+                <% @name = MenuItem.where(id: identifier.menu_item_id).first.name %>
+                <% @individual_price = MenuItem.where(id: identifier.menu_item_id).first.price * identifier.quantity %>
+                <p><%= @name %> x <%= identifier.quantity %> | <%= @individual_price %></p>
+                <% @total_price += @individual_price %>
+                <%= form_with(model: identifier, method: :patch) do |form| %>
+                    <%= form.number_field :quantity %>
+                    <%= submit_tag "ACTUALIZARE" %>
+                <% end %>
+            </div>
+        <% end %>
+    <% end %>
+
+
+
+    <h1>PRET TOTAL <%= @total_price %></h1>
+
+    <%= form_with url: send_email_path(@order, locale: params[:locale]), method: :post do |form| %>
+    <%= form.label :nume %>
+    <%= form.text_field :first_name %>
+
+    <%= form.label :prenume %>
+    <%= form.text_field :last_name %>
+
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+
+    <%= form.label :telefon %>
+    <%= form.text_field :phone %>
+
+    <%= form.label :adresa %>
+    <%= form.text_field :address %>
+
+    <%= form.label :observatii %>
+    <%= form.text_area :remarks %>
+
+    <%= form.submit "TRIMITE COMANDA" %>
+    <% end %>
+    <%= link_to "ANULARE COMANDA", homepage_path(locale: params[:locale]) %>
 <% end %>
 
-
-
-<h1>TOTAL PRICE <%= @total_price %></h1>
-
-<%= form_with url: send_email_path(@order), method: :post do |form| %>
-  <%= form.label :first_name %>
-  <%= form.text_field :first_name %>
-
-  <%= form.label :last_name %>
-  <%= form.text_field :last_name %>
-
-  <%= form.label :email %>
-  <%= form.email_field :email %>
-
-  <%= form.label :phone %>
-  <%= form.text_field :phone %>
-
-  <%= form.label :address %>
-  <%= form.text_field :address %>
-
-  <%= form.label :remarks %>
-  <%= form.text_area :remarks %>
-
-  <%= form.submit "Place Order" %>
-<% end %>
-
-<%= link_to "HOME", homepage_path %>
-<%# <%= link_to "Place Order", send_email_path(@order) %> %>
