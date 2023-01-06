@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_05_164800) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_06_152823) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,16 +40,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_05_164800) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
-  end
-
-  create_table "contacts", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email"
-    t.string "phone"
-    t.text "message"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "customers", force: :cascade do |t|
@@ -142,20 +132,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_05_164800) do
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable"
   end
 
-  create_table "reservations", force: :cascade do |t|
-    t.datetime "reservation_time"
-    t.integer "party_size"
-    t.text "special_requests"
-    t.bigint "restaurant_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email"
-    t.string "phone"
-    t.index ["restaurant_id"], name: "index_reservations_on_restaurant_id"
-  end
-
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -206,7 +182,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_05_164800) do
   add_foreign_key "order_items", "menu_items"
   add_foreign_key "order_items", "orders"
   add_foreign_key "orders", "restaurants"
-  add_foreign_key "reservations", "restaurants"
   add_foreign_key "shopping_cart_items", "menu_items"
   add_foreign_key "shopping_cart_items", "shopping_carts"
   add_foreign_key "shopping_carts", "shopping_cart_items", column: "shopping_cart_items_id"
