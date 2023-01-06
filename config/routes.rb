@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   resources :menus, only: [:index, :show] do
     resources :menu_items, only: [:index, :show, :create, :new, :update]
   end
-  resources :reservations, only: [:create, :new]
   resources :orders, only: [:index, :show, :new, :create]
   resources :shopping_carts, only: [:new, :create] do
     resources :shopping_cart_items, only: [:new, :create, :delete]
@@ -27,5 +26,7 @@ Rails.application.routes.draw do
   post '/orders/:id/send_email/:locale', to: 'orders#send_email', as: 'send_email'
   post '/contacts/:locale', to: 'contacts#create', as: 'contacts'
   get '/contacts/:locale', to: 'contacts#new', as: 'new_contact'
+  post '/reservations/:locale', to: 'reservations#create', as: 'reservations'
+  get '/reservations/:locale', to: 'reservations#new', as: 'new_reservation'
 
 end

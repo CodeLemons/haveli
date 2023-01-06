@@ -1,3 +1,32 @@
-<div class="navbar-container">
-  <img src="assets/logohav.png" style="width: 220px" alt="">
+<div class="main-wrapper">
+  <div class="main-navbar" data-controller="menu-jump">
+    <div class="left-link-items">
+        <div class="item-button" data-action="click->menu-jump#scrollToMenu"><%= t "MENU" %></div>
+        <div class="item-button" data-action="click->menu-jump#scrollToDelivery"><%= t "DELIVERY" %></div>
+        <div class="item-button" data-action="click->menu-jump#scrollToGallery"><%= t "GALLERY" %></div>
+        <%# <div class="item-button" data-action="click->menu-jump#scrollToContact"><%= t "CONTACT" %>
+        <%= link_to t("CONTACT"), contacts_path(locale: params[:locale]), class: "item-button" %>
+    </div>
+    <div class="right-link-items">
+        <div class="shopping-cart" data-shopping-cart-target="shoppingCart">
+            <%= render "shopping_carts/shopping_cart", shopping_cart: @shopping_cart %>
+        </div>
+        <%= link_to t("BOOK"), reservations_path(locale: params[:locale]), class: "item-button" %>
+        <div class="item-button">
+            <%= form_tag(request.path, method: 'get') do %>
+            <%= select_tag 'locale', options_for_select(['en', 'ro'], params[:locale]), onchange: 'this.form.submit();' %>
+            <%= submit_tag 'Change Locale', style: 'display: none;' %>
+            <% end %>
+        </div>
+    </div>
+  </div>
+  <div class="header">
+    <img src="assets/Haveli.png" alt="">
+    <div class="video-container">
+        <div class="video-container-overlay-dim"></div>
+        <video autoplay muted loop class="background-video">
+            <source src="assets/broll.mp4" type="video/mp4">
+        </video>
+    </div>
+  </div>
 </div>
