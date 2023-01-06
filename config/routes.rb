@@ -26,6 +26,6 @@ Rails.application.routes.draw do
   get '/shopping_cart_items', to: 'shopping_carts#items'
   post '/orders/:id/send_email/:locale', to: 'orders#send_email', as: 'send_email'
   post '/contacts/:locale', to: 'contacts#create', as: 'contacts'
-  get '/contacts/:locale/new', to: 'contacts#new', as: 'new_contact'
+  get '/contacts/:locale', to: 'contacts#new', as: 'new_contact'
 
 end

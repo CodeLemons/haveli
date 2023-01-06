@@ -5,7 +5,8 @@
                 <div class="item-button" data-action="click->menu-jump#scrollToMenu"><%= t "MENU" %></div>
                 <div class="item-button" data-action="click->menu-jump#scrollToDelivery"><%= t "DELIVERY" %></div>
                 <div class="item-button" data-action="click->menu-jump#scrollToGallery"><%= t "GALLERY" %></div>
-                <div class="item-button" data-action="click->menu-jump#scrollToContact"><%= t "CONTACT" %></div>
+                <%# <div class="item-button" data-action="click->menu-jump#scrollToContact"><%= t "CONTACT" %>
+                <%= link_to t("CONTACT"), contacts_path(locale: params[:locale]), class: "item-button" %>
             </div>
             <div class="right-link-items">
                 <div class="shopping-cart" data-shopping-cart-target="shoppingCart">
