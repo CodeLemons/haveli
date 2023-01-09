@@ -7,9 +7,6 @@ import { application } from "./application"
 import ChangeValueController from "./change_value_controller"
 application.register("change-value", ChangeValueController)
 
-import ContactFormController from "./contact_form_controller"
-application.register("contact-form", ContactFormController)
-
 import DishListingController from "./dish_listing_controller"
 application.register("dish-listing", DishListingController)
 

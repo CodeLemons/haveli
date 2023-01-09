@@ -18,10 +18,9 @@ export default class extends Controller {
         htmlObject.innerHTML = data;
         const selectedDiv = htmlObject.querySelector('.dish-listing');
         this.dishListingTarget.innerHTML = selectedDiv.innerHTML;
-        console.log(window.scrollY);
-        // window.scrollTo(0, 978);
 
         const divs = Array.from(this.dishListingTarget.querySelectorAll('[data-shopping-cart-target="value"]'));
+        console.log(this.dishListingTarget.querySelectorAll('[data-shopping-cart-target="value"]'));
         divs.forEach((target) => {
           const itemCountElement = divs.find(element => element.getAttribute("data-dish-id") === target.getAttribute("data-dish-id"));
           if (itemCountElement.getAttribute("data-dish-quantity")) {
