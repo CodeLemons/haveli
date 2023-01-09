@@ -71,12 +71,12 @@
 </div>
 <div data-controller="dish-listing">
     <p class="text-3xl font-extrabold flex justify-center py-10">MENU</p>
-    <button class="mobile-button flex p-5 lg:hidden" onclick="categoriesHide()">
-    <div class="button-object">
-        <div class="bg-orange-200 w-8 h-1"></div>
-        <div class="bg-orange-200 w-8 h-1 my-2"></div>
-        <div class="bg-orange-200 w-8 h-1"></div>
-    </div>
+    <button class="mobile-button flex p-5 2xl:hidden" onclick="categoriesHide()">
+        <div class="button-object">
+            <div class="bg-orange-200 w-8 h-1"></div>
+            <div class="bg-orange-200 w-8 h-1 my-2"></div>
+            <div class="bg-orange-200 w-8 h-1"></div>
+        </div>
     </button>
     <script>
     const categoriesHide = () => {
@@ -84,15 +84,13 @@
         categories.classList.toggle('hidden');
     }
     </script>
-    <div id="categories" class="hidden flex flex-col justify-center items-center lg:flex lg:flex-row lg:justify-center lg:py-10">
+    <div id="categories" class="hidden flex flex-col justify-center items-center">
         <% @menu.each do |item| %>
-            <ul>
-                <li><%= link_to t(item.name.upcase), homepage_path(menu_id: item.id, locale: params[:locale]), data: { action: 'click->dish-listing#loadDishes' }, class: "list-none lg:list-disc text-xs lg:text-xl font-bold lg:font-extrabold lg:pr-10" %></li>
-            </ul>
+            <%= link_to t(item.name.upcase), homepage_path(menu_id: item.id, locale: params[:locale]), data: { action: 'click->dish-listing#loadDishes' }, class: "p-0 md:text-md lg:text-xl font-bold lg:font-extrabold" %>
         <% end %>
     </div>
     <div class="filler-div w-full py-10 flex justify-center">
-        <div class="dish-listing grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7" data-dish-listing-target="dishListing">
+        <div class="dish-listing grid-layout" data-dish-listing-target="dishListing">
             <% @menu_items.each do |dish| %>
                 <div class="card shadow-2xl p-5 rounded-xl bg-gradient-to-b from-red-900  text-orange-200">
                     <img class="rounded-xl shadow-2xl" src='<%= cl_image_path dish.photo.key %>' alt="dish-image">
