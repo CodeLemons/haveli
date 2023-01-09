@@ -1,8 +1,8 @@
 <% @storage = ShoppingCart.last %>
 
 <% unless @storage.nil? %>
-  <p><%= t "ITEMS IN CART" %> - <%= @storage.total_quantity %></p>
-  <p><%= t "TOTAL PRICE" %> - <%= @storage.total_price %></p>
+  <p class="text-xl font-extrabold px-3"><%= t "ITEMS IN CART" %> - <%= @storage.total_quantity %></p>
+  <p class="text-xl font-extrabold px-3"><%= t "TOTAL PRICE" %> - <%= @storage.total_price %></p>
 <% end %>
-<%= button_to "Checkout", finalize_shopping_cart_path(locale: params[:locale]), method: :patch %>
+<%= button_to "CHECKOUT", finalize_shopping_cart_path(locale: params[:locale]), method: :patch, class: "text-xl font-extrabold px-3" %>
 

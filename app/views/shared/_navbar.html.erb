@@ -1,34 +1,33 @@
-<div class="main-wrapper">
-  <div class="main-navbar" data-controller="menu-jump">
-    <div class="left-link-items">
-        <div class="item-button" data-action="click->menu-jump#scrollToMenu"><%= t "MENU" %></div>
-        <div class="item-button" data-action="click->menu-jump#scrollToDelivery"><%= t "DELIVERY" %></div>
-        <div class="item-button" data-action="click->menu-jump#scrollToGallery"><%= t "GALLERY" %></div>
-        <%# <div class="item-button" data-action="click->menu-jump#scrollToContact"><%= t "CONTACT" %>
-        <%= link_to t("CONTACT"), contacts_path(locale: params[:locale]), class: "item-button" %>
+<nav id="navbar" class="w-full sticky top-0 z-10">
+  <button class="mobile-button p-5 lg:hidden" onclick="toggleHidden()">
+    <div class="bg-orange-200 w-8 h-1"></div>
+    <div class="bg-orange-200 w-8 h-1 my-2"></div>
+    <div class="bg-orange-200 w-8 h-1"></div>
+  </button>
+  <script>
+    const toggleHidden = () => {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('hidden');
+    }
+  </script>
+  <div id ="menu" class="hidden flex flex-col lg:flex lg:flex-row lg:justify-between lg:py-5">
+    <div class="px-2 flex flex-col text-sm lg:flex-row lg:flex lg:mt-0">
+      <div class="navlink text-xl font-extrabold px-3" data-action="click->menu-jump#scrollToMenu"><%= t "MENU" %></div>
+      <div class="navlink text-xl font-extrabold px-3" data-action="click->menu-jump#scrollToDelivery"><%= t "DELIVERY" %></div>
+      <div class="navlink text-xl font-extrabold px-3" data-action="click->menu-jump#scrollToGallery"><%= t "GALLERY" %></div>
+      <%= link_to t("CONTACT"), contacts_path(locale: params[:locale]), class: "text-xl font-extrabold px-3 text-orange-200 no-underline" %>
     </div>
-    <div class="right-link-items">
-        <div class="shopping-cart" data-shopping-cart-target="shoppingCart">
-            <%= render "shopping_carts/shopping_cart", shopping_cart: @shopping_cart %>
-        </div>
-        <%= link_to t("BOOK"), reservations_path(locale: params[:locale]), class: "item-button" %>
-        <div class="item-button">
-            <%= form_tag(request.path, method: 'get') do %>
-            <%= select_tag 'locale', options_for_select(['en', 'ro'], params[:locale]), onchange: 'this.form.submit();' %>
-            <%= submit_tag 'Change Locale', style: 'display: none;' %>
-            <% end %>
-        </div>
+    <div class="px-2 flex flex-col text-sm lg:flex-row lg:flex lg:mt-0">
+      <div class="navlink text-xl font-extrabold px-3" data-shopping-cart-target="shoppingCart">
+        <%= render "shopping_carts/shopping_cart", shopping_cart: @shopping_cart %>
+      </div>
+      <%= link_to t("BOOK"), reservations_path(locale: params[:locale]), class: "navlink text-xl font-extrabold px-3 text-orange-200 no-underline" %>
+      <div class="navlink text-xl font-extrabold px-3 text-orange-200 no-underline">
+        <%= form_tag(request.path, method: 'get') do %>
+        <%= select_tag 'locale', options_for_select(['en', 'ro'], params[:locale]), onchange: 'this.form.submit();' %>
+        <%= submit_tag 'Change Locale', style: 'display: none;' %>
+        <% end %>
+      </div>
     </div>
   </div>
-  <div class="header">
-    <img src="assets/Haveli.png" alt="">
-    <div class="video-container">
-        <div class="video-container-overlay-dim"></div>
-        <video autoplay muted loop class="background-video">
-            <source src="assets/broll.mp4" type="video/mp4">
-        </video>
-    </div>
-  </div>
-</div>
-
-
+</nav>
