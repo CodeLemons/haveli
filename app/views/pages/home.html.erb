@@ -70,8 +70,8 @@
     <img class="logo absolute" src="assets/logo.png" alt="">
 </div>
 <div data-controller="dish-listing">
-    <p class="text-3xl font-extrabold flex justify-center py-10">MENU</p>
-    <button class="mobile-button flex p-5 2xl:hidden" onclick="categoriesHide()">
+    <p class="text-3xl font-extrabold flex justify-center py-10"><%= t "MENU" %></p>
+    <button class="mobile-button flex p-5 xl:hidden" onclick="categoriesHide()">
         <div class="button-object">
             <div class="bg-orange-200 w-8 h-1"></div>
             <div class="bg-orange-200 w-8 h-1 my-2"></div>
@@ -105,10 +105,10 @@
                         <p class="text-sm font-bold px-3"><%= dish.pieces %> <%= t "pieces" %> | <%= dish.weight %> G</p>
                     <% end %>
                     <div class="flex justify-center py-2">
-                        <%= button_to "REMOVE", remove_form_shopping_cart_path(menu_item_id: dish.id, authenticity_token: form_authenticity_token, locale: params[:locale]), method: :post, data: { action: "click->shopping-cart#removeItem", dish_id: dish.id }, class: "text-sm font-bold px-3" %>
+                        <%= button_to "-", remove_form_shopping_cart_path(menu_item_id: dish.id, authenticity_token: form_authenticity_token, locale: params[:locale]), method: :post, data: { action: "click->shopping-cart#removeItem", dish_id: dish.id }, class: "text-sm font-extrabold px-3" %>
                         <% @quan = ShoppingCartItem.where(shopping_cart: ShoppingCart.last, menu_item_id: dish.id).first %>
                         <p class="text-sm font-bold px-3" data-shopping-cart-target="value" data-dish-listing-target="value" data-dish-quantity="<%= @quan.quantity unless @quan.nil?  %>" data-dish-id="<%= dish.id %>">0</p>
-                        <%= button_to "ADD", shopping_carts_path(menu_item_id: dish.id, locale: params[:locale]), method: :post, data: { action: "click->shopping-cart#addItem", dish_id: dish.id }, class: "text-sm font-bold px-3" %>
+                        <%= button_to "+", shopping_carts_path(menu_item_id: dish.id, locale: params[:locale]), method: :post, data: { action: "click->shopping-cart#addItem", dish_id: dish.id }, class: "text-sm font-extrabold px-3" %>
                     </div>
                     <div class="flex justify-between py-3">
                         <p class="text-sm font-bold px-3"><%= t "PRICE" %></p>

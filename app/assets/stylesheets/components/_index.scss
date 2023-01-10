@@ -16,7 +16,7 @@
 
 
 video {
-    height: 100vh;
+    height: 93vh;
     width: 100vw;
     object-fit: cover;
 }
@@ -296,25 +296,7 @@ body {
 
 }
 
-@media screen and (min-width: 1536px) {
-    .logo {
-        width: 400px;
-        height: 400px;
-        left:0;
-        right:0;
-        top: 25%;
-        margin:auto;
-    }
-
-    .grid-layout {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, 248px);
-        grid-gap: 29px 29px;
-        margin: auto;
-        max-width: 1355px;
-        justify-items: center;
-        justify-content: center;
-    }
+@media screen and (min-width: 1280px) {
 
     #categories {
         display: flex;
@@ -349,6 +331,90 @@ body {
     height: 200px;
 }
 
+@media screen and (min-width: 1280px) {
+
+    #categories {
+        display: flex;
+        flex-direction: row;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        padding-left: 80px;
+        padding-right: 80px;
+        
+        a {
+            padding: 5px;
+            font-size: 15px;
+            margin-right: 15px;
+            transition: ease-in 0.2s;
+            border: solid #fed7aa00;
+            border-radius: 10px;
+            
+        }
+        
+        a:hover {
+            border: solid #fed7aa;
+            border-radius: 10px;
+            background-color: #fed7aa;
+            color: #18181b;
+        }
+    }
+
+}
+
+@media screen and (min-width: 1541px) {
+
+    #categories {
+        display: flex;
+        flex-direction: row;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        padding-left: 80px;
+        padding-right: 80px;
+        
+        a {
+            padding: 5px;
+            font-size: 20px;
+            margin-right: 15px;
+            transition: ease-in 0.2s;
+            border: solid #fed7aa00;
+            border-radius: 10px;
+            
+        }
+        
+        a:hover {
+            border: solid #fed7aa;
+            border-radius: 10px;
+            background-color: #fed7aa;
+            color: #18181b;
+        }
+    }
+
+}
+
+.serving-dish {
+    width: 30px;
+    height: 25px;
+}
+
+.divider {
+    width: 29px;
+    height: 41px;
+}
+
+.checkmark:hover {
+    color: #18181b;
+}
+
+.shopping-cart-box {
+    height: 44px;
+    margin-top: 4px;
+
+    .shop-box {
+        width: 208px;
+    }
+}
+
 .navlink {
-    height: 29px;
+    padding-bottom: 0px;
+    padding-top: 9px;
 }

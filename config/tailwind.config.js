@@ -32,6 +32,9 @@ module.exports = {
         '2xl': '1536px',
         // => @media (min-width: 1536px) { ... }
       },
+      variants: {
+        fill: ['hover', 'focus'], // this line does the trick
+      },
       fontSize: {
         sm: '12px',
         base: '1rem',
