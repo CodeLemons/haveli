@@ -12,33 +12,32 @@
     }
   </script>
   <div class="nav-bar-contents flex justify-between">
-    <div id ="menu">
-      <div class="hidden lg:px-2 lg:flex lg:flex-row lg:py-5">
-        <div class="navlink mx-3 pt-2 px-3 text-xl font-extrabold border-2 border-transparent rounded-xl transition duration-200 hover:ease-in hover:text-zinc-900 hover:bg-orange-200 hover:border-2 hover:border-orange-200 cursor-pointer" data-action="click->menu-jump#scrollToMenu"><%= t "MENU" %></div>
-        <div class="navlink mx-3 pt-2 px-3 text-xl font-extrabold border-2 border-transparent rounded-xl transition duration-200 hover:ease-in hover:text-zinc-900 hover:bg-orange-200 hover:border-2 hover:border-orange-200 cursor-pointer" data-action="click->menu-jump#scrollToDelivery"><%= t "DELIVERY" %></div>
-        <div class="navlink mx-3 pt-2 px-3 text-xl font-extrabold border-2 border-transparent rounded-xl transition duration-200 hover:ease-in hover:text-zinc-900 hover:bg-orange-200 hover:border-2  hover:border-orange-200 cursor-pointer" data-action="click->menu-jump#scrollToGallery"><%= t "GALLERY" %></div>
-        <%= link_to t("CONTACT"), contacts_path(locale: params[:locale]), class: "navlink mx-3 pt-2 px-2 text-xl font-extrabold text-orange-200 no-underline transition duration-200 hover:ease-in rounded-xl hover:text-zinc-900 border-2 border-transparent hover:bg-orange-200 hover:border-2  hover:border-orange-200" %>
-        <%= link_to t("BOOK"), reservations_path(locale: params[:locale]), class: "navlink  mx-3 pt-2 text-xl font-extrabold px-3 transition duration-200 hover:ease-in hover:text-zinc-900 text-orange-200 no-underline rounded-xl border-2 border-transparent  hover:border-2 hover:bg-orange-200 hover:border-orange-200" %>
+    <div id ="menu" class="pt-2">
+      <div class="hidden lg:px-2 lg:flex lg:flex-row lg:py-3">
+        <div class="navlink mx-3 px-3 text-xl font-extrabold border-2 border-transparent rounded-xl transition duration-200 hover:ease-in hover:text-zinc-900 hover:bg-orange-200 hover:border-2 hover:border-orange-200 cursor-pointer" data-action="click->menu-jump#scrollToMenu"><%= t "MENU" %></div>
+        <div class="navlink mx-3 px-3 text-xl font-extrabold border-2 border-transparent rounded-xl transition duration-200 hover:ease-in hover:text-zinc-900 hover:bg-orange-200 hover:border-2 hover:border-orange-200 cursor-pointer" data-action="click->menu-jump#scrollToDelivery"><%= t "DELIVERY" %></div>
+        <div class="navlink mx-3 px-3 text-xl font-extrabold border-2 border-transparent rounded-xl transition duration-200 hover:ease-in hover:text-zinc-900 hover:bg-orange-200 hover:border-2  hover:border-orange-200 cursor-pointer" data-action="click->menu-jump#scrollToGallery"><%= t "GALLERY" %></div>
+        <%= link_to t("CONTACT"), contacts_path(locale: params[:locale].downcase), class: "navlink mx-3 px-2 text-xl font-extrabold text-orange-200 no-underline transition duration-200 hover:ease-in rounded-xl hover:text-zinc-900 border-2 border-transparent hover:bg-orange-200 hover:border-2  hover:border-orange-200" %>
+        <%= link_to t("BOOK"), reservations_path(locale: params[:locale].downcase), class: "navlink  mx-3 text-xl font-extrabold px-3 transition duration-200 hover:ease-in hover:text-zinc-900 text-orange-200 no-underline rounded-xl border-2 border-transparent  hover:border-2 hover:bg-orange-200 hover:border-orange-200" %>
       </div>
     </div>
     <div class="flex">
-      <div class="py-5" data-shopping-cart-target="shoppingCart">
+      <div class="py-4" data-shopping-cart-target="shoppingCart">
         <%= render "shopping_carts/shopping_cart", shopping_cart: @shopping_cart %>
       </div>
       <div class="flex justify-center items-center pt-2 text-xl font-extrabold px-3 text-orange-200 no-underline">
-        <%= form_tag(request.path, method: 'get') do %>
-        <%= select_tag 'locale', options_for_select(['en', 'ro'], params[:locale]), onchange: 'this.form.submit();' %>
-        <%= submit_tag 'Change Locale', style: 'display: none;' %>
+        <%= form_tag(request.path, method: 'get', class: "language-selector") do %>
+          <%= select_tag 'locale', options_for_select(['en', 'ro'].map(&:upcase), params[:locale]), onchange: 'this.form.submit();' %>
+          <%= submit_tag 'Change Locale', style: 'display: none;' %>
         <% end %>
       </div>
     </div>
   </div>
 </nav>
-
-<div id="dropdown-menu" class="hidden transition duration-200 hover:ease-in flex flex-col text-left px-0 pb-5">
-  <div class="navlink mx-3 pt-2 px-3 text-xl font-extrabold border-2 border-transparent rounded-xl transition duration-200 hover:ease-in hover:text-zinc-900 hover:bg-orange-200 hover:border-2 hover:border-orange-200 cursor-pointer" data-action="click->menu-jump#scrollToMenu"><%= t "MENU" %></div>
-  <div class="navlink mx-3 pt-2 px-3 text-xl font-extrabold border-2 border-transparent rounded-xl transition duration-200 hover:ease-in hover:text-zinc-900 hover:bg-orange-200 hover:border-2 hover:border-orange-200 cursor-pointer" data-action="click->menu-jump#scrollToDelivery"><%= t "DELIVERY" %></div>
-  <div class="navlink mx-3 pt-2 px-3 text-xl font-extrabold border-2 border-transparent rounded-xl transition duration-200 hover:ease-in hover:text-zinc-900 hover:bg-orange-200 hover:border-2  hover:border-orange-200 cursor-pointer" data-action="click->menu-jump#scrollToGallery"><%= t "GALLERY" %></div>
-  <%= link_to t("CONTACT"), contacts_path(locale: params[:locale]), class: "navlink mx-3 pt-2 px-3 text-xl font-extrabold text-orange-200 no-underline transition duration-200 hover:ease-in rounded-xl hover:text-zinc-900 border-2 border-transparent hover:bg-orange-200 hover:border-2  hover:border-orange-200" %>
-  <%= link_to t("BOOK"), reservations_path(locale: params[:locale]), class: "navlink  mx-3 pt-2 text-xl font-extrabold px-3 transition duration-200 hover:ease-in hover:text-zinc-900 text-orange-200 no-underline rounded-xl border-2 border-transparent  hover:border-2 hover:bg-orange-200 hover:border-orange-200" %>
+<div id="dropdown-menu" class="z-10 hidden transition duration-200 hover:ease-in flex flex-col text-left px-0 pb-5">
+  <div class="navlink mx-3 px-3 text-xl font-extrabold border-2 border-transparent rounded-xl transition duration-200 hover:ease-in hover:text-zinc-900 hover:bg-orange-200 hover:border-2 hover:border-orange-200 cursor-pointer" data-action="click->menu-jump#scrollToMenu"><%= t "MENU" %></div>
+  <div class="navlink mx-3 px-3 text-xl font-extrabold border-2 border-transparent rounded-xl transition duration-200 hover:ease-in hover:text-zinc-900 hover:bg-orange-200 hover:border-2 hover:border-orange-200 cursor-pointer" data-action="click->menu-jump#scrollToDelivery"><%= t "DELIVERY" %></div>
+  <div class="navlink mx-3 px-3 text-xl font-extrabold border-2 border-transparent rounded-xl transition duration-200 hover:ease-in hover:text-zinc-900 hover:bg-orange-200 hover:border-2  hover:border-orange-200 cursor-pointer" data-action="click->menu-jump#scrollToGallery"><%= t "GALLERY" %></div>
+  <%= link_to t("CONTACT"), contacts_path(locale: params[:locale].downcase), class: "navlink mx-3 pt-2 px-3 text-xl font-extrabold text-orange-200 no-underline transition duration-200 hover:ease-in rounded-xl hover:text-zinc-900 border-2 border-transparent hover:bg-orange-200 hover:border-2  hover:border-orange-200" %>
+  <%= link_to t("BOOK"), reservations_path(locale: params[:locale].downcase), class: "navlink  mx-3 pt-2 text-xl font-extrabold px-3 transition duration-200 hover:ease-in hover:text-zinc-900 text-orange-200 no-underline rounded-xl border-2 border-transparent  hover:border-2 hover:bg-orange-200 hover:border-orange-200" %>
 </div>

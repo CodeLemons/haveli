@@ -18,3 +18,49 @@ body {
 .menu-bar {
     width: 55%;
 }
+
+#menu {
+    padding-top: 11px
+}
+
+.language-selector {
+    select {
+        margin-bottom: 4px;
+        padding-right: 30px;
+        border: solid #fed7aa;
+        border-width: 2px;
+        border-radius: 12px;
+        background-color: #18181b;
+        height: 44px;
+        cursor: pointer;
+    }
+}
+
+#dropdown-menu {
+    position: sticky;
+    top: 80px;
+    background-color: #18181b;
+}
+
+#categories {
+    a {
+        margin-left: 15px;
+    }
+}
+
+
+.grid-div {
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 340px);
+    grid-gap: 29px 29px;
+    margin: auto;
+    max-width: 1078px;
+    justify-items: center;
+    justify-content: center;
+
+    img {
+        height: 220px;
+        width: 350px;
+    }
+}

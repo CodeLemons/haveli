@@ -18,7 +18,7 @@
       <p class="text-xs font-extrabold px-2 pt-1"><%= @storage.total_quantity %></p>
       <svg class="divider" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 2C7.77614 2 8 2.22386 8 2.5L8 12.5C8 12.7761 7.77614 13 7.5 13C7.22386 13 7 12.7761 7 12.5L7 2.5C7 2.22386 7.22386 2 7.5 2Z" fill="#fed7aa"></path> </g></svg>
       <p class="text-xs font-extrabold pt-1"><%= @storage.total_price %> LEI</p>
-      <%= button_to finalize_shopping_cart_path(locale: params[:locale]), method: :patch, class: "pb-2 pt-3 text-xl font-extrabold pl-3" do %>
+      <%= button_to finalize_shopping_cart_path(locale: params[:locale].downcase), method: :patch, class: "pb-2 pt-3 text-xl font-extrabold pl-3" do %>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>

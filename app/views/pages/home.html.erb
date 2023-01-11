@@ -7,7 +7,7 @@
         <img class="logo absolute" src="assets/logo.png" alt="">
     </div>
     <div data-controller="dish-listing">
-        <div class="menu-bar flex justify-between items-center">
+        <div class="menu-bar flex justify-between items-center pt-5">
             <button class="mobile-button flex p-5 lg:hidden" onclick="categoriesHide()">
                 <div class="button-object">
                     <div class="bg-orange-200 w-8 h-1"></div>
@@ -58,7 +58,34 @@
             </div>
         </div>
     </div>
-</div>  
+    <div class="delivery-content container mx-auto py-10">
+        <p class="text-center py-10 text-3xl font-extrabold" > <%= t "DELIVERY" %></p>
+        <div class="text-center leading-10 text-xl font-bold py-10">
+            <h2><%= t "Free delivery in Bucharest!" %></h2>
+            <p><%= t "(Within areas Mosilor, Stefan cel mare, Obor, Colentina, Unirii, Iancului, Victoriei, Mihai Bravu, Piata Muncii, Piata Alba Iulia)" %></p>
+            <p><%= t "Delivery between" %></p> 
+            <p><%= t "Tuesday to Sunday, 12PM and 22PM" %></p>
+            <p><%= t "The minimum order is 70 RON" %></p> 
+            <p><%= t "The shipping cost will be determined based on the order value and area to be delivered" %></p> 
+            <p><%= t "This value will be communicated by the operator when the order is received" %></p> 
+        </div>
+        <div style="max-width: 1300px; height: 600px; margin: 0 auto;" class="rounded-xl shadow-inner" data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    </div>
+    <div class="container mx-auto">
+        <p class="text-center py-20 text-3xl font-extrabold" > <%= t "PHOTO GALLERY" %></p>
+        <div class="grid-div py-10">
+            <% @gallery.each do |image| %>
+                <img class="rounded-xl shadow-xl" src='<%= cl_image_path image.image.key %>' alt="gallery-images">
+            <% end %>
+        </div>
+    </div>
+    <footer class="text-center text-orange-20000" style="background-color: #1c1917;">
+        <div class="text-center text-orange-200 p-4" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2023 Copyright:
+        <a class="text-orange-200" href="https://www.linkedin.com/in/alihamzaasam/">Alyx</a>
+        </div>
+    </footer>
+</div>
 <%# MenuItem.where(menu: Menu.find(47)).each do |m_item| %>
 
     <%# Mobility.locale = :en %>
