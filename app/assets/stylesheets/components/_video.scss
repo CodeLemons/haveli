@@ -1,14 +1,5 @@
-.video-container-overlay-dim {
-    height: 100vh;
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 2;
-    background-color: rgba(0,0,0,.5);
-    background-image: linear-gradient(0deg,#000,#e1f7b9);
-    opacity: 1;
-    mix-blend-mode: multiply;
+video {
+    height: 93vh;
+    width: 100vw;
+    object-fit: cover;
 }
-

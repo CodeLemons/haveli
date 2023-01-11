@@ -1,125 +1,64 @@
 <div data-controller="shopping-cart">
     <%= render 'shared/navbar' %>
-    
-    <% if false %>
-            <div class="content">
-                <div class="menu-content">
-                    <div class="menu-container" data-controller="dish-listing">
-                        <div class="menu-categories">
-                            <% @menu.each do |item| %>
-                                <%= link_to t(item.name.upcase), homepage_path(menu_id: item.id, locale: params[:locale]), data: { action: 'click->dish-listing#loadDishes' } %>
-                            <% end %>
-                        </div>
-                        <div class="dish-listing" data-dish-listing-target="dishListing">
-                            <% @menu_items.each do |dish| %>
-                                <div class="dish-card">
-                                        <img src='<%= cl_image_path dish.photo.key %>' alt="dish-image">
-                                        <h2><%= dish.name %></h2>
-                                        <% Mobility.with_locale(params[:locale]) do %>
-                                            <p><%= dish.description %></p>
-                                        <% end %>
-                                        <% if dish.pieces == 0 && dish.weight == 0 %>
-                                            <p></p>
-                                        <% elsif dish.pieces == 0 %>
-                                            <h4><%= dish.weight %> G</h4>
-                                        <% elsif dish.weight == 0 %>
-                                            <h4><%= dish.pieces %> <%= t "pieces" %></h4>
-                                        <% else %>
-                                            <h4><%= dish.pieces %> <%= t "pieces" %> | <%= dish.weight %> G</h4>
-                                        <% end %>
-                                        <%= button_to "Add to cart", shopping_carts_path(menu_item_id: dish.id, locale: params[:locale]), method: :post, data: { action: "click->shopping-cart#addItem", dish_id: dish.id } %>
-                                        <% @quan = ShoppingCartItem.where(shopping_cart: ShoppingCart.last, menu_item_id: dish.id).first %>
-                                        <p data-shopping-cart-target="value" data-dish-listing-target="value" data-dish-quantity="<%= @quan.quantity unless @quan.nil?  %>" data-dish-id="<%= dish.id %>">0</p>
-                                        <%= button_to "Remove from cart", remove_form_shopping_cart_path(menu_item_id: dish.id, authenticity_token: form_authenticity_token, locale: params[:locale]), method: :post, data: { action: "click->shopping-cart#removeItem", dish_id: dish.id } %>
-                                        
-                                        <div class="dish-price-container">
-                                            <h5><%= t "PRICE" %></h5>
-                                            <p><%= dish.price %> LEI</p>
-                                        </div>
-                                </div>
-                            <% end %>
-                        </div>
-                    </div>
-                </div>
-                <div class="delivery-content">
-                    <h2><%= t "Free delivery in Bucharest!" %></h2>
-                    <p><%= t "(Within areas Mosilor, Stefan cel mare, Obor, Colentina, Unirii, Iancului, Victoriei, Mihai Bravu, Piata Muncii, Piata Alba Iulia)" %></p>
-                    <p><%= t "Delivery between" %></p> 
-                    <p><%= t "Tuesday to Sunday, 12PM and 22PM" %></p>
-                    <p><%= t "The minimum order is 70 RON" %></p> 
-                    <p><%= t "The shipping cost will be determined based on the order value and area to be delivered" %></p> 
-                    <p><%= t "This value will be communicated by the operator when the order is received" %></p> 
-                    <div style="max-width: 1300px; height: 600px; margin: 0 auto;" data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-                    </div>
-                </div>
-                <div class="gallery-content">
-                    <h1> <%= t "PHOTO GALLERY" %></h1>
-                    <div class="images-display">
-                        <% @gallery.each do |image| %>
-                            <img src='<%= cl_image_path image.image.key %>' alt="images">
-                        <% end %>
-                    </div>
-                </div>
-            </div>
-    <% end %>
-
-<div class="relative">
-    <video autoplay muted loop class="brightness-50 z-0">
-    <source src="assets/broll.mp4" type="video/mp4">
-    </video>
-    <img class="logo absolute" src="assets/logo.png" alt="">
-</div>
-<div data-controller="dish-listing">
-    <p class="text-3xl font-extrabold flex justify-center py-10"><%= t "MENU" %></p>
-    <button class="mobile-button flex p-5 xl:hidden" onclick="categoriesHide()">
-        <div class="button-object">
-            <div class="bg-orange-200 w-8 h-1"></div>
-            <div class="bg-orange-200 w-8 h-1 my-2"></div>
-            <div class="bg-orange-200 w-8 h-1"></div>
-        </div>
-    </button>
-    <script>
-    const categoriesHide = () => {
-        const categories = document.getElementById('categories');
-        categories.classList.toggle('hidden');
-    }
-    </script>
-    <div id="categories" class="hidden flex flex-col justify-center items-center">
-        <% @menu.each do |item| %>
-            <%= link_to t(item.name.upcase), homepage_path(menu_id: item.id, locale: params[:locale]), data: { action: 'click->dish-listing#loadDishes' }, class: "p-0 md:text-md lg:text-xl font-bold lg:font-extrabold" %>
-        <% end %>
+    <div class="relative">
+        <video autoplay muted loop class="brightness-50 z-0">
+        <source src="assets/broll.mp4" type="video/mp4">
+        </video>
+        <img class="logo absolute" src="assets/logo.png" alt="">
     </div>
-    <div class="filler-div w-full py-10 flex justify-center">
-        <div class="dish-listing grid-layout" data-dish-listing-target="dishListing">
-            <% @menu_items.each do |dish| %>
-                <div class="card shadow-2xl p-5 rounded-xl bg-gradient-to-b from-red-900  text-orange-200">
-                    <img class="rounded-xl shadow-2xl" src='<%= cl_image_path dish.photo.key %>' alt="dish-image">
-                    <p class="text-sm font-bold px-3 py-3"><%= dish.description %></p>
-                    <% if dish.pieces == 0 && dish.weight == 0 %>
-                        <p></p>
-                    <% elsif dish.pieces == 0 %>
-                        <p class="text-sm font-bold px-3"><%= dish.weight %> G</p>
-                    <% elsif dish.weight == 0 %>
-                        <p class="text-sm font-bold px-3"><%= dish.pieces %> <%= t "pieces" %></p>
-                    <% else %>
-                        <p class="text-sm font-bold px-3"><%= dish.pieces %> <%= t "pieces" %> | <%= dish.weight %> G</p>
-                    <% end %>
-                    <div class="flex justify-center py-2">
-                        <%= button_to "-", remove_form_shopping_cart_path(menu_item_id: dish.id, authenticity_token: form_authenticity_token, locale: params[:locale]), method: :post, data: { action: "click->shopping-cart#removeItem", dish_id: dish.id }, class: "text-sm font-extrabold px-3" %>
-                        <% @quan = ShoppingCartItem.where(shopping_cart: ShoppingCart.last, menu_item_id: dish.id).first %>
-                        <p class="text-sm font-bold px-3" data-shopping-cart-target="value" data-dish-listing-target="value" data-dish-quantity="<%= @quan.quantity unless @quan.nil?  %>" data-dish-id="<%= dish.id %>">0</p>
-                        <%= button_to "+", shopping_carts_path(menu_item_id: dish.id, locale: params[:locale]), method: :post, data: { action: "click->shopping-cart#addItem", dish_id: dish.id }, class: "text-sm font-extrabold px-3" %>
-                    </div>
-                    <div class="flex justify-between py-3">
-                        <p class="text-sm font-bold px-3"><%= t "PRICE" %></p>
-                        <p class="text-sm font-bold px-3"><%= dish.price %> LEI</p>
-                    </div>
+    <div data-controller="dish-listing">
+        <div class="menu-bar flex justify-between items-center">
+            <button class="mobile-button flex p-5 lg:hidden" onclick="categoriesHide()">
+                <div class="button-object">
+                    <div class="bg-orange-200 w-8 h-1"></div>
+                    <div class="bg-orange-200 w-8 h-1 my-2"></div>
+                    <div class="bg-orange-200 w-8 h-1"></div>
                 </div>
+            </button>
+            <p class="text-3xl font-extrabold flex justify-center"><%= t "MENU" %></p>
+            <script>
+                const categoriesHide = () => {
+                    const categories = document.getElementById('categories');
+                    categories.classList.toggle('hidden');
+                }
+            </script>
+        </div>
+        <div id="categories" class="hidden flex flex-col lg:flex lg:flex-row lg:justify-center lg:items-center">
+            <% @menu.each do |item| %>
+                <%= link_to t(item.name.upcase), homepage_path(menu_id: item.id, locale: params[:locale]), data: { action: 'click->dish-listing#loadDishes' }, class: "p-0 font-bold lg:font-extrabold" %>
             <% end %>
         </div>
+        <div class="filler-div w-full py-10 flex justify-center">
+            <div class="dish-listing grid-layout" data-dish-listing-target="dishListing">
+                <% @menu_items.each do |dish| %>
+                    <div class="card shadow-2xl p-5 rounded-xl bg-gradient-to-b from-red-900  text-orange-200">
+                        <img class="rounded-xl shadow-2xl" src='<%= cl_image_path dish.photo.key %>' alt="dish-image">
+                        <p class="text-sm font-bold px-3 py-3"><%= dish.description %></p>
+                        <% if dish.pieces == 0 && dish.weight == 0 %>
+                            <p></p>
+                        <% elsif dish.pieces == 0 %>
+                            <p class="text-sm font-bold px-3"><%= dish.weight %> G</p>
+                        <% elsif dish.weight == 0 %>
+                            <p class="text-sm font-bold px-3"><%= dish.pieces %> <%= t "pieces" %></p>
+                        <% else %>
+                            <p class="text-sm font-bold px-3"><%= dish.pieces %> <%= t "pieces" %> | <%= dish.weight %> G</p>
+                        <% end %>
+                        <div class="flex justify-center py-2">
+                            <%= button_to "-", remove_form_shopping_cart_path(menu_item_id: dish.id, authenticity_token: form_authenticity_token, locale: params[:locale]), method: :post, data: { action: "click->shopping-cart#removeItem", dish_id: dish.id }, class: "text-sm font-extrabold px-3" %>
+                            <% @quan = ShoppingCartItem.where(shopping_cart: ShoppingCart.last, menu_item_id: dish.id).first %>
+                            <p class="text-sm font-bold px-3" data-shopping-cart-target="value" data-dish-listing-target="value" data-dish-quantity="<%= @quan.quantity unless @quan.nil?  %>" data-dish-id="<%= dish.id %>">0</p>
+                            <%= button_to "+", shopping_carts_path(menu_item_id: dish.id, locale: params[:locale]), method: :post, data: { action: "click->shopping-cart#addItem", dish_id: dish.id }, class: "text-sm font-extrabold px-3" %>
+                        </div>
+                        <div class="flex justify-between py-3">
+                            <p class="text-sm font-bold px-3"><%= t "PRICE" %></p>
+                            <p class="text-sm font-bold px-3"><%= dish.price %> LEI</p>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
     </div>
-</div>
-    
+</div>  
 <%# MenuItem.where(menu: Menu.find(47)).each do |m_item| %>
 
     <%# Mobility.locale = :en %>
