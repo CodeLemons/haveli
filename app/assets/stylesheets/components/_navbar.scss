@@ -1,21 +1,31 @@
-.main-navbar {
-  width: 100%;
-  height: 63px;
-  display: flex;
-  justify-content: space-between;
-  padding: 16px;
-  align-items: center;
-  // background-color: rgba(0, 0, 0, 0.511);
-  position: absolute;
-  z-index: 3;
-  border-bottom: solid black;
-  border-width: thin;
-
-  .left-link-items {
-    display: flex;
-  }
-
-  .right-link-items {
-    display: flex;
-  }
+#navbar {
+    background-color: #18181b;
 }
+
+.serving-dish {
+    width: 30px;
+    height: 25px;
+}
+
+.divider {
+    width: 29px;
+    height: 41px;
+}
+
+.checkmark:hover {
+    color: #18181b;
+}
+
+.shopping-cart-box {
+    height: 44px;
+    margin-top: 4px;
+
+    .shop-box {
+        width: 208px;
+    }
+}
+
+.navlink {
+    padding-bottom: 0px;
+}
+

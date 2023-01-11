@@ -1,39 +1,66 @@
-.landing-container {
-  display: flex;
-  height: 100vh;
-}
-
-.left-divider {
-  width: 50vw;
-  background-color: #0C0805;
-  padding-bottom: 150px;
-  // position: relative;
-}
-
-.right-divider {
-  // position: relative;
-  width: 50vw;
-  background-image: url("taj.jpg");
-  background-size: cover;
-  background-position: center;
-
-  .blur-panel {
-    // position: absolute;
-    width: 150px;
-    height: 100vh;
-    background-color: #0c0805d5;
-    backdrop-filter: blur(6px);
-  }
-}
-
-.main-wrapper {
-  position: relative;
+body {
+    color: #fed7aa;
+    background-color: #18181b;
 }
 
 
-.delivery-content {
-  color: white;
-  font-weight: bold;
-  height: 800px;
-  background-color: #0C0805;
+#navbar {
+    button {
+        margin-left: 7px;
+    }
+
+}
+
+.mobile-button {
+    margin-left: 7px;
+}
+
+.menu-bar {
+    width: 55%;
+}
+
+#menu {
+    padding-top: 11px
+}
+
+.language-selector {
+    select {
+        margin-bottom: 4px;
+        padding-right: 30px;
+        border: solid #fed7aa;
+        border-width: 2px;
+        border-radius: 12px;
+        background-color: #18181b;
+        height: 44px;
+        cursor: pointer;
+    }
+}
+
+#dropdown-menu {
+    position: sticky;
+    top: 80px;
+    background-color: #18181b;
+}
+
+#categories {
+    a {
+        margin-left: 15px;
+    }
+}
+
+
+.grid-div {
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 340px);
+    grid-gap: 29px 29px;
+    margin: auto;
+    max-width: 1078px;
+    justify-items: center;
+    justify-content: center;
+
+    img {
+        height: 220px;
+        width: 350px;
+    }
 }

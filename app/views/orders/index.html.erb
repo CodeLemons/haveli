@@ -1,5 +1,5 @@
 
-<% if params[:locale] == "en" %>
+<% if params[:locale].downcase == "en" %>
     <h1>YOUR ORDER</h1>
     <% @total_price = 0 %>
     <% @order_identifier = OrderItem.where(order: @order).all.order(:menu_item_id).each do |identifier| %>
@@ -21,7 +21,7 @@
 
     <h1>TOTAL PRICE <%= @total_price %></h1>
 
-    <%= form_with url: send_email_path(@order, locale: params[:locale]), method: :post do |form| %>
+    <%= form_with url: send_email_path(@order, locale: params[:locale].downcase), method: :post do |form| %>
     <%= form.label :first_name %>
     <%= form.text_field :first_name %>
 
@@ -42,8 +42,8 @@
 
     <%= form.submit "SEND ORDER" %>
     <% end %>
-    <%= link_to "CANCEL", homepage_path(locale: params[:locale]) %>
-<% elsif params[:locale] == "ro" %>
+    <%= link_to "CANCEL", homepage_path(locale: params[:locale].downcase) %>
+<% elsif params[:locale].downcase == "ro" %>
     <h1>COMANDA TA</h1>
     <% @total_price = 0 %>
     <% @order_identifier = OrderItem.where(order: @order).all.order(:menu_item_id).each do |identifier| %>
@@ -65,7 +65,7 @@
 
     <h1>PRET TOTAL <%= @total_price %></h1>
 
-    <%= form_with url: send_email_path(@order, locale: params[:locale]), method: :post do |form| %>
+    <%= form_with url: send_email_path(@order, locale: params[:locale].downcase), method: :post do |form| %>
     <%= form.label :nume %>
     <%= form.text_field :first_name %>
 
@@ -86,6 +86,6 @@
 
     <%= form.submit "TRIMITE COMANDA" %>
     <% end %>
-    <%= link_to "ANULARE COMANDA", homepage_path(locale: params[:locale]) %>
+    <%= link_to "ANULARE COMANDA", homepage_path(locale: params[:locale].downcase) %>
 <% end %>
 

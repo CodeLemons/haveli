@@ -1,8 +1,29 @@
 <% @storage = ShoppingCart.last %>
-
-<% unless @storage.nil? %>
-  <p><%= t "ITEMS IN CART" %> - <%= @storage.total_quantity %></p>
-  <p><%= t "TOTAL PRICE" %> - <%= @storage.total_price %></p>
-<% end %>
-<%= button_to "Checkout", finalize_shopping_cart_path(locale: params[:locale]), method: :patch %>
+<div class="shopping-cart-box flex">
+  <% if @storage.nil? %>
+    <div class="shop-box flex justify-center items-center border-2 px-2 rounded-xl border-orange-200">
+        <svg id="shop-item" class="serving-dish" fill="#fed7aa" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M267.636,128v-2.327c13.964-4.655,23.273-17.455,23.273-32.582c0-19.782-15.127-34.909-34.909-34.909 c-19.782,0-34.909,15.127-34.909,34.909c0,15.127,9.309,27.927,23.273,32.582v13.964c0,6.982,4.655,11.636,11.636,11.636 c109.382,0,197.818,88.436,197.818,197.818c0,6.982,4.655,11.636,11.636,11.636c6.982,0,11.636-4.655,11.636-11.636 C477.091,231.564,384,133.818,267.636,128z M256,104.727c-6.982,0-11.636-4.655-11.636-11.636c0-6.982,4.655-11.636,11.636-11.636 s11.636,4.655,11.636,11.636C267.636,100.073,262.982,104.727,256,104.727z"></path> </g> </g> <g> <g> <path d="M232.727,187.345c-1.164-5.818-8.145-10.473-13.964-9.309c-33.745,6.982-62.836,24.436-87.273,48.873 c-4.655,4.655-4.655,11.636,0,16.291c2.327,2.327,4.655,3.491,8.145,3.491s5.818-1.164,8.145-3.491 c20.945-20.945,46.545-36.073,75.636-41.891C229.236,200.145,233.891,193.164,232.727,187.345z"></path> </g> </g> <g> <g> <path d="M507.345,407.273C500.364,393.309,485.236,384,470.109,384H93.091c-6.982,0-11.636,4.655-11.636,11.636 c0,6.982,4.655,11.636,11.636,11.636h377.018c6.982,0,13.964,3.491,16.291,10.473c1.164,2.327,2.327,5.818,2.327,8.145v4.655 H23.273v-4.655c0-2.327,1.164-5.818,2.327-8.146c2.327-6.982,9.309-10.473,16.291-10.473h4.655 c6.982,0,11.636-4.655,11.636-11.636v-46.545c0-93.091,62.836-172.218,153.6-193.164c5.818-1.164,10.473-8.145,9.309-13.964 c-1.164-5.818-8.146-10.473-13.964-9.309C105.891,155.927,34.909,245.527,34.909,349.091v36.073 c-12.8,1.164-24.436,10.473-30.255,22.109C1.164,413.091,0,420.073,0,425.891v16.291c0,6.982,4.655,11.636,11.636,11.636h488.727 c6.982,0,11.636-4.655,11.636-11.636v-16.291C512,420.073,510.836,413.091,507.345,407.273z"></path> </g> </g> </g></svg>
+        <p id="shop-item" class="text-xs font-extrabold pl-2 pt-1">0</p>
+        <svg id="shop-item" class="divider" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 2C7.77614 2 8 2.22386 8 2.5L8 12.5C8 12.7761 7.77614 13 7.5 13C7.22386 13 7 12.7761 7 12.5L7 2.5C7 2.22386 7.22386 2 7.5 2Z" fill="#fed7aa"></path> </g></svg>
+        <p id="shop-item" class="price text-xs font-extrabold pt-1">0 LEI</p>
+        <%= button_to finalize_shopping_cart_path(locale: params[:locale]), method: :patch, class: "pb-2 pt-3 text-xl font-extrabold pl-3", id: "shop-item" do %>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        <% end %>
+    </div>
+  <% else %>
+    <div class="shop-box flex justify-center items-center border-2 px-2 rounded-xl border-red-200">
+      <svg class="serving-dish" fill="#fed7aa" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M267.636,128v-2.327c13.964-4.655,23.273-17.455,23.273-32.582c0-19.782-15.127-34.909-34.909-34.909 c-19.782,0-34.909,15.127-34.909,34.909c0,15.127,9.309,27.927,23.273,32.582v13.964c0,6.982,4.655,11.636,11.636,11.636 c109.382,0,197.818,88.436,197.818,197.818c0,6.982,4.655,11.636,11.636,11.636c6.982,0,11.636-4.655,11.636-11.636 C477.091,231.564,384,133.818,267.636,128z M256,104.727c-6.982,0-11.636-4.655-11.636-11.636c0-6.982,4.655-11.636,11.636-11.636 s11.636,4.655,11.636,11.636C267.636,100.073,262.982,104.727,256,104.727z"></path> </g> </g> <g> <g> <path d="M232.727,187.345c-1.164-5.818-8.145-10.473-13.964-9.309c-33.745,6.982-62.836,24.436-87.273,48.873 c-4.655,4.655-4.655,11.636,0,16.291c2.327,2.327,4.655,3.491,8.145,3.491s5.818-1.164,8.145-3.491 c20.945-20.945,46.545-36.073,75.636-41.891C229.236,200.145,233.891,193.164,232.727,187.345z"></path> </g> </g> <g> <g> <path d="M507.345,407.273C500.364,393.309,485.236,384,470.109,384H93.091c-6.982,0-11.636,4.655-11.636,11.636 c0,6.982,4.655,11.636,11.636,11.636h377.018c6.982,0,13.964,3.491,16.291,10.473c1.164,2.327,2.327,5.818,2.327,8.145v4.655 H23.273v-4.655c0-2.327,1.164-5.818,2.327-8.146c2.327-6.982,9.309-10.473,16.291-10.473h4.655 c6.982,0,11.636-4.655,11.636-11.636v-46.545c0-93.091,62.836-172.218,153.6-193.164c5.818-1.164,10.473-8.145,9.309-13.964 c-1.164-5.818-8.146-10.473-13.964-9.309C105.891,155.927,34.909,245.527,34.909,349.091v36.073 c-12.8,1.164-24.436,10.473-30.255,22.109C1.164,413.091,0,420.073,0,425.891v16.291c0,6.982,4.655,11.636,11.636,11.636h488.727 c6.982,0,11.636-4.655,11.636-11.636v-16.291C512,420.073,510.836,413.091,507.345,407.273z"></path> </g> </g> </g></svg>
+      <p class="text-xs font-extrabold px-2 pt-1"><%= @storage.total_quantity %></p>
+      <svg class="divider" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 2C7.77614 2 8 2.22386 8 2.5L8 12.5C8 12.7761 7.77614 13 7.5 13C7.22386 13 7 12.7761 7 12.5L7 2.5C7 2.22386 7.22386 2 7.5 2Z" fill="#fed7aa"></path> </g></svg>
+      <p class="text-xs font-extrabold pt-1"><%= @storage.total_price %> LEI</p>
+      <%= button_to finalize_shopping_cart_path(locale: params[:locale].downcase), method: :patch, class: "pb-2 pt-3 text-xl font-extrabold pl-3" do %>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      <% end %>
+    </div>
+  <% end %>
+</div>
 
