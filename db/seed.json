@@ -6,96 +6,120 @@
                 "price": 16.00,
                 "pieces": 2,
                 "weight": 0,
+                "description_ro": "Lipie subțire și circulară obținută dintr-un amestec de făină și apă, care se prăjește în ulei.",
                 "description": "Thin and circular crisp made from a mixture of flour and water, which is fried in oil.",
                 "photo": "papadam.png"
+                
             },
             {
                 "name": "Seekh Kebab",
                 "price": 45.00,
                 "pieces": 0,
                 "weight": 150,
+                "description_ro": "Frigărui de carne tocată de miel gătite în tandoor.",
                 "description": "Lamb minced skewers cooked in tandoor.",
                 "photo": "seekhbab.png"
+
             },
             {
                 "name": "Tandoori Mix Grill",
                 "price": 70.00,
                 "pieces": 0,
                 "weight": 150,
+                "description_ro": "Platou mixt de kebaburi asortate gătite în tandoor.",
                 "description": "Mix plater of assorted kebabs cooked in tandoor.",
                 "photo": "tandoormixgrill.png"
+
             },
             {
                 "name": "Malai Tikka",
                 "price": 45.00,
                 "pieces": 0,
                 "weight": 150,
+                "description_ro": "Pui dezosat marinat în smântână, gătit în tandoor.",
                 "description": "Boneless chicken marinated in cream cooked in tandoor.",
                 "photo": "malaitikka.png"
+
             },
             {
                 "name": "Tandoori chicken",
                 "price": 45.00,
                 "pieces": 0,
                 "weight": 150,
+                "description_ro": "Pui marinat de primăvară gătit în tandoor.",
                 "description": "Marinated spring chicken cooked in tandoor.",
                 "photo": "tandoorchick.png"
+
             },
             {
                 "name": "Garlic tikka",
                 "price": 45.00,
                 "pieces": 0,
                 "weight": 150,
+                "description_ro": "Bucăți dezosate de pui, marinate în smântână, pastă de nuci de caju și usturoi.",
                 "description": "Boneless pieces of chicken, marinated in cream, cashew nut paste and garlic.",
                 "photo": "garlictikka.png"
+
             },
             {
                 "name": "Chicken Tikka",
                 "price": 45.00,
                 "pieces": 0,
                 "weight": 150,
+                "description_ro": "Pui marinat și dezosat gătit în tandoor.",
                 "description": "Marinated boneless chicken cooked in tandoor.",
                 "photo": "chickentikka.png"
+
             },
             {
                 "name": "Paneer Tikka",
                 "price": 42.00,
                 "pieces": 0,
                 "weight": 150,
-                "description": "Cottage cheese with onion tomato and paprika cooked in tandoor",
+                "description_ro": "Brânză de vaci cu ceapă, roșii și paprika gătite în tandoor.",
+                "description": "Cottage cheese with onion tomato and paprika cooked in tandoor.",
                 "photo": "pannertikka.png"
+
             },
             {
                 "name": "Onion Bhaji",
                 "price": 22.00,
                 "pieces": 0,
                 "weight": 150,
+                "description_ro": "Ceapă cu mirodenii indiene măcinate acoperite cu aluat și prăjite.",
                 "description": "Onion with indian ground spices coated in batter and fried.",
                 "photo": "onionbhaji.png"
+
             },
             {
                 "name": "Vegetable Samosa",
                 "price": 22.00,
                 "pieces": 2,
                 "weight": 0,
+                "description_ro": "Foietaj crocant umplut cu legume.",
                 "description": "Flaky pastry shells filled with vegetables.",
                 "photo": "vegsamosa.png"
+
             },
             {
                 "name": "Chilli Prawns",
                 "price": 75.00,
                 "pieces": 0,
                 "weight": 250,
+                "description_ro": "Creveți gătiți cu ceapă, ardei și usturoi.",
                 "description": "Prawns cooked with onions, peppers and garlic.",
                 "photo": "chilliprawn.png"
+
             },
             {
                 "name": "Tandoori Aloo",
                 "price": 32.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Cartofi umpluți, marinați în iaurt și copți în tandoor.",
                 "description": "Stuffed potatoes marinated in yogurt and baked in tandoor.",
                 "photo": "tandooraloo.png"
+
             }
         ],
         "salad_yogurt": [
@@ -104,24 +128,30 @@
                 "price": 12.00,
                 "pieces": 0,
                 "weight": 150,
+                "description_ro": "Roșii, castraveți, ceapă și cartofi în sos de iaurt.",
                 "description": "Tomato, cucumber, onion and potato in yoghurt dressing.",
                 "photo": "raita.png"
+
             },
             {
                 "name": "Indian dips",
                 "price": 12.00,
                 "pieces": 3,
                 "weight": 0,
+                "description_ro": "Trei sosuri savuroase din care să alegeți.",
                 "description": "Three savoury dips to choose from.",
                 "photo": "dips.png"
+
             },
             {
                 "name": "Fresh Mixed Salad",
                 "price": 15.00,
                 "pieces": 0,
                 "weight": 150,
+                "description_ro": "Felii de roșii, castraveți și ceapă.",
                 "description": "Sliced tomato, cucumber and onions.",
                 "photo": "salad.png"
+
             }
         ],
         "vegetarian": [
@@ -130,136 +160,170 @@
                 "price": 30.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Cartofi gătiți în sos de ceapă și chimen.",
                 "description": "Potatoes cooked in onion and cumin sauce.",
                 "photo": "jerraaloo.png"
+
             },
             {
                 "name": "Aloo Mutter",
                 "price": 31.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Cartofi și mazăre verde gătite cu ceapă și roșii.",
                 "description": "Potato and green peas cooked with onion and tomatoes.",
                 "photo": "aloomutter.png"
+
             },
             {
                 "name": "Palak Mutter",
                 "price": 31.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Mazăre verde gătită cu spanac.",
                 "description": "Green peas cooked with spinach.",
                 "photo": "palakmutter.png"
+
             },
             {
                 "name": "Veg Jalfrezi",
                 "price": 32.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Legume gătite în sos de ceapă.",
                 "description": "Vegetables cooked in onion sauce.",
                 "photo": "vegjalfrezi.png"
+
             },
             {
                 "name": "Dum Aloo",
                 "price": 35.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Cartofi umpluți cu brânză și condimente indiene în sos cremos.",
                 "description": "Stuffed potatoes with cheese and indian spices in creamy sauce.",
                 "photo": "dumaloo.png"
+
             },
             {
                 "name": "Chilli Paneer",
                 "price": 38.00,
                 "pieces": 0,
                 "weight": 250,
+                "description_ro": "Brânză de casă gătită cu ceapă, ardei, ghimbir și usturoi.",
                 "description": "Home made cheese cooked with onions, peppers, ginger and garlic.",
                 "photo": "chillipaner.png"
+
             },
             {
                 "name": "Paneer Makhani",
                 "price": 35.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Brânză cu sos de roșii și unt.",
                 "description": "Cheese with tomato gravy and butter.",
                 "photo": "panermakhani.png"
+
             },
             {
                 "name": "Kadai Paneer",
                 "price": 35.00,
                 "pieces": 0,
                 "weight": 250,
+                "description_ro": "Brânză gătită cu ardei verde, ceapă și roșii.",
                 "description": "Cheese cooked with green pepper, onion and tomato.",
                 "photo": "kadaipaner.png"
+
             },
             {
                 "name": "Mushroom Mutter",
                 "price": 32.00,
                 "pieces": 0,
                 "weight": 250,
+                "description_ro": "Ciuperci și mazăre verde gătite cu ceapă, roșii și sos.",
                 "description": "Mushroom and green peas cooked with onion, tomatoes and gravy.",
                 "photo": "mushroommutter.png"
+
             },
             {
                 "name": "Baingan Bharta",
                 "price": 32.00,
                 "pieces": 0,
                 "weight": 250,
+                "description_ro": "Vinete gatite cu roșii și ceapă.",
                 "description": "Eggplants cooked with tomato and onion.",
                 "photo": "bainganbartha.png"
+
             },
             {
                 "name": "Aloo Gobi",
                 "price": 32.00,
                 "pieces": 0,
                 "weight": 250,
+                "description_ro": "Conopidă și cartofi gătiți în sos de roșii.",
                 "description": "Cauliflower and potato cooked in tomato gravy.",
                 "photo": "aloogobi.png"
+
             },
             {
                 "name": "Kadai Vegetable",
                 "price": 32.00,
                 "pieces": 0,
                 "weight": 250,
+                "description_ro": "Legume gătite în sos.",
                 "description": "Vegetables cooked in gravy.",
                 "photo": "kadaiveg.png"
+
             },
             {
                 "name": "Palak Paneer",
                 "price": 34.00,
                 "pieces": 0,
                 "weight": 250,
+                "description_ro": "Brânză de vaci gătită în spanac.",
                 "description": "Cottage cheese cooked in spinach.",
                 "photo": "palakpaner.png"
+
             },
             {
                 "name": "Chana Masala",
                 "price": 32.00,
                 "pieces": 0,
                 "weight": 250,
+                "description_ro": "Năut gătit în sos de roșii și ceapă.",
                 "description": "Chickpeas cooked in tomato and onion gravy.",
                 "photo": "chanamasala.png"
+
             },
             {
                 "name": "Daal Makhani",
                 "price": 38.00,
                 "pieces": 0,
                 "weight": 250,
+                "description_ro": "Linte neagră gătită în unt și smântână.",
                 "description": "Black lentils cooked in butter and cream.",
                 "photo": "daalmakhni.png"
+
             },
             {
                 "name": "Daal Tarka",
                 "price": 32.00,
                 "pieces": 0,
                 "weight": 250,
+                "description_ro": "Linte galbenă gătită cu chimen.",
                 "description": "Yellow lentils cooked with cumin.",
                 "photo": "daaltarka.png"
+
             },
             {
                 "name": "Malai Kofta",
                 "price": 32.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Găluște făcute cu brânză, cartofi și sos de curry.",
                 "description": "Dumplings made with cheese, potatoes and curry sauce.",
                 "photo": "malaikofta.png"
+
             }
         ],
         "chicken": [
@@ -268,88 +332,110 @@
                 "price": 45.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Pui cu spanac.",
                 "description": "Chicken with spinach.",
                 "photo": "palakchicken.png"
+
             },
             {
                 "name": "Chicken Korma",
                 "price": 45.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Pui cu sos de nuci și smântână.",
                 "description": "Chicken with nut gravy and cream.",
                 "photo": "chickenkorma.png"
+
             },
             {
                 "name": "Chicken Lababdar",
                 "price": 45.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Pui gătit în roșii și ceapă.",
                 "description": "Chicken cooked in tomato and onion.",
                 "photo": "chicklab.png"
+
             },
             {
                 "name": "Kashmiri Chicken",
                 "price": 45.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Pui preparat în sos de nuci și fructe uscate.",
                 "description": "Chicken prepared in nut gravy and dry fruits.",
                 "photo": "kashchick.png"
+
             },
             {
                 "name": "Chicken Madras",
                 "price": 45.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Pui dezosat gătit cu nucă de cocos.",
                 "description": "Boneless chicken cooked with coconut.",
                 "photo": "chickmadras.png"
+
             },
             {
                 "name": "Chicken Vindaloo",
                 "price": 45.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Pui marinat în oțet și gătit cu condimente bogate.",
                 "description": "Chicken marinated in vinegar and cooked with rich condiments.",
                 "photo": "chickvindaloo.png"
+
             },
             {
                 "name": "Kadai Chicken",
                 "price": 45.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Pui gătit în roșii, ardei și ceapă.",
                 "description": "Chicken cooked in tomato, paprika and onion.",
                 "photo": "kadaichick.png"
+
             },
             {
                 "name": "Chicken Jalfrazi",
                 "price": 45.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Pui cu ardei, ceapă și roșii.",
                 "description": "Chicken with paprika, onion and tomato.",
                 "photo": "chickjalfrezi.png"
+
             },
             {
                 "name": "Mango Spicy Chicken",
                 "price": 45.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Pui gătit în sos pe bază de mango.",
                 "description": "Chicken cooked in mango based gravy.",
                 "photo": "mangospicchick.png"
+
             },
             {
                 "name": "Chicken Tikka Masala",
                 "price": 45.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Pui gătit cu roșii în sos de nuci.",
                 "description": "Chicken cooked with tomato in nuts gravy.",
                 "photo": "chicktikkamas.png"
+
             },
             {
                 "name": "Butter Chicken",
                 "price": 45.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Pui dezosat în sos de roșii și smântână.",
                 "description": "Boneless chicken in tomato gravy and cream.",
                 "photo": "butterchicken.png"
+
             }
         ],
         "lamb": [
@@ -358,88 +444,110 @@
                 "price": 50.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Carne de miel gătită cu spanac.",
                 "description": "Lamb cooked with spinach.",
                 "photo": "lambsag.png"
+
             },
             {
                 "name": "Channa Gosht",
                 "price": 50.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Miel cu năut.",
                 "description": "Lamb with chickpeas.",
                 "photo": "chanagosht.png"
+
             },
             {
                 "name": "Lamb Madras",
                 "price": 50.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Carne de miel gătită în sos de nucă de cocos.",
                 "description": "Lamb cooked in coconut gravy.",
                 "photo": "lambmadras.png"
+
             },
             {
                 "name": "Kadai Lamb",
                 "price": 50.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Carne de miel pe bază de roșii gătită în wok indian.",
                 "description": "Tomato based lamb cooked in indian wok.",
                 "photo": "kadailamb.png"
+
             },
             {
                 "name": "Lamb Do-Piaza",
                 "price": 50.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Carne de miel dezosată, gătită în sos de ceapă.",
                 "description": "Boneless lamb cooked in onion sauce.",
                 "photo": "lambdopiaza.png"
+
             },
             {
                 "name": "Lamb Vindaloo",
                 "price": 50.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Carne de miel marinată în oțet și gătită în condimente bogate.",
                 "description": "Vinegar marinated lamb cooked in rich condiments.",
                 "photo": "lambvindaloo.png"
+
             },
             {
                 "name": "Lamb Roganjosh",
                 "price": 50.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Carne de miel gătită în sos neted.",
                 "description": "Lamb cooked in smooth gravy.",
                 "photo": "lambroganjosh.png"
+
             },
             {
                 "name": "Lamb Korma",
                 "price": 50.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Carne de miel gătită în sos neted.",
                 "description": "Lamb cooked in thick white gravy.",
                 "photo": "lambkorma.png"
+
             },
             {
                 "name": "Keema Aloo",
                 "price": 45.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Carne tocată de miel cu cartofi.",
                 "description": "Minced lamb with potatoes.",
                 "photo": "keemaaloo.png"
+
             },
             {
                 "name": "Keema Mutter",
                 "price": 45.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Carne tocată de miel cu mazăre verde.",
                 "description": "Minced lamb with green peas.",
                 "photo": "keemamutter.png"
+
             },
             {
                 "name": "Haveli Special",
                 "price": 50.00,
                 "pieces": 0,
                 "weight": 400,
+                "description_ro": "Carne tocată de miel și pui la grătar cu ardei gras și conopidă.",
                 "description": "Minced lamb meat and grilled chicken with capsicum and cauliflower.",
                 "photo": "special.png"
+
             }
         ],
         "fish_prawns": [
@@ -448,72 +556,90 @@
                 "price": 75.00,
                 "pieces": 0,
                 "weight": 0,
+                "description_ro": "Creveți preparați cu ceapă, roșii, ghimbir, usturoi și smântână.",
                 "description": "Prawns prepared with onions, tomatoes, ginger, garlic and cream.",
                 "photo": "prawnmasala.png"
+
             },
             {
                 "name": "Prawn Jalfrezi",
                 "price": 75.00,
                 "pieces": 0,
                 "weight": 0,
+                "description_ro": "Creveți preparați cu ceapă, roșii, ardei și sos de roșii.",
                 "description": "Prawns prepared with onions, tomatoes, peppers and tomato sauce.",
                 "photo": "prawnjalfrezi.png"
+
             },
             {
                 "name": "Chilli prawns",
                 "price": 75.00,
                 "pieces": 0,
                 "weight": 0,
+                "description_ro": "Creveți gătiți cu ceapă, ardei și usturoi.",
                 "description": "Prawns cooked with onions, peppers and garlic.",
                 "photo": "chilliprawns.png"
+
             },
             {
                 "name": "Prawn Vindaloo",
                 "price": 75.00,
                 "pieces": 0,
                 "weight": 0,
+                "description_ro": "Creveți în sos de ceapă, ardei iute roșu, muștar și coriandru.",
                 "description": "Prawns in onion sauce, red chilli, mustard and coriander.",
                 "photo": "prawnvindaloo.png"
+
             },
             {
                 "name": "Kadai Fish",
                 "price": 50.00,
                 "pieces": 0,
                 "weight": 0,
+                "description_ro": "File de pește preparat cu ceapă, ardei și sos de roșii.",
                 "description": "Fish fillet prepared with onions, peppers and tomato sauce.",
                 "photo": "kadaifish.png"
+
             },
             {
                 "name": "Fish Madras",
                 "price": 50.00,
                 "pieces": 0,
                 "weight": 0,
+                "description_ro": "File de pește în sos de nucă de cocos.",
                 "description": "Fish fillet in coconut sauce.",
                 "photo": "fishmadras.png"
+
             },
             {
                 "name": "Fish Curry",
                 "price": 50.00,
                 "pieces": 0,
                 "weight": 0,
+                "description_ro": "File de pește preparat cu ceapă și sos de roșii.",
                 "description": "Fish fillet prepared with onions and tomato sauce.",
                 "photo": "fishcurry.png"
+
             },
             {
                 "name": "Fish do Piaza",
                 "price": 50.00,
                 "pieces": 0,
                 "weight": 0,
+                "description_ro": "File de pește preparat cu sos de ceapă.",
                 "description": "Fish fillet prepared with onion sauce.",
                 "photo": "fishdopiaza.png"
+
             },
             {
                 "name": "Fish Lababdar",
                 "price": 50.00,
                 "pieces": 0,
                 "weight": 0,
+                "description_ro": "File de pește preparat cu ceapă și sos de roșii.",
                 "description": "Fish fillet prepared with onions and tomato sauce.",
                 "photo": "fishlab.png"
+
             }
         ],
         "rice": [
@@ -522,88 +648,110 @@
                 "price": 25.00 ,
                 "pieces": 0,
                 "weight": 250,
+                "description_ro": "Orez prajit cu pui.",
                 "description": "Rice cooked with chicken.",
                 "photo": "vegfriedrice.png"
+
             },
             {
                 "name": "Egg Fried Rice",
                 "price": 25.00 ,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Orez prajit cu ouă.",
                 "description": "Rice cooked with eggs.",
                 "photo": "eggfriedrice.png"
+
             },
             {
                 "name": "Chicken Biryani",
                 "price": 45.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Orez cu pui și condimente.",
                 "description": "Rice with chicken and condiments.",
                 "photo": "chickbryan.png"
+
             },
             {
                 "name": "Lamb Biryani",
                 "price": 50.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Orez cu miel și condimente.",
                 "description": "Rice with lamb and condiments.",
                 "photo": "lambbryan.png"
+
             },
             {
                 "name": "Vegetable Biryani",
                 "price": 35.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Orez cu legume și condimente.",
                 "description": "Rice with vegetables and condiments.",
                 "photo": "vegbryan.png"
+
             },
             {
                 "name": "Kashmiri Pillao",
                 "price": 50.00,
                 "pieces": 0,
                 "weight": 300,
+                "description_ro": "Orez cu fructe și legume uscate.",
                 "description": "Rice with dry fruits and vegetables.",
                 "photo": "kashmirpilao.png"
+
             },
             {
                 "name": "Basmati Rice",
                 "price": 17.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Orez alb simplu.",
                 "description": "Simple white rice.",
                 "photo": "basmatirice.png"
+
             },
             {
                 "name": "Jeera Rice",
                 "price": 19.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Orez cu semințe de chimen.",
                 "description": "Rice with cumin seed.",
                 "photo": "jeerarice.png"
+
             },
             {
                 "name": "Vegetable Pillao",
                 "price": 22.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Orez cu legume.",
                 "description": "Rice with vegetables.",
                 "photo": "vegpilao.png"
+
             },
             {
                 "name": "Pillao Rice",
                 "price": 17.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Orez cu șofran.",
                 "description": "Rice with saffron.",
                 "photo": "pilaorice.png"
+
             },
             {
                 "name": "Prawn Biryani",
                 "price": 70.00,
                 "pieces": 0,
                 "weight": 200,
+                "description_ro": "Creveți preparați cu orez și condimente indiene.",
                 "description": "Prawns prepared with rice and indian spices.",
                 "photo": "prawnbryan.png"
+
             }
         ],
         "indian_bread": [
@@ -612,64 +760,80 @@
                 "price": 23.00,
                 "pieces": 0,
                 "weight": 80,
+                "description_ro": "Pâine indiană umplută cu brânză, nucă de cocos și fructe uscate.",
                 "description": "Indian bread stuffed with cheese, coconut and dry fruits.",
                 "photo": "peshnan.png"
+
             },
             {
                 "name": "Stuffed Parantha",
                 "price": 19.00,
                 "pieces": 0,
                 "weight": 80,
+                "description_ro": "Pâine indiană umplută cu cartofi.",
                 "description": "Indian bread stuffed with potatoes.",
                 "photo": "stuffedparat.png"
+
             },
             {
                 "name": "Mint Parantha",
                 "price": 15.00,
                 "pieces": 0,
                 "weight": 80,
+                "description_ro": "Pâine indiană cu mentă.",
                 "description": "Indian bread with mint.",
                 "photo": "mintparat.png"
+
             },
             {
                 "name": "Butter Naan",
                 "price": 15.00,
                 "pieces": 0,
                 "weight": 80,
+                "description_ro": "Pâine indiană cu unt.",
                 "description": "Indian bread with butter.",
                 "photo": "butternan.png"
+
             },
             {
                 "name": "Garlic Naan",
                 "price": 15.00,
                 "pieces": 0,
                 "weight": 80,
+                "description_ro": "Pâine indiană cu usturoi.",
                 "description": "Indian bread with garlic.",
                 "photo": "garlicnan.png"
+
             },
             {
                 "name": "Naan",
                 "price": 13.00,
                 "pieces": 0,
                 "weight": 80,
+                "description_ro": "Pâine indiană simplă.",
                 "description": "Simple Indian Bread.",
                 "photo": "nan.png"
+
             },
             {
                 "name": "Keema naan",
                 "price": 23.00,
                 "pieces": 0,
                 "weight": 80,
+                "description_ro": "Pâine indiană umplută cu carne tocată de miel.",
                 "description": "Indian bread stuffed with minced lamb.",
                 "photo": "keemanan.png"
+
             },
             {
                 "name": "Cheese naan",
                 "price": 20.00,
                 "pieces": 0,
                 "weight": 80,
+                "description_ro": "Pâine indiană umplută cu brânză de vaci.",
                 "description": "Indian bread stuffed with cottage cheese.",
                 "photo": "cheesenan.png"
+
             }
         ],
         "desserts": [
@@ -678,24 +842,30 @@
                 "price": 16.00,
                 "pieces": 2,
                 "weight": 0,
+                "description_ro": "Biluțe de aluat prăjit, înmuiate într-un sirop de zahăr dulce și lipicios.",
                 "description": "Fried dough balls that are soaked in a sweet, sticky sugar syrup.",
                 "photo": "gulabjamun.png"
+
             },
             {
                 "name": "Mango Kulfi",
                 "price": 16.00,
                 "pieces": 0,
                 "weight": 100,
+                "description_ro": "Înghețată indiană.",
                 "description": "Indian ice cream.",
                 "photo": "mangokulfi.png"
+
             },
             {
                 "name": "Gajar Ka Halwa",
                 "price": 16.00,
                 "pieces": 0,
                 "weight": 100,
+                "description_ro": "Halva de morcovi.",
                 "description": "Carrot pudding.",
                 "photo": "gajarkahalwa.png"
+
             }
         ]
     }

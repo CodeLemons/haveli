@@ -58,6 +58,9 @@ menu.each do |m|
             description: item["description"]
         )
 
+        I18n.with_locale(:ro) { starter_menu_items.description = item["description_ro"] }
+        I18n.with_locale(:en) { starter_menu_items.description = item["description"] }
+
         starters_file = File.open("app/assets/images/#{item["photo"]}")
         starter_menu_items.photo.attach(io: starters_file, filename: item["photo"], content_type: "image/gif")
 
@@ -77,6 +80,9 @@ menu.each do |m|
             weight: item["weight"],
             description: item["description"]
         )
+
+        I18n.with_locale(:ro) { salad_yogurt_menu_items.description = item["description_ro"] }
+        I18n.with_locale(:en) { salad_yogurt_menu_items.description = item["description"] }
 
         salad_file = File.open("app/assets/images/#{item["photo"]}")
         salad_yogurt_menu_items.photo.attach(io: salad_file, filename: item["photo"], content_type: "image/gif")
@@ -98,6 +104,9 @@ menu.each do |m|
             description: item["description"]
         )
 
+        I18n.with_locale(:ro) { vegetarian_menu_items.description = item["description_ro"] }
+        I18n.with_locale(:en) { vegetarian_menu_items.description = item["description"] }
+
         veg_file = File.open("app/assets/images/#{item["photo"]}")
         vegetarian_menu_items.photo.attach(io: veg_file, filename: item["photo"], content_type: "image/gif")
 
@@ -117,6 +126,9 @@ menu.each do |m|
             weight: item["weight"],
             description: item["description"]
         )
+
+        I18n.with_locale(:ro) { chicken_menu_items.description = item["description_ro"] }
+        I18n.with_locale(:en) { chicken_menu_items.description = item["description"] }
 
         chick_file = File.open("app/assets/images/#{item["photo"]}")
         chicken_menu_items.photo.attach(io: chick_file, filename: item["photo"], content_type: "image/gif")
@@ -138,6 +150,9 @@ menu.each do |m|
             description: item["description"]
         )
 
+        I18n.with_locale(:ro) { lamb_menu_items.description = item["description_ro"] }
+        I18n.with_locale(:en) { lamb_menu_items.description = item["description"] }
+
         lamb_file = File.open("app/assets/images/#{item["photo"]}")
         lamb_menu_items.photo.attach(io: lamb_file, filename: item["photo"], content_type: "image/gif")
 
@@ -157,6 +172,9 @@ menu.each do |m|
             weight: item["weight"],
             description: item["description"]
         )
+
+        I18n.with_locale(:ro) { fish_prawns_menu_items.description = item["description_ro"] }
+        I18n.with_locale(:en) { fish_prawns_menu_items.description = item["description"] }
 
         fish_file = File.open("app/assets/images/#{item["photo"]}")
         fish_prawns_menu_items.photo.attach(io: fish_file, filename: item["photo"], content_type: "image/gif")
@@ -178,6 +196,9 @@ menu.each do |m|
             description: item["description"]
         )
 
+        I18n.with_locale(:ro) { rice_menu_items.description = item["description_ro"] }
+        I18n.with_locale(:en) { rice_menu_items.description = item["description"] }
+
         rice_file = File.open("app/assets/images/#{item["photo"]}")
         rice_menu_items.photo.attach(io: rice_file, filename: item["photo"], content_type: "image/gif")
 
@@ -198,6 +219,9 @@ menu.each do |m|
             description: item["description"]
         )
 
+        I18n.with_locale(:ro) { indian_bread_menu_items.description = item["description_ro"] }
+        I18n.with_locale(:en) { indian_bread_menu_items.description = item["description"] }
+
         bread_file = File.open("app/assets/images/#{item["photo"]}")
         indian_bread_menu_items.photo.attach(io: bread_file, filename: item["photo"], content_type: "image/gif")
 
@@ -217,6 +241,9 @@ menu.each do |m|
             weight: item["weight"],
             description: item["description"]
         )
+
+        I18n.with_locale(:ro) { desserts_menu_items.description = item["description_ro"] }
+        I18n.with_locale(:en) { desserts_menu_items.description = item["description"] }
 
         dessert_file = File.open("app/assets/images/#{item["photo"]}")
         desserts_menu_items.photo.attach(io: dessert_file, filename: item["photo"], content_type: "image/gif")
