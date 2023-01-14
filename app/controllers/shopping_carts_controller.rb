@@ -3,6 +3,8 @@ class ShoppingCartsController < ApplicationController
     before_action :clear_shopping_cart, only: [:home], if: -> { request.get? }
 
     def create
+        puts session.id
+        raise
         @menu_item = MenuItem.find(params[:menu_item_id])
         @shopping_cart = ShoppingCart.find_or_create_by!(session_id: session.id.to_s)
         puts @shopping_cart
