@@ -2,9 +2,9 @@
     <%= render 'shared/navbar' %>
     <div class="relative">
         <video autoplay muted loop class="brightness-50 z-0">
-        <source src="assets/broll.mp4" type="video/mp4">
+        <source src="<%= cl_video_path(@haveli.video.key, resource_type: "video")%>.mp4" type="video/mp4">
         </video>
-        <img class="logo absolute" src="assets/logo.png" alt="">
+        <img class="logo absolute" src="<%= cl_image_path @haveli.logo.key %>.png" alt="">
     </div>
     <div data-controller="dish-listing">
         <div class="menu-bar flex justify-between items-center pt-5">

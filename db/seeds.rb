@@ -6,12 +6,6 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-
-
-
-
-
-
 Restaurant.destroy_all
 Menu.destroy_all
 MenuItem.destroy_all
@@ -21,7 +15,18 @@ ShoppingCartItem.destroy_all
 puts "Destroying everything!"
 
 puts "Creating Haveli restaurant"
-@haveli = Restaurant.create(name: "Haveli", address: "Strada Episcopul Radu 3, București 020751, Romania", phone: "+40 21 211 0390", website: "https://www.haveli.ro")
+@haveli = Restaurant.new(name: "Haveli", address: "Strada Episcopul Radu 3, București 020751, Romania", phone: "+40 21 211 0390", website: "https://www.haveli.ro")
+
+puts "Adding BROLL to Restaurant"
+broll_video = File.open("app/assets/images/broll.mp4")
+@haveli.video.attach(io: broll_video, filename: "broll.mp4", content_type: "video/mp4")
+
+puts "Adding LOGO to Restaurant"
+logo_image = File.open("app/assets/images/logo.png")
+@haveli.logo.attach(io: logo_image, filename: "logo.png", content_type: "image/gif")
+
+puts "#{@haveli.name} CREATED"
+
 
 puts "Creating Haveli's Menu"
 @starters = Menu.create(restaurant: @haveli, name: "Starters")
