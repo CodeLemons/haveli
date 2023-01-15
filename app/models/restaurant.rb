@@ -6,4 +6,6 @@ class Restaurant < ApplicationRecord
   validates :address, presence: true
   validates :phone, presence: true
   validates :website, presence: true, format: { with: URI.regexp(%w[http https]) }
+  has_one_attached :video
+  has_one_attached :logo
 end
