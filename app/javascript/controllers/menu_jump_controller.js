@@ -2,34 +2,26 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="menu-jump"
 export default class extends Controller {
+  static targets = ["menuSection", "deliverySection", "gallerySection"];
 
   connect() {
-    console.log("Hello from menu controller");
+    console.log("Hello from menu controller LOL");
     console.log(window.scrollY);
   }
 
   scrollToMenu() {
     console.log("Scrolling");
-    window.scrollTo(0, 978);
+    this.menuSectionTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   scrollToDelivery() {
     console.log("Scrolling");
-    window.scrollTo(0, 2280);
+    this.deliverySectionTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   scrollToGallery() {
     console.log("Scrolling");
-    window.scrollTo(0, 3075);
+    this.gallerySectionTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
   
-  scrollToContact() {
-    console.log("Scrolling");
-    window.scrollTo(0, 4287);
-  }
-  
-  scrollToBook() {
-    console.log("Scrolling");
-    window.scrollTo(0, 3075);
-  }
 }

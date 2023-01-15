@@ -3,6 +3,12 @@ body {
     background-color: #18181b;
 }
 
+.moto {
+    left: 0;
+    right: 0;
+    top: 58%;
+    margin: 0 auto;
+}
 
 #navbar {
     button {
@@ -63,4 +69,8 @@ body {
         height: 220px;
         width: 350px;
     }
+}
+
+.filler-div {
+    margin-top: 25px;
 }
