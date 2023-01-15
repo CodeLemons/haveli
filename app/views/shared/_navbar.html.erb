@@ -27,7 +27,7 @@
       </div>
       <div class="flex justify-center items-center pt-2 text-xl font-extrabold px-3 text-orange-200 no-underline">
         <%= form_tag(request.path, method: 'get', class: "language-selector") do %>
-          <%= select_tag 'locale', options_for_select(['en', 'ro'].map(&:upcase), params[:locale]), onchange: 'this.form.submit();' %>
+          <%= select_tag 'locale', options_for_select(['ro', 'en'].map(&:upcase), params[:locale]), onchange: 'this.form.submit();' %>
           <%= submit_tag 'Change Locale', style: 'display: none;' %>
         <% end %>
       </div>

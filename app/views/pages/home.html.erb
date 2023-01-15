@@ -1,32 +1,36 @@
-<div data-controller="shopping-cart">
+<div data-controller="shopping-cart menu-jump">
     <%= render 'shared/navbar' %>
     <div class="relative">
         <video autoplay muted loop class="brightness-50 z-0">
         <source src="<%= cl_video_path(@haveli.video.key, resource_type: "video")%>.mp4" type="video/mp4">
         </video>
         <img class="logo absolute" src="<%= cl_image_path @haveli.logo.key %>.png" alt="">
+            <p class="moto absolute text-center text-3xl font-thin"><strong>Pakistan / Indian</strong></p>
     </div>
     <div data-controller="dish-listing">
-        <div class="menu-bar flex justify-between items-center pt-5">
-            <button class="mobile-button flex p-5 lg:hidden" onclick="categoriesHide()">
-                <div class="button-object">
-                    <div class="bg-orange-200 w-8 h-1"></div>
-                    <div class="bg-orange-200 w-8 h-1 my-2"></div>
-                    <div class="bg-orange-200 w-8 h-1"></div>
-                </div>
-            </button>
-            <p class="text-3xl font-extrabold flex justify-center"><%= t "MENU" %></p>
-            <script>
-                const categoriesHide = () => {
-                    const categories = document.getElementById('categories');
-                    categories.classList.toggle('hidden');
-                }
-            </script>
-        </div>
-        <div id="categories" class="hidden flex flex-col lg:flex lg:flex-row lg:justify-center lg:items-center">
-            <% @menu.each do |item| %>
-                <%= link_to t(item.name.upcase), homepage_path(menu_id: item.id, locale: params[:locale]), data: { action: 'click->dish-listing#loadDishes' }, class: "p-0 font-bold lg:font-extrabold" %>
-            <% end %>
+        <div class="invisible h-16 bg-orange-50" data-menu-jump-target="menuSection"></div>
+        <div class="menu-section sticky top-16 bg-zinc-900 bg-opacity-60 rounded-xl backdrop-blur-sm drop-shadow-md">
+            <div class="menu-bar flex justify-between items-center pt-5">
+                <button class="mobile-button flex p-5 lg:hidden" onclick="categoriesHide()">
+                    <div class="button-object">
+                        <div class="bg-orange-200 w-8 h-1"></div>
+                        <div class="bg-orange-200 w-8 h-1 my-2"></div>
+                        <div class="bg-orange-200 w-8 h-1"></div>
+                    </div>
+                </button>
+                <p class="text-3xl font-extrabold flex justify-center"><%= t "MENU" %></p>
+                <script>
+                    const categoriesHide = () => {
+                        const categories = document.getElementById('categories');
+                        categories.classList.toggle('hidden');
+                    }
+                </script>
+            </div>
+            <div id="categories" class="hidden flex flex-col lg:flex lg:flex-row lg:justify-center lg:items-center">
+                <% @menu.each do |item| %>
+                    <%= link_to t(item.name.upcase), homepage_path(menu_id: item.id, locale: params[:locale]), data: { action: 'click->dish-listing#loadDishes' }, class: "p-0 font-bold lg:font-extrabold" %>
+                <% end %>
+            </div>
         </div>
         <div class="filler-div w-full py-10 flex justify-center">
             <div class="dish-listing grid-layout" data-dish-listing-target="dishListing">
@@ -58,7 +62,7 @@
             </div>
         </div>
     </div>
-    <div class="delivery-content container mx-auto py-10">
+    <div class="delivery-content container mx-auto py-10" data-menu-jump-target="deliverySection">
         <p class="text-center py-10 text-3xl font-extrabold" > <%= t "DELIVERY" %></p>
         <div class="text-center leading-10 text-xl font-bold py-10">
             <h2><%= t "Free delivery in Bucharest!" %></h2>
@@ -71,7 +75,7 @@
         </div>
         <div style="max-width: 1300px; height: 600px; margin: 0 auto;" class="rounded-xl shadow-inner" data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
     </div>
-    <div class="container mx-auto">
+    <div class="container mx-auto" data-menu-jump-target="gallerySection">
         <p class="text-center py-20 text-3xl font-extrabold" > <%= t "PHOTO GALLERY" %></p>
         <div class="grid-div py-10">
             <% @gallery.each do |image| %>
