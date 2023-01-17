@@ -35,19 +35,30 @@
         <div class="filler-div w-full py-10 flex justify-center">
             <div class="dish-listing grid-layout" data-dish-listing-target="dishListing">
                 <% @menu_items.each do |dish| %>
-                    <div class="card shadow-2xl p-5 rounded-xl bg-gradient-to-b from-red-900  text-orange-200">
-                        <img class="rounded-xl shadow-2xl" src='<%= cl_image_path dish.photo.key %>' alt="dish-image">
-                        <p class="text-sm font-bold px-3 py-3"><%= dish.description %></p>
+                    <div data-dish-id="<%= dish.id %>" class="card shadow-2xl p-5 mb-2 rounded-xl bg-gradient-to-b from-red-900 text-orange-200">
+                        <div data-menu-jump-target="descriptionToggle" data-dish-id="<%= dish.id %>">
+                          <div style="height: 180px; background-image: url('<%= cl_image_path dish.photo.key %>'); background-size: cover;'" data-menu-jump-target="description" class="hidden blur-image rounded-xl shadow-2xl">
+                            <p class="text-center pt-12 text-l font-bold px-3 py-3"><%= dish.description %></p>
+                          </div>
+
+                          <div data-menu-jump-target="dishImage" style="height: 180px; background-image: url('<%= cl_image_path dish.photo.key %>'); background-size: cover;'" class="rounded-xl shadow-2xl">
+                          </div>
+                        </div>
+                        <%# <p class="text-sm font-bold px-3 py-3"><%= dish.description %>
+                        <div class="flex justify-center items-center">
+                          <p class="text-xl text-center py-2 px-2"><%= dish.name %></p>
+                          <i data-action="click->menu-jump#toggleDescription" data-dish-id="<%= dish.id %>" class="info-icon fa-solid fa-circle-info"></i>
+                        </div>
                         <% if dish.pieces == 0 && dish.weight == 0 %>
                             <p></p>
                         <% elsif dish.pieces == 0 %>
-                            <p class="text-sm font-bold px-3"><%= dish.weight %> G</p>
+                            <p class="text-sm text-center font-bold px-3"><%= dish.weight %> G</p>
                         <% elsif dish.weight == 0 %>
-                            <p class="text-sm font-bold px-3"><%= dish.pieces %> <%= t "pieces" %></p>
+                            <p class="text-sm text-center font-bold px-3"><%= dish.pieces %> <%= t "pieces" %></p>
                         <% else %>
-                            <p class="text-sm font-bold px-3"><%= dish.pieces %> <%= t "pieces" %> | <%= dish.weight %> G</p>
+                            <p class="text-sm text-center font-bold px-3"><%= dish.pieces %> <%= t "pieces" %> | <%= dish.weight %> G</p>
                         <% end %>
-                        <div class="flex justify-center py-2">
+                        <div class="flex justify-center py-5">
                             <%= button_to "-", remove_form_shopping_cart_path(menu_item_id: dish.id, authenticity_token: form_authenticity_token, locale: params[:locale]), method: :post, data: { action: "click->shopping-cart#removeItem", dish_id: dish.id }, class: "text-sm font-extrabold px-3" %>
                             <% @quan = ShoppingCartItem.where(shopping_cart: ShoppingCart.last, menu_item_id: dish.id).first %>
                             <p class="text-sm font-bold px-3" data-shopping-cart-target="value" data-dish-listing-target="value" data-dish-quantity="<%= @quan.quantity unless @quan.nil?  %>" data-dish-id="<%= dish.id %>">0</p>
@@ -67,11 +78,11 @@
         <div class="text-center leading-10 text-xl font-bold py-10">
             <h2><%= t "Free delivery in Bucharest!" %></h2>
             <p><%= t "(Within areas Mosilor, Stefan cel mare, Obor, Colentina, Unirii, Iancului, Victoriei, Mihai Bravu, Piata Muncii, Piata Alba Iulia)" %></p>
-            <p><%= t "Delivery between" %></p> 
+            <p><%= t "Delivery between" %></p>
             <p><%= t "Tuesday to Sunday, 12PM and 22PM" %></p>
-            <p><%= t "The minimum order is 70 RON" %></p> 
-            <p><%= t "The shipping cost will be determined based on the order value and area to be delivered" %></p> 
-            <p><%= t "This value will be communicated by the operator when the order is received" %></p> 
+            <p><%= t "The minimum order is 70 RON" %></p>
+            <p><%= t "The shipping cost will be determined based on the order value and area to be delivered" %></p>
+            <p><%= t "This value will be communicated by the operator when the order is received" %></p>
         </div>
         <div style="max-width: 1300px; height: 600px; margin: 0 auto;" class="rounded-xl shadow-inner" data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
     </div>
