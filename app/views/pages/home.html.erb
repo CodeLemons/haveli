@@ -37,16 +37,15 @@
                 <% @menu_items.each do |dish| %>
                     <div data-dish-id="<%= dish.id %>" class="card shadow-2xl p-5 mb-2 rounded-xl bg-gradient-to-b from-red-900 text-orange-200">
                         <div data-menu-jump-target="descriptionToggle" data-dish-id="<%= dish.id %>">
-                          <div style="height: 180px; background-image: url('<%= cl_image_path dish.photo.key %>'); background-size: cover;'" data-menu-jump-target="description" class="hidden blur-image rounded-xl shadow-2xl">
-                            <p class="text-center pt-12 text-l font-bold px-3 py-3"><%= dish.description %></p>
+                          <div style="height: 180px; background-image: url('<%= cl_image_path dish.photo.key %>'); background-size: cover;'" data-menu-jump-target="description" class="hidden rounded-xl shadow-2xl">
+                            <p class="blur-text px-2 backdrop-brightness-50 py-2 drop-shadow-xl backdrop-blur-sm rounded-xl text-l font-bold"><%= dish.description %></p>
                           </div>
-
                           <div data-menu-jump-target="dishImage" style="height: 180px; background-image: url('<%= cl_image_path dish.photo.key %>'); background-size: cover;'" class="rounded-xl shadow-2xl">
                           </div>
                         </div>
                         <%# <p class="text-sm font-bold px-3 py-3"><%= dish.description %>
                         <div class="flex justify-center items-center">
-                          <p class="text-xl text-center py-2 px-2"><%= dish.name %></p>
+                          <p class="text-xl text-center py-2 px-2 font-extrabold"><%= dish.name %></p>
                           <i data-action="click->menu-jump#toggleDescription" data-dish-id="<%= dish.id %>" class="info-icon fa-solid fa-circle-info"></i>
                         </div>
                         <% if dish.pieces == 0 && dish.weight == 0 %>
@@ -58,15 +57,23 @@
                         <% else %>
                             <p class="text-sm text-center font-bold px-3"><%= dish.pieces %> <%= t "pieces" %> | <%= dish.weight %> G</p>
                         <% end %>
-                        <div class="flex justify-center py-5">
-                            <%= button_to "-", remove_form_shopping_cart_path(menu_item_id: dish.id, authenticity_token: form_authenticity_token, locale: params[:locale]), method: :post, data: { action: "click->shopping-cart#removeItem", dish_id: dish.id }, class: "text-sm font-extrabold px-3" %>
+                        <div class="flex justify-center items-center align-middle pt-3 pb-3">
+                            <%= button_to remove_form_shopping_cart_path(menu_item_id: dish.id, authenticity_token: form_authenticity_token, locale: params[:locale]), method: :post, data: { action: "click->shopping-cart#removeItem", dish_id: dish.id }, class: "remove-item text-xl px-3" do %>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            <% end %>
                             <% @quan = ShoppingCartItem.where(shopping_cart: ShoppingCart.last, menu_item_id: dish.id).first %>
-                            <p class="text-sm font-bold px-3" data-shopping-cart-target="value" data-dish-listing-target="value" data-dish-quantity="<%= @quan.quantity unless @quan.nil?  %>" data-dish-id="<%= dish.id %>">0</p>
-                            <%= button_to "+", shopping_carts_path(menu_item_id: dish.id, locale: params[:locale]), method: :post, data: { action: "click->shopping-cart#addItem", dish_id: dish.id }, class: "text-sm font-extrabold px-3" %>
+                            <p class="text-xl cursor-default font-bold px-1 mb-2" data-shopping-cart-target="value" data-dish-listing-target="value" data-dish-quantity="<%= @quan.quantity unless @quan.nil?  %>" data-dish-id="<%= dish.id %>">0</p>
+                            <%= button_to shopping_carts_path(menu_item_id: dish.id, locale: params[:locale]), method: :post, data: { action: "click->shopping-cart#addItem", dish_id: dish.id }, class: "add-item text-xl px-3" do %>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            <% end %>
                         </div>
-                        <div class="flex justify-between py-3">
-                            <p class="text-sm font-bold px-3"><%= t "PRICE" %></p>
-                            <p class="text-sm font-bold px-3"><%= dish.price %> LEI</p>
+                        <div class="flex justify-between py-2">
+                            <p class="text-md font-bold px-3"><%= t "PRICE" %></p>
+                            <p class="text-md font-bold px-3"><%= dish.price %> LEI</p>
                         </div>
                     </div>
                 <% end %>

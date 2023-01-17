@@ -16,6 +16,11 @@
   <body>
     <%# <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
+    <script>
+      setTimeout(() => {
+        document.querySelector('.alert').classList.add('fade')
+      }, 5000);
+    </script>
     <%= yield %>
   </body>
 </html>
