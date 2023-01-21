@@ -7,9 +7,11 @@
         <img class="logo absolute" src="<%= cl_image_path @haveli.logo.key %>.png" alt="">
     </div>
     <div data-controller="dish-listing">
-        <div class="invisible h-16 bg-orange-50" data-menu-jump-target="menuSection"></div>
-        <div class="menu-section sticky top-16 bg-zinc-900 bg-opacity-60 rounded-xl backdrop-blur-sm drop-shadow-md">
-            <div class="menu-bar flex justify-between items-center pt-5">
+        <div class="invisible h-20 bg-orange-50" data-menu-jump-target="menuSection"></div>
+        
+        <p class="text-3xl font-extrabold flex justify-center"><%= t "MENU" %></p>
+        <div class="menu-section sticky top-20 bg-zinc-900 bg-opacity-60 rounded-xl backdrop-blur-sm drop-shadow-md">
+            <div class="menu-bar flex justify-between items-center">
                 <button class="mobile-button flex p-5 lg:hidden" onclick="categoriesHide()">
                     <div class="button-object">
                         <div class="bg-orange-200 w-8 h-1"></div>
@@ -17,7 +19,6 @@
                         <div class="bg-orange-200 w-8 h-1"></div>
                     </div>
                 </button>
-                <p class="text-3xl font-extrabold flex justify-center"><%= t "MENU" %></p>
                 <script>
                     const categoriesHide = () => {
                         const categories = document.getElementById('categories');
@@ -31,6 +32,7 @@
                 <% end %>
             </div>
         </div>
+
         <div class="filler-div w-full py-10 flex justify-center">
             <div class="dish-listing grid-layout" data-dish-listing-target="dishListing">
                 <% @menu_items.each do |dish| %>
@@ -44,11 +46,11 @@
                         </div>
                         <%# <p class="text-sm font-bold px-3 py-3"><%= dish.description %>
                         <div class="flex justify-center items-center">
-                          <p class="text-xl text-center py-2 px-2 font-extrabold"><%= dish.name %></p>
+                          <p class="text-md text-center py-2 px-2 font-extrabold"><%= dish.name %></p>
                           <i data-action="click->menu-jump#toggleDescription" data-dish-id="<%= dish.id %>" class="info-icon fa-solid fa-circle-info"></i>
                         </div>
                         <% if dish.pieces == 0 && dish.weight == 0 %>
-                            <p></p>
+                            <p class="text-sm text-center font-bold px-3">-</p>
                         <% elsif dish.pieces == 0 %>
                             <p class="text-sm text-center font-bold px-3"><%= dish.weight %> G</p>
                         <% elsif dish.weight == 0 %>
