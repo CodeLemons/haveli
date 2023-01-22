@@ -7,6 +7,9 @@ import { application } from "./application"
 import ChangeValueController from "./change_value_controller"
 application.register("change-value", ChangeValueController)
 
+import Lightbox from 'stimulus-lightbox'
+application.register('lightbox', Lightbox)
+
 import DishListingController from "./dish_listing_controller"
 application.register("dish-listing", DishListingController)
 

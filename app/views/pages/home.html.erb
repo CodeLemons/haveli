@@ -96,18 +96,13 @@
     </div>
     <div class="container mx-auto" data-menu-jump-target="gallerySection">
         <p class="text-center py-20 text-3xl font-extrabold" > <%= t "PHOTO GALLERY" %></p>
-        <div class="grid-div py-10">
+        <div data-controller="lightbox" class="grid-div py-10">
             <% @gallery.each do |image| %>
-                <img class="rounded-xl shadow-xl" src='<%= cl_image_path image.image.key %>' alt="gallery-images">
+                <a href='<%= cl_image_path image.image.key %>'>
+                    <img data-scroller-target="image" class="gallery-images rounded-xl shadow-xl" src='<%= cl_image_path image.image.key %>' alt="GALLERY">
+                </a>
             <% end %>
         </div>
-    </div>
-    <footer class="text-center text-orange-20000" style="background-color: #1c1917;">
-        <div class="text-center text-orange-200 p-4" style="background-color: rgba(0, 0, 0, 0.2);">
-        © 2023 Copyright:
-        <a class="text-orange-200" href="https://www.linkedin.com/in/alihamzaasam/">Alyx</a>
-        </div>
-    </footer>
 </div>
 <%# MenuItem.where(menu: Menu.find(1)).each do |m_item| %>
 
