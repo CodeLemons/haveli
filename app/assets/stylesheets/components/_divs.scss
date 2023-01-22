@@ -58,16 +58,23 @@ body {
 .grid-div {
 
     display: grid;
-    grid-template-columns: repeat(auto-fit, 340px);
-    grid-gap: 29px 29px;
+    grid-template-columns: repeat(auto-fit, 289px);
+    grid-gap: 32px 18px;
     margin: auto;
     max-width: 1078px;
     justify-items: center;
     justify-content: center;
 
     img {
-        height: 220px;
-        width: 350px;
+        height: 182px;
+        width: 277px;
+    }
+
+    a {
+        transition: ease-in 0.2s;
+    }
+    a:hover {
+        transform: scale(1.05);
     }
 }
 
