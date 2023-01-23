@@ -1,12 +1,12 @@
 <div data-controller="shopping-cart menu-jump">
     <%= render 'shared/navbar' %>
-    <div class="relative border-b-8 border-dashed border-orange-200">
+    <div class="relative border-b-2 border-dashed border-orange-200">
         <video autoplay muted loop class="brightness-50 z-0">
         <source src="<%= cl_video_path(@haveli.video.key, resource_type: "video")%>.mp4" type="video/mp4">
         </video>
         <img class="logo absolute" src="<%= cl_image_path @haveli.logo.key %>.png" alt="">
     </div>
-    <div style="background-color: #200B0B; margin-top: 0px;" class="filler-div text-xl w-full py-10 flex flex-col items-center justify-center border-b-8 border-dashed border-orange-200">
+    <div style="background-color: #200B0B; margin-top: 0px;" class="filler-div text-xl w-full py-10 flex flex-col items-center justify-center border-b-2 border-dashed border-orange-200">
         <p class="text-center w-3/4 pt-5"><%= t "Haveli Indian Restaurant is the only place in Bucharest where you may really enjoy the indian food" %></p>
         <p class="text-center w-3/4"> <%= t "Haveli Restaurant appeared in the landscape of Bucharest's restaurants and, immediately made itself noticed by the authenticity of the decor and the Indian food" %></p>
         <p class="text-center w-3/4"> <%= t "Haveli is located on Episcopul Radu Street at number 3 The restaurant is run by a Pakistani owner and has three Indian chefs" %></p>
@@ -28,7 +28,7 @@
             </div>
         </div>
     </div>
-    <div data-controller="dish-listing" data-menu-jump-target="menuSection" class="border-b-8 border-dashed border-orange-200">
+    <div data-controller="dish-listing" data-menu-jump-target="menuSection" class="border-b-2 border-dashed border-orange-200">
         <div class="invisible h-20 bg-orange-50"></div>
         
         <p style="font-family: 'Montez', cursive;" class="text-4xl pb-5 font-extrabold flex justify-center"><%= t "MENU" %></p>
@@ -103,7 +103,7 @@
             </div>
         </div>
     </div>
-    <div class="delivery-content pt-10 pb-24 border-b-8 border-dashed border-orange-200" data-menu-jump-target="deliverySection">
+    <div class="delivery-content pt-10 pb-24 border-b-2 border-dashed border-orange-200" data-menu-jump-target="deliverySection">
         <p style="font-family: 'Montez', cursive;" class="text-center py-10 mt-5 text-3xl font-extrabold" > <%= t "DELIVERY" %></p>
         <div class="text-center leading-10 text-xl font-bold py-10">
             <h2><%= t "Free delivery in Bucharest!" %></h2>
@@ -126,7 +126,12 @@
             <% end %>
         </div>
     </div>
-    
+    <footer class="text-center text-orange-20000 border-t-2 border-dashed border-orange-200" style="background-color: #0F0606;">
+        <div class="text-center text-orange-200 p-4" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2023 Copyright:
+        <a class="text-orange-200" href="https://www.linkedin.com/in/alihamzaasam/">Ali</a>
+        </div>
+    </footer>
 </div>
 <%# MenuItem.where(menu: Menu.find(1)).each do |m_item| %>
 

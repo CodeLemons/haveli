@@ -1,0 +1,58 @@
+.contact-form {
+    padding-left: 130px;
+    padding-right: 130px;
+
+    .label {
+        padding: 5px;
+    }
+
+    .simple_form {
+        padding-right: 200px;
+        padding-left: 100px;
+    }
+
+    input {
+        border-radius: 20px;
+        background-color: #0f060600;
+        border-color: #fed7aa;
+        border-width: 2px;
+    }
+
+    textarea {
+        width: 442px;
+        border-radius: 20px;
+        background-color: #0f060600;
+        border-color: #fed7aa;
+        border-width: 2px;
+    }
+
+    .submit-button {
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        width: 442px;
+        margin: 0 auto;
+        border-radius: 15px;
+        background-color: #0f060600;
+        border-color: #fed7aa00;
+        border-width: 2px;
+        padding: 10px;
+        transition: ease-in 0.2s;
+        font-weight: bold;
+    }
+
+    .submit-button:hover {
+        background-color: #fed7aa;
+        color: black;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 20px;
+
+    }
+
+    .contact_message {
+        display: flex;
+        flex-direction: column;
+    }
+
+}

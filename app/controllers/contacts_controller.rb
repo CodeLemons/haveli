@@ -6,14 +6,14 @@ class ContactsController < ApplicationController
     end
 
     def create
-        @contact = Contact.new(contact_params)
-        if @contact.valid?
-          ContactMailer.contact_email(@contact).deliver_now
-          redirect_to homepage_path(locale: params[:locale]), notice: "Your message has been sent."
-        else
-          render :new
-        end
+      @contact = Contact.new(contact_params)
+      if @contact.valid?
+        ContactMailer.contact_email(@contact).deliver_now
+        redirect_to homepage_path(locale: params[:locale]), notice: "Your message has been sent."
+      else
+        render :new
       end
+    end
 
       private
 
