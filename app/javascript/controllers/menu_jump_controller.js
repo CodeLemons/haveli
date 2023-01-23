@@ -11,17 +11,17 @@ export default class extends Controller {
 
   scrollToMenu() {
     console.log("Scrolling");
-    this.menuSectionTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    this.menuSectionTarget.scrollIntoView({behavior: 'smooth', block: "start"});
   }
 
   scrollToDelivery() {
     console.log("Scrolling");
-    this.deliverySectionTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    this.deliverySectionTarget.scrollIntoView({behavior: 'smooth', block: "start"});
   }
 
   scrollToGallery() {
     console.log("Scrolling");
-    this.gallerySectionTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    this.gallerySectionTarget.scrollIntoView({behavior: 'smooth', block: "start"});
   }
 
   toggleDescription(event) {

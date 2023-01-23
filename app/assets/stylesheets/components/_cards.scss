@@ -1,8 +1,46 @@
 .card {
     width: 250px;
     height: 370px;
+    --tw-gradient-from: #2F0000;
+    --tw-gradient-to: #200B0B;
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
     /* background-color: #7f1d1d; */
 }
+
+.card-one {
+  transition: ease-in 0.1s;
+  --tw-gradient-from: #2F0000;
+  --tw-gradient-to: #200B0B;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.card-one:hover {
+  transform: translateY(-3px);
+  cursor: pointer;
+
+  .card-filter {
+    transition: ease-in 0.2s;
+    padding-top: 10px;
+    position: absolute;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.411);
+    bottom: 0px;
+    border-bottom-right-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
+    backdrop-filter: blur(4px);
+
+    p {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.card-filter {
+  width: 250px;
+}
+ 
 
 img {
     height: 180px;

@@ -1,16 +1,38 @@
 <div data-controller="shopping-cart menu-jump">
     <%= render 'shared/navbar' %>
-    <div class="relative">
+    <div class="relative border-b-8 border-dashed border-orange-200">
         <video autoplay muted loop class="brightness-50 z-0">
         <source src="<%= cl_video_path(@haveli.video.key, resource_type: "video")%>.mp4" type="video/mp4">
         </video>
         <img class="logo absolute" src="<%= cl_image_path @haveli.logo.key %>.png" alt="">
     </div>
-    <div data-controller="dish-listing">
-        <div class="invisible h-20 bg-orange-50" data-menu-jump-target="menuSection"></div>
+    <div style="background-color: #200B0B; margin-top: 0px;" class="filler-div text-xl w-full py-10 flex flex-col items-center justify-center border-b-8 border-dashed border-orange-200">
+        <p class="text-center w-3/4 pt-5"><%= t "Haveli Indian Restaurant is the only place in Bucharest where you may really enjoy the indian food" %></p>
+        <p class="text-center w-3/4"> <%= t "Haveli Restaurant appeared in the landscape of Bucharest's restaurants and, immediately made itself noticed by the authenticity of the decor and the Indian food" %></p>
+        <p class="text-center w-3/4"> <%= t "Haveli is located on Episcopul Radu Street at number 3 The restaurant is run by a Pakistani owner and has three Indian chefs" %></p>
+        <p class="text-center w-3/4 pt-5 underline underline-offset-1 text-red-500"><strong><%= t "We do not serve alcoholic drinks" %></strong></p>
+        <img src="https://res.cloudinary.com/duo5a0mfm/image/upload/v1674491478/haveli/halal_ear72l.png" style="width: 250px; height: 230px;" alt="">
+
+        <p style="font-family: 'Montez', cursive;" class="text-center w-3/4 text-4xl"><%= t "Latest menu addititon's" %></p>
         
-        <p class="text-3xl font-extrabold flex justify-center"><%= t "MENU" %></p>
-        <div class="menu-section sticky top-20 bg-zinc-900 bg-opacity-60 rounded-xl backdrop-blur-sm drop-shadow-md">
+        <div class="latest-products py-6 flex justify-center items-center mx-5">
+            <div class="card-one brightness-75 hover:brightness-100 mx-2 shadow-2xl p-1 rounded-xl bg-gradient-to-t text-orange-200 border-2 border-orange-200">
+                <div class="rounded-md relative" style="height: 200px; width: 250px; background-size: cover; background-image: url('https://res.cloudinary.com/duo5a0mfm/image/upload/v1/haveli/1e6qhmrzcpu207xfdvkdcevnqvrl')">
+                    <div class="card-filter"><p class="hidden">Seekh Kebab</p></div>
+                </div>
+            </div>
+            <div class="card-one brightness-75 hover:brightness-100 mx-2 shadow-2xl p-1 rounded-xl bg-gradient-to-t text-orange-200 border-2 border-orange-200">
+                <div class="rounded-md relative" style="height: 200px; width: 250px; background-size: cover; background-image: url('http://res.cloudinary.com/duo5a0mfm/image/upload/v1/haveli/px1uvr1t5ofhsy51m7gjk0q3j9bd')">
+                    <div class="card-filter"><p class="hidden">Paneer Tikka</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-controller="dish-listing" data-menu-jump-target="menuSection" class="border-b-8 border-dashed border-orange-200">
+        <div class="invisible h-20 bg-orange-50"></div>
+        
+        <p style="font-family: 'Montez', cursive;" class="text-4xl pb-5 font-extrabold flex justify-center"><%= t "MENU" %></p>
+        <div class="menu-section sticky top-20 bg-opacity-60 backdrop-blur-sm drop-shadow-md">
             <div class="menu-bar flex justify-between items-center">
                 <button class="mobile-button flex p-5 lg:hidden" onclick="categoriesHide()">
                     <div class="button-object">
@@ -36,7 +58,7 @@
         <div class="filler-div w-full py-10 flex justify-center">
             <div class="dish-listing grid-layout" data-dish-listing-target="dishListing">
                 <% @menu_items.each do |dish| %>
-                    <div data-dish-id="<%= dish.id %>" class="card shadow-2xl p-5 mb-2 rounded-xl bg-gradient-to-b from-red-900 text-orange-200">
+                    <div data-dish-id="<%= dish.id %>" class="card shadow-2xl p-5 mb-2 rounded-xl bg-gradient-to-t text-orange-200">
                         <div data-menu-jump-target="descriptionToggle" data-dish-id="<%= dish.id %>">
                           <div style="height: 180px; background-image: url('<%= cl_image_path dish.photo.key %>'); background-size: cover;'" data-menu-jump-target="description" class="hidden rounded-xl shadow-2xl">
                             <p class="blur-text px-2 backdrop-brightness-50 py-2 drop-shadow-xl backdrop-blur-sm rounded-xl text-l font-bold"><%= dish.description %></p>
@@ -81,8 +103,8 @@
             </div>
         </div>
     </div>
-    <div class="delivery-content container mx-auto py-10" data-menu-jump-target="deliverySection">
-        <p class="text-center py-10 text-3xl font-extrabold" > <%= t "DELIVERY" %></p>
+    <div class="delivery-content pt-10 pb-24 border-b-8 border-dashed border-orange-200" data-menu-jump-target="deliverySection">
+        <p style="font-family: 'Montez', cursive;" class="text-center py-10 mt-5 text-3xl font-extrabold" > <%= t "DELIVERY" %></p>
         <div class="text-center leading-10 text-xl font-bold py-10">
             <h2><%= t "Free delivery in Bucharest!" %></h2>
             <p><%= t "(Within areas Mosilor, Stefan cel mare, Obor, Colentina, Unirii, Iancului, Victoriei, Mihai Bravu, Piata Muncii, Piata Alba Iulia)" %></p>
@@ -95,7 +117,7 @@
         <div style="max-width: 1300px; height: 600px; margin: 0 auto;" class="rounded-xl shadow-inner" data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
     </div>
     <div class="container mx-auto" data-menu-jump-target="gallerySection">
-        <p class="text-center py-20 text-3xl font-extrabold" > <%= t "PHOTO GALLERY" %></p>
+        <p style="font-family: 'Montez', cursive;" class="text-center py-20 text-3xl font-extrabold" > <%= t "PHOTO GALLERY" %></p>
         <div data-controller="lightbox" class="grid-div py-10">
             <% @gallery.each do |image| %>
                 <a href='<%= cl_image_path image.image.key %>'>
@@ -103,6 +125,8 @@
                 </a>
             <% end %>
         </div>
+    </div>
+    
 </div>
 <%# MenuItem.where(menu: Menu.find(1)).each do |m_item| %>
 
