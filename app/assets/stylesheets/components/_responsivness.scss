@@ -34,6 +34,100 @@
             color: #18181b;
         }
     }
+
+    .contact-form {
+        
+        #new_contact {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input {
+            border-radius: 20px;
+            background-color: #0f060600;
+            border-color: #fed7aa;
+            border-width: 2px;
+            width: 370px;
+            height: 45px;
+        }
+    
+        textarea {
+            width: 370px;
+            border-radius: 20px;
+            background-color: #0f060600;
+            border-color: #fed7aa;
+            border-width: 2px;
+            height: 100px;
+        }
+    
+        .submit-button {
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            width: 370px;
+            margin-bottom: 17px;
+            padding-bottom: 37px;
+            padding-top: 10px;
+            padding-right: 10px;
+            padding-left: 10px;
+            margin-right: 18px;
+            border-radius: 15px;
+            background-color: #0f060600;
+            border-color: #fed7aa00;
+            border-width: 2px;
+            transition: ease-in 0.2s;
+            font-weight: bold;
+        }
+    }
+
+    .book-form {
+        
+        #new_contact {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+
+        input {
+            border-radius: 20px;
+            background-color: #0f060600;
+            border-color: #fed7aa;
+            border-width: 2px;
+            width: 370px;
+            height: 45px;
+        }
+    
+        textarea {
+            width: 370px;
+            border-radius: 20px;
+            background-color: #0f060600;
+            border-color: #fed7aa;
+            border-width: 2px;
+            height: 100px;
+        }
+    
+        .submit-button {
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            width: 370px;
+            margin-bottom: 17px;
+            padding-bottom: 37px;
+            padding-top: 10px;
+            padding-right: 10px;
+            padding-left: 10px;
+            border-radius: 15px;
+            background-color: #0f060600;
+            border-color: #fed7aa00;
+            border-width: 2px;
+            transition: ease-in 0.2s;
+            font-weight: bold;
+        }
+    }
 }
 
 
@@ -170,6 +264,100 @@
         justify-content: center;
     }
 
+    .contact-form {
+        
+        #new_contact {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input {
+            border-radius: 20px;
+            background-color: #0f060600;
+            border-color: #fed7aa;
+            border-width: 2px;
+            width: 370px;
+            height: 45px;
+        }
+    
+        textarea {
+            width: 370px;
+            border-radius: 20px;
+            background-color: #0f060600;
+            border-color: #fed7aa;
+            border-width: 2px;
+            height: 100px;
+        }
+    
+        .submit-button {
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            width: 370px;
+            margin-bottom: 17px;
+            padding-bottom: 37px;
+            padding-top: 10px;
+            padding-right: 10px;
+            padding-left: 10px;
+            margin-right: 18px;
+            border-radius: 15px;
+            background-color: #0f060600;
+            border-color: #fed7aa00;
+            border-width: 2px;
+            transition: ease-in 0.2s;
+            font-weight: bold;
+        }
+    }
+
+    .book-form {
+        
+        #new_contact {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input {
+            border-radius: 20px;
+            background-color: #0f060600;
+            border-color: #fed7aa;
+            border-width: 2px;
+            width: 370px;
+            height: 45px;
+        }
+    
+        textarea {
+            width: 370px;
+            border-radius: 20px;
+            background-color: #0f060600;
+            border-color: #fed7aa;
+            border-width: 2px;
+            height: 100px;
+        }
+    
+        .submit-button {
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            width: 370px;
+            margin-bottom: 17px;
+            padding-bottom: 37px;
+            padding-top: 10px;
+            padding-right: 10px;
+            padding-left: 10px;
+            margin-right: 18px;
+            border-radius: 15px;
+            background-color: #0f060600;
+            border-color: #fed7aa00;
+            border-width: 2px;
+            transition: ease-in 0.2s;
+            font-weight: bold;
+        }
+    }
+
 }
 
 @media screen and (max-width: 600px) {
@@ -249,6 +437,96 @@
         justify-content: center;
     }
 
+    .contact-form {
+        
+        #new_contact {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        input {
+            border-radius: 20px;
+            background-color: #0f060600;
+            border-color: #fed7aa;
+            border-width: 2px;
+            width: 190px;
+            height: 40px;
+        }
+    
+        textarea {
+            width: 402px;
+            border-radius: 20px;
+            background-color: #0f060600;
+            border-color: #fed7aa;
+            border-width: 2px;
+            height: 90px;
+        }
+    
+        .submit-button {
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            width: 442px;
+            margin: 0 auto;
+            border-radius: 15px;
+            background-color: #0f060600;
+            border-color: #fed7aa00;
+            border-width: 2px;
+            padding: 10px 10px 35px 10px;
+            transition: ease-in 0.2s;
+            font-weight: bold;
+        }
+    }
+
+    .book-form {
+        
+        #new_contact {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        #reservation_party_size {
+            width: 402px;
+        }
+
+        #reservation_date_time {
+            width: 402px;
+        }
+
+        input {
+            border-radius: 20px;
+            background-color: #0f060600;
+            border-color: #fed7aa;
+            border-width: 2px;
+            width: 190px;
+            height: 40px;
+        }
+    
+        textarea {
+            width: 402px;
+            border-radius: 20px;
+            background-color: #0f060600;
+            border-color: #fed7aa;
+            border-width: 2px;
+            height: 90px;
+        }
+    
+        .submit-button {
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            width: 402px;
+            margin: 0 auto;
+            border-radius: 15px;
+            background-color: #0f060600;
+            border-color: #fed7aa00;
+            border-width: 2px;
+            padding: 10px 10px 35px 10px;
+            transition: ease-in 0.2s;
+            font-weight: bold;
+        }
+    }
+
 }
 
 @media screen and (min-width: 820px) {
@@ -306,6 +584,86 @@
         justify-content: center;
         align-items: center;
     }
+
+    .contact-form {
+        
+        #new_contact {
+            padding: 20px;
+        }
+
+        input {
+            border-radius: 20px;
+            background-color: #0f060600;
+            border-color: #fed7aa;
+            border-width: 2px;
+            width: 190px;
+            height: 40px;
+        }
+    
+        textarea {
+            width: 402px;
+            border-radius: 20px;
+            background-color: #0f060600;
+            border-color: #fed7aa;
+            border-width: 2px;
+            height: 90px;
+        }
+    
+        .submit-button {
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            width: 442px;
+            margin: 0 auto;
+            border-radius: 15px;
+            background-color: #0f060600;
+            border-color: #fed7aa00;
+            border-width: 2px;
+            padding: 10px 10px 35px 10px;
+            transition: ease-in 0.2s;
+            font-weight: bold;
+        }
+    }
+
+    .book-form {
+        
+        #new_contact {
+            padding: 20px;
+        }
+
+        input {
+            border-radius: 20px;
+            background-color: #0f060600;
+            border-color: #fed7aa;
+            border-width: 2px;
+            width: 190px;
+            height: 40px;
+        }
+    
+        textarea {
+            width: 402px;
+            border-radius: 20px;
+            background-color: #0f060600;
+            border-color: #fed7aa;
+            border-width: 2px;
+            height: 90px;
+        }
+    
+        .submit-button {
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            width: 402px;
+            margin: 0 auto;
+            border-radius: 15px;
+            background-color: #0f060600;
+            border-color: #fed7aa00;
+            border-width: 2px;
+            padding: 10px 10px 35px 10px;
+            transition: ease-in 0.2s;
+            font-weight: bold;
+        }
+    }
 }
 
 @media screen and (max-width: 1024px) {
@@ -319,6 +677,8 @@
             font-size: 13px;
         }
     }
+
+    
 
 }
 
@@ -376,7 +736,118 @@
         }
     }
 
+    .contact-form {
+        padding-left: 130px;
+        padding-right: 130px;
+
+        .simple_form {
+            padding-right: 200px;
+            padding-left: 100px;
+        }
+
+        input {
+            border-radius: 20px;
+            background-color: #0f060600;
+            border-color: #fed7aa;
+            border-width: 2px;
+            width: 208px;
+            height: 44px;
+        }
+    
+        textarea {
+            width: 442px;
+            border-radius: 20px;
+            background-color: #0f060600;
+            border-color: #fed7aa;
+            border-width: 2px;
+            height: 100px;
+        }
+    
+        .submit-button {
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            width: 442px;
+            margin: 0 auto;
+            border-radius: 15px;
+            background-color: #0f060600;
+            border-color: #fed7aa00;
+            border-width: 2px;
+            padding: 10px 10px 35px 10px;
+            transition: ease-in 0.2s;
+            font-weight: bold;
+        }
+
+    }
+
+    .book-form {
+        padding-left: 130px;
+        padding-right: 130px;
+
+        #reservation_party_size {
+            width: 438px;
+        }
+
+        #reservation_date_time {
+            width: 438px;
+        }
+
+        .simple_form {
+            padding-right: 100px;
+            padding-left: 100px;
+        }
+
+        input {
+            border-radius: 20px;
+            background-color: #0f060600;
+            border-color: #fed7aa;
+            border-width: 2px;
+            width: 208px;
+            height: 44px;
+        }
+    
+        textarea {
+            width: 442px;
+            border-radius: 20px;
+            background-color: #0f060600;
+            border-color: #fed7aa;
+            border-width: 2px;
+            height: 100px;
+        }
+    
+        .submit-button {
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            width: 442px;
+            margin: 0 auto;
+            border-radius: 15px;
+            background-color: #0f060600;
+            border-color: #fed7aa00;
+            border-width: 2px;
+            padding: 10px 10px 35px 10px;
+            transition: ease-in 0.2s;
+            font-weight: bold;
+        }
+
+    }
+
+    
 }
+
+// @media screen and (max-width: 1280px) {
+
+//     .contact-form {
+//         padding-right: 0px;
+//         padding-left: 0px;
+    
+//         #new_contact {
+//             padding-right: 107px;
+//             padding-left: 100px;
+//         }
+//     }
+// }
+
 
 @media screen and (min-width: 1541px) {
 
@@ -402,6 +873,85 @@
             border-radius: 10px;
             background-color: #fed7aa;
             color: #18181b;
+        }
+    }
+
+
+    .contact-form {
+        #new_contact {
+            padding: 20px;
+        }
+
+        input {
+            border-radius: 20px;
+            background-color: #0f060600;
+            border-color: #fed7aa;
+            border-width: 2px;
+            width: 208px;
+            height: 44px;
+        }
+    
+        textarea {
+            width: 442px;
+            border-radius: 20px;
+            background-color: #0f060600;
+            border-color: #fed7aa;
+            border-width: 2px;
+            height: 100px;
+        }
+    
+        .submit-button {
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            width: 442px;
+            margin: 0 auto;
+            border-radius: 15px;
+            background-color: #0f060600;
+            border-color: #fed7aa00;
+            border-width: 2px;
+            padding: 10px 10px 35px 10px;
+            transition: ease-in 0.2s;
+            font-weight: bold;
+        }
+    }
+
+    .book-form {
+        #new_contact {
+            padding: 20px;
+        }
+
+        input {
+            border-radius: 20px;
+            background-color: #0f060600;
+            border-color: #fed7aa;
+            border-width: 2px;
+            width: 208px;
+            height: 44px;
+        }
+    
+        textarea {
+            width: 442px;
+            border-radius: 20px;
+            background-color: #0f060600;
+            border-color: #fed7aa;
+            border-width: 2px;
+            height: 100px;
+        }
+    
+        .submit-button {
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            width: 442px;
+            margin: 0 auto;
+            border-radius: 15px;
+            background-color: #0f060600;
+            border-color: #fed7aa00;
+            border-width: 2px;
+            padding: 10px 10px 35px 10px;
+            transition: ease-in 0.2s;
+            font-weight: bold;
         }
     }
 

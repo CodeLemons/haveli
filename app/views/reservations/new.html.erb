@@ -1,12 +1,57 @@
-<%= simple_form_for @reservation, url: reservations_path do |f| %>
-        <%= f.input :first_name %>
-        <%= f.input :last_name %>
-        <%= f.input :email %>
-        <%= f.input :phone %>
-        <%= f.label :reservation_time, "Reservation Time and Date" %>
-        <br>
-        <%= f.datetime_field :date_time, start_year: Time.current.year, end_year: Time.current.year + 1, format: '%Y-%m-%d %I:%M %p' %>
-        <%= f.input :party_size %>
-        <%= f.input :remarks %>
-    <%= f.submit "Submit reservation", class: "btn btn-primary" %>
-<% end %>
+<div class="relative h-full">
+    <video autoplay muted loop class="contact-video brightness-50 z-0 blur-md">
+        <source src="<%= cl_video_path(Restaurant.first.video.key, resource_type: "video")%>.mp4" type="video/mp4">
+    </video>
+    <div class="contact-format container mx-auto">
+        <%= link_to homepage_path(locale: params[:locale].downcase) do %>
+            <i class="fa-solid fa-arrow-left text-4xl cursor-pointer px-5 mt-10"></i>
+        <% end %>
+        <p style="font-family: 'Montez', cursive;" class="text-center font-extrabold mx-auto text-5xl py-15"><%= params[:locale] == "en" ? "Make a Booking" : "Rezervari" %></p>
+        <div class="book-form flex flex-col justify-center items-center  p-10 md:flex-row">
+            <div class="pb-20 border-b-2 md:border-b-0 md:pb-0 border-orange-200">
+                <%= simple_form_for @reservation, url: reservations_path do |f| %>
+                <div class="full-name flex flex-col md:flex-row py-3">
+                    <div class="py-3">
+                        <%= f.label params[:locale] == "en" ? "First name" : "Nume" %>
+                        <%= f.input :first_name, input_html: { class: "md:mr-5" }, label: false %>
+                    </div>
+                    <div class="py-3">
+                        <%= f.label params[:locale] == "en" ? "Last name" : "Prenume" %>
+                        <%= f.input :last_name, label: false %>
+                    </div>
+                </div>
+                <div class="email-phone flex flex-col md:flex-row pb-10">
+                    <div class="py-3 md:pr-5">
+                        <%= f.label "Email" %>
+                        <%= f.input :email, label: false %>
+                    </div>
+                    <div class="py-3">
+                        <%= f.label params[:locale] == "en" ? "Phone" : "Telefon" %>
+                        <%= f.input :phone, label: false %>
+                    </div>
+                </div>
+                <div class="py-3">
+                    <%= f.label params[:locale] == "en" ? "Party size" : "Numar persoane" %>
+                    <%= f.input :party_size, label: false %>
+                </div>
+                <div>
+                    <%= f.label params[:locale] == "en" ? "Reservation time and date" : "Data si ora rezervarii" %>
+                    <br>
+                    <%= f.datetime_field :date_time, start_year: Time.current.year, end_year: Time.current.year + 1, format: '%Y-%m-%d %I:%M %p' %>
+                </div>
+                <div class="pt-10">
+                    <%= f.label params[:locale] == "en" ? "Remarks" : "Observatii" %>
+                    <%= f.input :remarks, input_html: { class: "mb-5"}, label: false %>
+                </div>
+                <%= f.submit params[:locale] == "en" ? "Book" : "Rezerva", class: "submit-button" %>
+                <% end %>
+            </div>
+        </div>
+        <footer class="footer-forms text-center text-orange-20000 border-t-2 border-dashed border-orange-200" style="background-color: #0F0606;">
+            <div class="text-center text-orange-200 p-4" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2023 Copyright:
+            <a class="text-orange-200" href="https://www.linkedin.com/in/alihamzaasam/">Ali</a>
+            </div>
+        </footer>
+    </div>
+</div>

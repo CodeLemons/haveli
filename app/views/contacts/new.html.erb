@@ -1,46 +1,63 @@
 <div class="relative h-full">
-    <video autoplay muted loop class="absolute brightness-50 z-0 blur-md">
+    <video autoplay muted loop class="contact-video brightness-50 z-0 blur-md">
         <source src="<%= cl_video_path(Restaurant.first.video.key, resource_type: "video")%>.mp4" type="video/mp4">
     </video>
-    <div class="absolute">
+    <div class="contact-format container mx-auto">
         <%= link_to homepage_path(locale: params[:locale].downcase) do %>
-            <i class="fa-solid fa-arrow-left text-4xl cursor-pointer px-5 pt-5"></i>
+            <i class="fa-solid fa-arrow-left text-4xl cursor-pointer px-5 mt-10"></i>
         <% end %>
         <p style="font-family: 'Montez', cursive;" class="text-center font-extrabold mx-auto text-5xl py-10"><%= t "Contact us" %></p>
-        <div class="contact-form flex justify-center items-center py-20">
-            <%= simple_form_for @contact, url: contacts_path do |f| %>
-            <div class="full-name flex py-5">
-                <%= f.input :first_name, input_html: { class: "mr-5" } %>
-                <%= f.input :last_name %>
-            </div>
-            <div class="email-phone flex pt-5 pb-10">
-                <%= f.input :email, input_html: { class: "mr-5" } %>
-                <%= f.input :phone %>
-            </div>
-                <%= f.input :message, input_html: { class: "mb-5"} %>
-                <%= f.submit "Submit contact", class: "submit-button" %>
-            <% end %>
-            <div class="container mx-auto grid grid-rows-2 grid-flow-col gap-10">
-                <div class="contact-card p-5">
-                    <i class="fa-solid fa-mobile-screen text-4xl"></i>
-                    <p class="text-3xl">TELEPHONE</p>
-                    <p>Accessible <strong>Tuesday - Sunday from 12:00 PM</strong></p>
-                    <p class="text-xl">(+40) 21 211 03 90</p>
-                    <p class="text-xl">(+40) 721 721 640</p>
+        <div class="contact-form flex flex-col justify-center items-center  p-10 md:flex-row">
+            <div class="pb-20 border-b-2 md:border-b-0 md:pb-0 border-orange-200">
+                <%= simple_form_for @contact, url: contacts_path do |f| %>
+                <div class="full-name flex flex-col md:flex-row py-3">
+                    <div class="py-3">
+                        <%= f.label :first_name %>
+                        <%= f.input :first_name, input_html: { class: "md:mr-5" }, label: false %>
+                    </div>
+                    <div class="py-3">
+                        <%= f.label :last_name %>
+                        <%= f.input :last_name, label: false %>
+                    </div>
                 </div>
-                <div class="contact-card p-5">
-                    <i class="fa-regular fa-map text-4xl"></i>
-                    <p class="text-3xl">ADDRESS</p>
+                <div class="email-phone flex flex-col md:flex-row pb-10">
+                    <div class="py-3">
+                        <%= f.label :email %>
+                        <%= f.input :email, input_html: { class: "md:mr-5" }, label: false %>
+                    </div>
+                    <div class="py-3">
+                        <%= f.label :phone %>
+                        <%= f.input :phone, label: false %>
+                    </div>
+                </div>
+                <div class="pt-10">
+                    <%= f.label :message %>
+                    <%= f.input :message, input_html: { class: "mb-5"}, label: false %>
+                </div>
+                <%= f.submit "Send", class: "submit-button" %>
+                <% end %>
+            </div>
+            <div class="container my-10 md:my-0 md:ml-0 grid grid-rows-2 lg:grid-flow-col p-5 gap-5 xl:gap-10 ">
+                <div class="contact-card p-1 xl:p-5">
+                    <i class="fa-solid fa-mobile-screen text-2xl lg:text-4xl"></i>
+                    <p class="text-xl lg:text-3xl">TELEPHONE</p>
+                    <p>Accessible <strong>Tuesday - Sunday from 12:00 PM</strong></p>
+                    <p class="text-xs  lg:text-xl">(+40) 21 211 03 90</p>
+                    <p class="text-xs  lg:text-xl">(+40) 721 721 640</p>
+                </div>
+                <div class="contact-card p-1 xl:p-5">
+                    <i class="fa-regular fa-map text-2xl lg:text-4xl"></i>
+                    <p class="text-xl lg:text-3xl">ADDRESS</p>
                     <p>Episcopul Radu Street Nr. 3 (Mihai Eminescu Area)</p>
                 </div>
-                <div class="contact-card p-5">
-                    <i class="fa-regular fa-envelope text-4xl"></i>
-                    <p class="text-3xl">E-MAIL</p>
+                <div class="contact-card p-1 xl:p-5">
+                    <i class="fa-regular fa-envelope text-2xl lg:text-4xl"></i>
+                    <p class="text-xl lg:text-3xl">E-MAIL</p>
                     <p>contact@haveli.ro</p>
                 </div>
-                <div class="contact-card p-5">
-                    <i class="fa-regular fa-clock text-4xl"></i>
-                    <p class="text-3xl">OPENING HOURS</p>
+                <div class="contact-card p-1 xl:p-5">
+                    <i class="fa-regular fa-clock text-2xl lg:text-4xl"></i>
+                    <p class="text-xl lg:text-3xl">OPENING HOURS</p>
                     <p><strong>12:00 PM - 11:00 PM</strong></p>
                     <p><strong>Tuesday to Sunday</strong></p>
                 </div>
