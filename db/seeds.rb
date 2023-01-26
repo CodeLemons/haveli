@@ -16,15 +16,9 @@ puts "Destroying everything!"
 
 puts "Creating Haveli restaurant"
 @haveli = Restaurant.new(name: "Haveli", address: "Strada Episcopul Radu 3, București 020751, Romania", phone: "+40 21 211 0390", website: "https://www.haveli.ro")
-
 puts "Adding BROLL to Restaurant"
-broll_video = File.open("app/assets/images/broll.mp4")
-@haveli.video.attach(io: broll_video, filename: "broll.mp4", content_type: "video/mp4")
-
-puts "Adding LOGO to Restaurant"
-logo_image = File.open("app/assets/images/logo.png")
-@haveli.logo.attach(io: logo_image, filename: "logo.png", content_type: "image/gif")
-
+@haveli.save!
+ 
 puts "#{@haveli.name} CREATED"
 
 
@@ -66,8 +60,8 @@ menu.each do |m|
         I18n.with_locale(:ro) { starter_menu_items.description = item["description_ro"] }
         I18n.with_locale(:en) { starter_menu_items.description = item["description"] }
 
-        starters_file = File.open("app/assets/images/#{item["photo"]}")
-        starter_menu_items.photo.attach(io: starters_file, filename: item["photo"], content_type: "image/gif")
+        # starters_file = File.open("app/assets/images/#{item["photo"]}")
+        # starter_menu_items.photo.attach(io: starters_file, filename: item["photo"], content_type: "image/gif")
 
         starter_menu_items.save!
         puts "#{starter_menu_items.name} created"
@@ -89,8 +83,8 @@ menu.each do |m|
         I18n.with_locale(:ro) { salad_yogurt_menu_items.description = item["description_ro"] }
         I18n.with_locale(:en) { salad_yogurt_menu_items.description = item["description"] }
 
-        salad_file = File.open("app/assets/images/#{item["photo"]}")
-        salad_yogurt_menu_items.photo.attach(io: salad_file, filename: item["photo"], content_type: "image/gif")
+        # salad_file = File.open("app/assets/images/#{item["photo"]}")
+        # salad_yogurt_menu_items.photo.attach(io: salad_file, filename: item["photo"], content_type: "image/gif")
 
         salad_yogurt_menu_items.save!
         puts "#{salad_yogurt_menu_items.name} created"
@@ -112,8 +106,8 @@ menu.each do |m|
         I18n.with_locale(:ro) { vegetarian_menu_items.description = item["description_ro"] }
         I18n.with_locale(:en) { vegetarian_menu_items.description = item["description"] }
 
-        veg_file = File.open("app/assets/images/#{item["photo"]}")
-        vegetarian_menu_items.photo.attach(io: veg_file, filename: item["photo"], content_type: "image/gif")
+        # veg_file = File.open("app/assets/images/#{item["photo"]}")
+        # vegetarian_menu_items.photo.attach(io: veg_file, filename: item["photo"], content_type: "image/gif")
 
         vegetarian_menu_items.save!
         puts "#{vegetarian_menu_items.name} created"
@@ -135,8 +129,8 @@ menu.each do |m|
         I18n.with_locale(:ro) { chicken_menu_items.description = item["description_ro"] }
         I18n.with_locale(:en) { chicken_menu_items.description = item["description"] }
 
-        chick_file = File.open("app/assets/images/#{item["photo"]}")
-        chicken_menu_items.photo.attach(io: chick_file, filename: item["photo"], content_type: "image/gif")
+        # chick_file = File.open("app/assets/images/#{item["photo"]}")
+        # chicken_menu_items.photo.attach(io: chick_file, filename: item["photo"], content_type: "image/gif")
 
         chicken_menu_items.save!
         puts "#{chicken_menu_items.name} created"
@@ -158,8 +152,8 @@ menu.each do |m|
         I18n.with_locale(:ro) { lamb_menu_items.description = item["description_ro"] }
         I18n.with_locale(:en) { lamb_menu_items.description = item["description"] }
 
-        lamb_file = File.open("app/assets/images/#{item["photo"]}")
-        lamb_menu_items.photo.attach(io: lamb_file, filename: item["photo"], content_type: "image/gif")
+        # lamb_file = File.open("app/assets/images/#{item["photo"]}")
+        # lamb_menu_items.photo.attach(io: lamb_file, filename: item["photo"], content_type: "image/gif")
 
         lamb_menu_items.save!
         puts "#{lamb_menu_items.name} created"
@@ -181,8 +175,8 @@ menu.each do |m|
         I18n.with_locale(:ro) { fish_prawns_menu_items.description = item["description_ro"] }
         I18n.with_locale(:en) { fish_prawns_menu_items.description = item["description"] }
 
-        fish_file = File.open("app/assets/images/#{item["photo"]}")
-        fish_prawns_menu_items.photo.attach(io: fish_file, filename: item["photo"], content_type: "image/gif")
+        # fish_file = File.open("app/assets/images/#{item["photo"]}")
+        # fish_prawns_menu_items.photo.attach(io: fish_file, filename: item["photo"], content_type: "image/gif")
 
         fish_prawns_menu_items.save!
         puts "#{fish_prawns_menu_items.name} created"
@@ -204,8 +198,8 @@ menu.each do |m|
         I18n.with_locale(:ro) { rice_menu_items.description = item["description_ro"] }
         I18n.with_locale(:en) { rice_menu_items.description = item["description"] }
 
-        rice_file = File.open("app/assets/images/#{item["photo"]}")
-        rice_menu_items.photo.attach(io: rice_file, filename: item["photo"], content_type: "image/gif")
+        # rice_file = File.open("app/assets/images/#{item["photo"]}")
+        # rice_menu_items.photo.attach(io: rice_file, filename: item["photo"], content_type: "image/gif")
 
         rice_menu_items.save!
         puts "#{rice_menu_items.name} created"
@@ -227,8 +221,8 @@ menu.each do |m|
         I18n.with_locale(:ro) { indian_bread_menu_items.description = item["description_ro"] }
         I18n.with_locale(:en) { indian_bread_menu_items.description = item["description"] }
 
-        bread_file = File.open("app/assets/images/#{item["photo"]}")
-        indian_bread_menu_items.photo.attach(io: bread_file, filename: item["photo"], content_type: "image/gif")
+        # bread_file = File.open("app/assets/images/#{item["photo"]}")
+        # indian_bread_menu_items.photo.attach(io: bread_file, filename: item["photo"], content_type: "image/gif")
 
         indian_bread_menu_items.save!
         puts "#{indian_bread_menu_items.name} created"
@@ -250,8 +244,8 @@ menu.each do |m|
         I18n.with_locale(:ro) { desserts_menu_items.description = item["description_ro"] }
         I18n.with_locale(:en) { desserts_menu_items.description = item["description"] }
 
-        dessert_file = File.open("app/assets/images/#{item["photo"]}")
-        desserts_menu_items.photo.attach(io: dessert_file, filename: item["photo"], content_type: "image/gif")
+        # dessert_file = File.open("app/assets/images/#{item["photo"]}")
+        # desserts_menu_items.photo.attach(io: dessert_file, filename: item["photo"], content_type: "image/gif")
 
         desserts_menu_items.save!
         puts "#{desserts_menu_items.name} created"
@@ -259,14 +253,14 @@ menu.each do |m|
     end
 end
 
-c = 0
-puts "Creating gallery"
-42.times do
-    c += 1 
-    @haveli_gallery = Gallery.new(restaurant: @haveli, name: "image_#{c}")
-    image_file = File.open("app/assets/images/image_#{c}.png")
-    @haveli_gallery.image.attach(io: image_file, filename: "image_#{c}.png", content_type: "image/gif")
-    @haveli_gallery.save!
-    puts "Gallery created, and image_#{c}.png attached."
-end
+# c = 0
+# puts "Creating gallery"
+# 42.times do
+#     c += 1 
+#     @haveli_gallery = Gallery.new(restaurant: @haveli, name: "image_#{c}")
+#     image_file = File.open("app/assets/images/image_#{c}.png")
+#     @haveli_gallery.image.attach(io: image_file, filename: "image_#{c}.png", content_type: "image/gif")
+#     @haveli_gallery.save!
+#     puts "Gallery created, and image_#{c}.png attached."
+# end
 puts "DONE"

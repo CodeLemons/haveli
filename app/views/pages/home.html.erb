@@ -2,9 +2,9 @@
     <%= render 'shared/navbar' %>
     <div class="relative border-b-2 border-dashed border-orange-200">
         <video autoplay muted loop class="brightness-50 z-0">
-        <source src="<%= cl_video_path(@haveli.video.key, resource_type: "video")%>.mp4" type="video/mp4">
+        <source src="/assets/broll.mp4" type="video/mp4">
         </video>
-        <img class="logo absolute" src="<%= cl_image_path @haveli.logo.key %>.png" alt="">
+        <img class="logo absolute" src="/assets/logo.png" alt="">
     </div>
     <div style="background-color: #200B0B; margin-top: 0px;" class="filler-div text-xl w-full py-10 flex flex-col items-center justify-center border-b-2 border-dashed border-orange-200">
         <p class="text-center w-3/4 pt-5"><%= t "Haveli Indian Restaurant is the only place in Bucharest where you may really enjoy the indian food" %></p>
@@ -60,10 +60,12 @@
                 <% @menu_items.each do |dish| %>
                     <div data-dish-id="<%= dish.id %>" class="card shadow-2xl p-5 mb-2 rounded-xl bg-gradient-to-t text-orange-200">
                         <div data-menu-jump-target="descriptionToggle" data-dish-id="<%= dish.id %>">
-                          <div style="height: 180px; background-image: url('<%= cl_image_path dish.photo.key %>'); background-size: cover;'" data-menu-jump-target="description" class="hidden rounded-xl shadow-2xl">
+                          <%# background-image: url('<%= cl_image_path dish.photo.key THIS LINE WAS IN THE DIV BELOW%> 
+                          <div style="height: 180px; background-size: cover;'" data-menu-jump-target="description" class="hidden rounded-xl shadow-2xl">
                             <p class="blur-text px-2 backdrop-brightness-50 py-2 drop-shadow-xl backdrop-blur-sm rounded-xl text-l font-bold"><%= dish.description %></p>
                           </div>
-                          <div data-menu-jump-target="dishImage" style="height: 180px; background-image: url('<%= cl_image_path dish.photo.key %>'); background-size: cover;'" class="rounded-xl shadow-2xl">
+                          <%# background-image: url('<%= cl_image_path dish.photo.key THIS LINE WAS IN THE DIV BELOW %>
+                          <div data-menu-jump-target="dishImage" style="height: 180px; background-size: cover;'" class="rounded-xl shadow-2xl">
                           </div>
                         </div>
                         <%# <p class="text-sm font-bold px-3 py-3"><%= dish.description %>
