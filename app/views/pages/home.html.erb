@@ -1,10 +1,8 @@
 <div data-controller="shopping-cart menu-jump">
     <%= render 'shared/navbar' %>
     <div class="relative border-b-2 border-dashed border-orange-200">
-        <video autoplay muted loop class="brightness-50 z-0">
-        <source src="<%= @haveli.video %>" type="video/mp4">
-        </video>
-        <img class="logo absolute" src="<%= @haveli.logo %>" alt="">
+        <%= video_tag @haveli.video, autoplay: true, muted: true, loop: true, class: "brightness-50 z-0" %>
+        <%= image_tag @haveli.logo, class: "logo absolute" %>
     </div>
     <div style="background-color: #200B0B; margin-top: 0px;" class="filler-div text-xl w-full py-10 flex flex-col items-center justify-center border-b-2 border-dashed border-orange-200">
         <p class="text-center w-3/4 pt-5"><%= t "Haveli Indian Restaurant is the only place in Bucharest where you may really enjoy the indian food" %></p>
