@@ -3,6 +3,7 @@ class ContactsController < ApplicationController
     
     def new
         @contact = Contact.new
+        @haveli = Restaurant.first
     end
 
     def create

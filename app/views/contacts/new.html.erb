@@ -1,7 +1,5 @@
 <div class="relative h-full">
-    <video autoplay muted loop class="contact-video brightness-50 z-0 blur-md">
-        <source src="/assets/broll.mp4" type="video/mp4">
-    </video>
+    <%= video_tag @haveli.video, autoplay: true, muted: true, loop: true, class: "contact-video brightness-50 z-0 blur-md" %>
     <div class="contact-format container mx-auto">
         <%= link_to homepage_path(locale: params[:locale].downcase) do %>
             <i class="fa-solid fa-arrow-left text-4xl cursor-pointer px-5 mt-10"></i>
