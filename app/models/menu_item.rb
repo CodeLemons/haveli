@@ -9,6 +9,5 @@ class MenuItem < ApplicationRecord
   validates :description, presence: true
   validates :pieces, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :weight, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-  has_one_attached :photo
   pg_search_scope :search_by_id, against: [:menu_id]
 end
