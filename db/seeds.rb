@@ -15,7 +15,7 @@ ShoppingCartItem.destroy_all
 puts "Destroying everything!"
 
 puts "Creating Haveli restaurant"
-@haveli = Restaurant.new(name: "Haveli", address: "Strada Episcopul Radu 3, București 020751, Romania", phone: "+40 21 211 0390", website: "https://www.haveli.ro", video: "/assets/broll.mp4", logo: "/assets/logo.png")
+@haveli = Restaurant.new(name: "Haveli", address: "Strada Episcopul Radu 3, București 020751, Romania", phone: "+40 21 211 0390", website: "https://www.haveli.ro", video: "broll.mp4", logo: "logo.png")
 puts "Adding BROLL to Restaurant"
 @haveli.save!
  
@@ -55,7 +55,7 @@ menu.each do |m|
             pieces: item["pieces"],
             weight: item["weight"],
             description: item["description"],
-            image: "/assets/#{item["photo"]}"
+            image: item["photo"]
         )
 
         I18n.with_locale(:ro) { starter_menu_items.description = item["description_ro"] }
@@ -79,7 +79,7 @@ menu.each do |m|
             pieces: item["pieces"],
             weight: item["weight"],
             description: item["description"],
-            image: "/assets/#{item["photo"]}"
+            image: item["photo"]
         )
 
         I18n.with_locale(:ro) { salad_yogurt_menu_items.description = item["description_ro"] }
@@ -103,7 +103,7 @@ menu.each do |m|
             pieces: item["pieces"],
             weight: item["weight"],
             description: item["description"],
-            image: "/assets/#{item["photo"]}"
+            image: item["photo"]
         )
 
         I18n.with_locale(:ro) { vegetarian_menu_items.description = item["description_ro"] }
@@ -127,7 +127,7 @@ menu.each do |m|
             pieces: item["pieces"],
             weight: item["weight"],
             description: item["description"],
-            image: "/assets/#{item["photo"]}"
+            image: item["photo"]
         )
 
         I18n.with_locale(:ro) { chicken_menu_items.description = item["description_ro"] }
@@ -151,7 +151,7 @@ menu.each do |m|
             pieces: item["pieces"],
             weight: item["weight"],
             description: item["description"],
-            image: "/assets/#{item["photo"]}"
+            image: item["photo"]
         )
 
         I18n.with_locale(:ro) { lamb_menu_items.description = item["description_ro"] }
@@ -175,7 +175,7 @@ menu.each do |m|
             pieces: item["pieces"],
             weight: item["weight"],
             description: item["description"],
-            image: "/assets/#{item["photo"]}"
+            image: item["photo"]
         )
 
         I18n.with_locale(:ro) { fish_prawns_menu_items.description = item["description_ro"] }
@@ -199,7 +199,7 @@ menu.each do |m|
             pieces: item["pieces"],
             weight: item["weight"],
             description: item["description"],
-            image: "/assets/#{item["photo"]}"
+            image: item["photo"]
         )
 
         I18n.with_locale(:ro) { rice_menu_items.description = item["description_ro"] }
@@ -223,7 +223,7 @@ menu.each do |m|
             pieces: item["pieces"],
             weight: item["weight"],
             description: item["description"],
-            image: "/assets/#{item["photo"]}"
+            image: item["photo"]
         )
 
         I18n.with_locale(:ro) { indian_bread_menu_items.description = item["description_ro"] }
@@ -247,7 +247,7 @@ menu.each do |m|
             pieces: item["pieces"],
             weight: item["weight"],
             description: item["description"],
-            image: "/assets/#{item["photo"]}"
+            image: item["photo"]
         )
 
         I18n.with_locale(:ro) { desserts_menu_items.description = item["description_ro"] }
@@ -266,7 +266,7 @@ c = 0
 puts "Creating gallery"
 42.times do
     c += 1 
-    @haveli_gallery = Gallery.new(restaurant: @haveli, name: "image_#{c}", photo: "/assets/image_#{c}.png" )
+    @haveli_gallery = Gallery.new(restaurant: @haveli, name: "image_#{c}", photo: "image_#{c}.png" )
     @haveli_gallery.save!
     puts "Gallery created, and image_#{c}.png attached."
 end
