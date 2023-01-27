@@ -1,6 +1,7 @@
 class ReservationsController < ApplicationController
     skip_before_action :authenticate_user!, only: [:create, :new]
-
+    invisible_captcha only: [:create], honeypot: :subtitle
+    
     def new
         @reservation = Reservation.new
         @haveli = Restaurant.first

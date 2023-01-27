@@ -88,4 +88,4 @@ gem "pg_search", "~> 2.3"
 
 gem "tailwindcss-rails", "~> 2.0"
 
-gem "recaptcha"
+gem 'invisible_captcha'
