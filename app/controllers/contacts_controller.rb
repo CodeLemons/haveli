@@ -1,5 +1,6 @@
 class ContactsController < ApplicationController
     skip_before_action :authenticate_user!, only: [:create, :new]
+    invisible_captcha only: [:create], honeypot: :subtitle
     
     def new
         @contact = Contact.new
@@ -8,9 +9,7 @@ class ContactsController < ApplicationController
 
     def create
       @contact = Contact.new(contact_params)
-      @result = verify_recaptcha(model: @contact)
-      raise
-      if params["g-recaptcha-response"] != "" && verify_recaptcha(model: @contact) && @contact.valid?
+      if @contact.valid?
         ContactMailer.contact_email(@contact).deliver_now
         redirect_to homepage_path(locale: params[:locale]), notice: "Your message has been sent."
       else

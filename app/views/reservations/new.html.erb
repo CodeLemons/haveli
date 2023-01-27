@@ -40,6 +40,7 @@
                 <div class="pt-10">
                     <%= f.label params[:locale] == "en" ? "Remarks" : "Observatii" %>
                     <%= f.input :remarks, input_html: { class: "mb-5"}, label: false %>
+                    <%= invisible_captcha :subtitle, :topic %>
                 </div>
                 <%= f.submit params[:locale] == "en" ? "Book" : "Rezerva", class: "submit-button" %>
                 <% end %>

@@ -31,7 +31,7 @@
                 <div class="pt-10">
                     <%= f.label params[:locale] == "en" ? "Message" : "Mesaj" %>
                     <%= f.input :message, input_html: { class: "mb-5"}, label: false %>
-                    <%= recaptcha_tags %>
+                    <%= invisible_captcha :subtitle, :topic %>
                 </div>
                 <%= f.submit params[:locale] == "en" ? "Send" : "Trimite", class: "submit-button" %>
                 <% end %>

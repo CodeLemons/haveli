@@ -39,6 +39,7 @@
 
     <%= form.label :remarks %>
     <%= form.text_area :remarks %>
+    <%= invisible_captcha :subtitle, :topic %>
 
     <%= form.submit "SEND ORDER" %>
     <% end %>
@@ -83,6 +84,8 @@
 
     <%= form.label :observatii %>
     <%= form.text_area :remarks %>
+    <%= invisible_captcha :subtitle, :topic %>
+
 
     <%= form.submit "TRIMITE COMANDA" %>
     <% end %>

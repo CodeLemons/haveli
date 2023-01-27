@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
     skip_before_action :authenticate_user!, only: [:index, :send_email]
+    invisible_captcha only: [:send_email], honeypot: :subtitle
 
     def index
         Rails.cache.clear
