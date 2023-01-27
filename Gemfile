@@ -86,7 +86,6 @@ gem 'mobility', '~> 1.2.9'
 
 gem "pg_search", "~> 2.3"
 
-
 gem "tailwindcss-rails", "~> 2.0"
 
-gem 'aws-sdk-s3'
+gem "recaptcha"

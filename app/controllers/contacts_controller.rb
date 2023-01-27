@@ -8,10 +8,14 @@ class ContactsController < ApplicationController
 
     def create
       @contact = Contact.new(contact_params)
-      if @contact.valid?
+      @result = verify_recaptcha(model: @contact)
+      raise
+      if params["g-recaptcha-response"] != "" && verify_recaptcha(model: @contact) && @contact.valid?
         ContactMailer.contact_email(@contact).deliver_now
         redirect_to homepage_path(locale: params[:locale]), notice: "Your message has been sent."
       else
+        Rails.logger.info "verify_recaptcha: #{verify_recaptcha(model: @contact)}"
+        Rails.logger.info "@contact.valid?: #{@contact.valid?}"
         render :new
       end
     end
