@@ -120,8 +120,8 @@
         <p style="font-family: 'Montez', cursive;" class="text-center py-20 text-3xl font-extrabold" > <%= t "PHOTO GALLERY" %></p>
         <div data-controller="lightbox" class="grid-div py-10">
             <% @gallery.each do |g| %>
-                <a href='<%= g.photo %>'>
-                    <img data-scroller-target="image" class="gallery-images rounded-xl shadow-xl" src='<%= g.photo %>' alt="GALLERY">
+                <a href='<%= asset_url g.photo %>'>
+                    <img data-scroller-target="image" class="gallery-images rounded-xl shadow-xl" src='<%= asset_url g.photo %>' alt="GALLERY">
                 </a>
             <% end %>
         </div>
