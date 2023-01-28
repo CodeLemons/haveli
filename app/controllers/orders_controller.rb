@@ -6,6 +6,7 @@ class OrdersController < ApplicationController
         Rails.cache.clear
         @order = Order.find(params[:format])
         @order_items = OrderItem.where(order: Order.last.id)
+        @haveli = Restaurant.first
     end
     
     def send_email

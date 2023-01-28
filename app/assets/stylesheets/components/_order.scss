@@ -1,0 +1,99 @@
+.order-preview {
+    overflow-y: scroll;
+    padding-right: 15px;
+    max-height: 540px;
+    
+    .order-card {
+        img {
+            height: 110px;
+            border-radius: 15px;
+        }
+        .dish-form {
+            #order_item_quantity {
+                margin-top: 10px;
+                width: 50px;
+                background-color: #fed7aa;
+                border-radius: 15px;
+                border-color: #fed7aa;
+                border-width: 2px;
+                text-align: center;
+                padding: 8px;
+                color: black;
+                font-weight: bold;
+            }
+
+            .form-with {
+                padding-top: 20px;
+                margin-top: 12px;
+            }
+            /* Chrome, Safari, Edge, Opera */
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            /* Firefox */
+            input[type=number] {
+                -moz-appearance: textfield;
+            }
+
+            .update-button {
+                margin-left: 10px;
+                padding: 8px;
+                border-radius: 15px;
+                border: transparent;
+                cursor: pointer;
+            }
+
+            .update-button:hover {
+                border-color: #fed7aa;
+                background-color: #fed7aa;
+                color: black;
+            }
+        }
+    }
+
+}
+
+.order-wrapper {
+    margin-top: 50px;
+}
+
+.order-form {
+    max-height: 34rem;
+    padding-left: 40px;
+    .input-field {
+
+        input {
+            width: 300px;
+            background-color: transparent;
+            border-radius: 15px;
+            border-width: 2px;
+            border-color: #fed7aa;
+            margin-bottom: 10px
+        }
+
+        textarea {
+            width: 300px;
+            background-color: transparent;
+            border-radius: 15px;
+            border-width: 2px;
+            border-color: #fed7aa;
+            height: 100px;
+        }
+    }
+}
+
+.price-container {
+    max-width: 855px;
+    top: 85%;
+    padding: 10px;
+    border-radius: 15px;
+    border-color: #fed7aa;
+    border-width: 2px;
+    background-color:  #fed7aa;
+    color: black;
+}
+
+
