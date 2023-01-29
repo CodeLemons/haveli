@@ -1,32 +1,36 @@
 <div class="flex flex-col items-center">
     <%= video_tag @haveli.video, autoplay: true, muted: true, loop: true, class: "contact-video brightness-50 z-0 blur-md" %>
-    <div class="backdrop-blur-md w-screen h-screen absolute bg-black opacity-50"></div>
+    <div class="backdrop-blur-md w-auto h-screen absolute bg-black opacity-50"></div>
     <div class="container mx-auto flex flex-col justify-center items-center absolute">
         <h1 class="text-4xl p-10"><%= params[:locale] == "en" ? "YOUR ORDER" : "COMANDA TA" %></h1>
         <div class="order-wrapper flex justify-center items-center">
-            <div class="order-preview pr-20 mx-10">
+            <div class="order-preview pr-20 ml-10">
                 <% @total_price = 0 %>
                 <% @order_identifier = OrderItem.where(order: @order).all.order(:menu_item_id).each do |identifier| %>
                     <% unless identifier.quantity.zero? %>
-                        <div class="order-card rounded-xl shadow-xl bg-gradient-to-tr mb-5 from-zinc-900 via-zinc-900 to-red-900 flex pl-5 pb-2 pt-2 pr-2 items-center">
+                        <div class="order-card rounded-xl shadow-xl bg-gradient-to-tr mb-5 p-1 from-zinc-900 via-zinc-900 to-red-900 flex flex-col md:flex-row md:pl-5 md:pb-2 md:pt-2 md:pr-2 items-center">
                             <%= image_tag MenuItem.where(id: identifier.menu_item_id).first.image %>
                             <% @name = MenuItem.where(id: identifier.menu_item_id).first.name %>
                             <% @individual_price = MenuItem.where(id: identifier.menu_item_id).first.price * identifier.quantity %>
-                            <div class="flex flex-col p-5">
-                                <p><%= @name %> x <%= identifier.quantity %> | <%= @individual_price %></p>
+                            <div class="flex flex-col p-3">
+                                <p class="text-center text-xl md:text-start pb-2 md:pb-2"><%= @name %></p>
                                 <% @total_price += @individual_price %>
-                                <div class="dish-form">
+                                <div class="dish-form pb-2 md:pb-2">
                                     <%= form_with(model: identifier, method: :patch, class: "form-with") do |form| %>
                                         <%= form.number_field :quantity %>
                                         <%= submit_tag params[:locale] == "en" ? "UPDATE" : "ACTUALIZARE", class: "update-button" %>
                                     <% end %>
+                                </div>
+                                <div class="flex justify-between items-center pt-2 md:pt-2">
+                                    <p class="text-center md:text-start"><%= params[:locale] == "en" ? "Price" : "Pret" %></p>
+                                    <p class="text-center md:text-start"><%= @individual_price %></p>
                                 </div>
                             </div>
                         </div>
                     <% end %>
                 <% end %>
             </div>
-            <div class="order-form mr-10 border-l-4 border-orange-200">
+            <div class="order-form border-t-4 pt-20 lg:pt-0 lg:border-t-0 lg:border-l-4 border-orange-200">
                 <%= form_with url: send_email_path(@order, locale: params[:locale].downcase), method: :post, class: "sending-form" do |form| %>
                     <div class="input-field flex flex-col">
                         <%= form.label params[:locale] == "en" ? "First name" : "Nume" %>
@@ -53,16 +57,16 @@
                         <%= form.text_area :remarks %>
                     </div>
                     <%= invisible_captcha :subtitle, :topic %>
-                    <div class="flex flex-col justify-center items-center">
-                        <%= form.submit params[:locale] == "en" ? "SEND ORDER" : "PLASEAZA COMANDA" %>
-                        <%= link_to params[:locale] == "en" ? "CANCEL ORDER" : "ANULEAZA COMANDA", homepage_path(locale: params[:locale].downcase) %>
+                    <div class="flex flex-col lg:flex-row justify-center items-center my-5">
+                        <%= link_to params[:locale] == "en" ? "Forgot something.." : "Am uitat ceva..", homepage_path(locale: params[:locale].downcase), class: "cancel-order-button font-extrabold my-2 mx-2" %>
+                        <%= form.submit params[:locale] == "en" ? "ORDER NOW" : "COMANDA ACUM", class: "place-order-button font-extrabold my-2 mx-2" %>
                     </div>
                 <% end %>
             </div>
         </div>
-    </div>
-    <div class="price-container mx-auto flex justify-start absolute">
-        <h1 class="text-xl font-extrabold"><%= params[:locale] == "en" ? "GRAND TOTAL" : "PRET TOTAL" %> <%= @total_price %></h1>
+        <div class="price-container mx-auto flex justify-start mt-44 mb-10 lg:mt-0 lg:mb-0">
+            <h1 class="text-xl font-extrabold"><%= params[:locale] == "en" ? "GRAND TOTAL" : "PRET TOTAL" %> <%= @total_price %></h1>
+        </div>
     </div>
 </div>
 
