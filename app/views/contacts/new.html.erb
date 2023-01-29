@@ -1,5 +1,6 @@
 <div class="relative h-full">
     <%= video_tag @haveli.video, autoplay: true, muted: true, loop: true, class: "contact-video brightness-50 z-0 blur-md" %>
+    <div class="backdrop-blur-md w-screen h-screen absolute bg-black opacity-50"></div>
     <div class="contact-format container mx-auto">
         <%= link_to homepage_path(locale: params[:locale].downcase) do %>
             <i class="fa-solid fa-arrow-left text-4xl cursor-pointer px-5 mt-10"></i>
@@ -62,7 +63,7 @@
                 </div>
             </div>
         </div>
-        <footer class="footer-forms text-center text-orange-20000 border-t-2 border-dashed border-orange-200" style="background-color: #0F0606;">
+        <footer class="footer-forms text-center text-orange-20000" style="background-color: #0F0606;">
             <div class="text-center text-orange-200 p-4" style="background-color: rgba(0, 0, 0, 0.2);">
             © 2023 Copyright:
             <a class="text-orange-200" href="https://www.linkedin.com/in/alihamzaasam/">Ali</a>
