@@ -5,19 +5,20 @@
         <h1 class="text-4xl p-10"><%= params[:locale] == "en" ? "YOUR ORDER" : "COMANDA TA" %></h1>
         <div class="order-wrapper flex justify-center items-center">
             <div class="order-preview pr-20 ml-10">
-                <% @total_price = 0 %>
-                <% @order_identifier = OrderItem.where(order: @order).all.order(:menu_item_id).each do |identifier| %>
-                    <% unless identifier.quantity.zero? %>
+            <% @total_quantity = 0 %>
+                <% @shopping_cart.shopping_cart_item_ids.each do |id| %>
+                    <% @total_quantity += ShoppingCartItem.where(id: id).first.quantity %>
+
                         <div class="order-card rounded-xl shadow-xl bg-gradient-to-tr mb-5 p-1 from-zinc-900 via-zinc-900 to-red-900 flex flex-col md:flex-row md:pl-5 md:pb-2 md:pt-2 md:pr-2 items-center">
-                            <%= image_tag MenuItem.where(id: identifier.menu_item_id).first.image %>
-                            <% @name = MenuItem.where(id: identifier.menu_item_id).first.name %>
-                            <% @individual_price = MenuItem.where(id: identifier.menu_item_id).first.price * identifier.quantity %>
+                            <%= image_tag MenuItem.where(id: ShoppingCartItem.where(id: id).first.menu_item_id).first.image %>
+                            <% @name = MenuItem.where(id: ShoppingCartItem.where(id: id).first.menu_item_id).first.name %>
+                            <% @individual_price = MenuItem.where(id: ShoppingCartItem.where(id: id).first).first.price * ShoppingCartItem.where(id: id).first.quantity %>
                             <div class="flex flex-col p-3">
                                 <p class="text-center text-xl md:text-start pb-2 md:pb-2"><%= @name %></p>
-                                <% @total_price += @individual_price %>
                                 <div class="dish-form pb-2 md:pb-2">
-                                    <%= form_with(model: identifier, method: :patch, class: "form-with") do |form| %>
-                                        <%= form.number_field :quantity %>
+                                    <% shopping_cart_item = ShoppingCartItem.find(id) %>
+                                    <%= form_for shopping_cart_item, url: shopping_cart_item_path(shopping_cart_item), class: "form-with" do |f| %>
+                                        <%= f.number_field :quantity %>
                                         <%= submit_tag params[:locale] == "en" ? "UPDATE" : "ACTUALIZARE", class: "update-button" %>
                                     <% end %>
                                 </div>
@@ -25,10 +26,13 @@
                                     <p class="text-center md:text-start"><%= params[:locale] == "en" ? "Price" : "Pret" %></p>
                                     <p class="text-center md:text-start"><%= @individual_price %></p>
                                 </div>
+                                <% @shopping_cart.update!(total_quantity: @total_quantity) %>
                             </div>
                         </div>
-                    <% end %>
+
                 <% end %>
+                
+                
             </div>
             <div class="order-form border-t-4 pt-20 lg:pt-0 lg:border-t-0 lg:border-l-4 border-orange-200">
                 <%= form_with url: send_email_path(@order, locale: params[:locale].downcase), method: :post, class: "sending-form" do |form| %>
@@ -69,5 +73,3 @@
         </div>
     </div>
 </div>
-
-

@@ -4,15 +4,21 @@ class ShoppingCartsController < ApplicationController
 
     def create
         @menu_item = MenuItem.find(params[:menu_item_id])
+        puts "Shopping Cart Created or Found"
         @shopping_cart = ShoppingCart.find_or_create_by!(session_id: session.id.to_s)
+        puts "Looking for Shopping Cart Item"
         @shopping_cart_item = @shopping_cart.shopping_cart_items.find_by(menu_item_id: @menu_item.id)
+        
         if @shopping_cart_item.nil?
+            puts "Shopping cart item NONEXISTEND CREATING!"
             @shopping_cart_item = @shopping_cart.shopping_cart_items.create(menu_item_id: @menu_item.id, quantity: 1)
         else
+            puts "INCREMENTING SHOPPINGCART ITEM QUANTITY"
             @shopping_cart_item.quantity += 1
             @shopping_cart_item.save!
         end
 
+        puts "UPDATING SHOPPING CART TOTAL QUANT AND TOTAL PRICE"
         @shopping_cart.update(total_quantity: @shopping_cart.shopping_cart_items.sum(&:quantity), total_price: @shopping_cart.shopping_cart_items.sum { |item| item.quantity * item.menu_item.price })
         @shopping_cart.save!
 
@@ -20,7 +26,7 @@ class ShoppingCartsController < ApplicationController
     end
 
     def finalize
-        @shopping_cart = ShoppingCart.find_by(session_id: session.id.to_s)
+        @shopping_cart = ShoppingCart.find_by(session_id: session.id.to_s) 
         if @shopping_cart
             @shopping_cart_items = @shopping_cart.shopping_cart_items
             if @shopping_cart_items.present?

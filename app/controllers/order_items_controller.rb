@@ -3,6 +3,7 @@ class OrderItemsController < ApplicationController
     def update
         @order_item = OrderItem.find(params[:id])
         if @order_item.update(order_item_params)
+            @order_item.save!
             redirect_to orders_path, notice: "Order item was successfully updated."
         else
             render :edit
