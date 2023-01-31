@@ -3,10 +3,11 @@ class OrdersController < ApplicationController
     invisible_captcha only: [:send_email], honeypot: :subtitle
 
     def index
-        Rails.cache.clear
+        # Rails.cache.clear
         @order = Order.find(params[:format])
         @order_items = OrderItem.where(order: Order.last.id)
         @haveli = Restaurant.first
+        @shopping_cart = ShoppingCart.find_by(session_id: session.id.to_s)
     end
     
     def send_email

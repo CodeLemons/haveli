@@ -28,5 +28,7 @@ Rails.application.routes.draw do
   get '/contacts/:locale', to: 'contacts#new', as: 'new_contact'
   post '/reservations/:locale', to: 'reservations#create', as: 'reservations'
   get '/reservations/:locale', to: 'reservations#new', as: 'new_reservation'
+  resources :shopping_cart_items, only: [:update, :edit]
+
 
 end
